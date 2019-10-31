@@ -13,7 +13,8 @@ Rails.application.routes.draw do
   resources :mastery_tracks
   resources :pieces
   resources :musicians do
-  	resources :instruments, only: [:index, :new]
+  	resources :instruments, only: [:show, :new]
+    resources :pieces, only: [:show, :new]
   end
 
 

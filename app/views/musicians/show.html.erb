@@ -1,0 +1,9 @@
+<h1>Welcome, <%= @musician.user_name %></h1>
+<h2>Your instruments</h2>
+<% if @musician.instruments.present? %>
+	<% @musician.instruments.each do |instrument| %>
+		<%= link_to "#{instrument.instrument_type}",  %> <!-- add in ordering by instrument category -->
+	<% end %>
+<% else %>
+
+<% end %>
