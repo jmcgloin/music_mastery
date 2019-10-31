@@ -8,16 +8,17 @@ class MusiciansController < ApplicationController
 		@musician = Musician.new(musician_params)
 		if @musician.save
 			session[:musician_id] = @musician.id
-			binding.pry
 			redirect_to musician_path(@musician)
 		else
-			binding.pry
 			render :new # add flash message here
 		end
 	end
 
 	def show
-		
+		#  add validation that ensures only logged  in musician can see only their page
+		@instruments = @musician.instruments
+		@pieces = @musician.pieces
+		binding.pry
 	end
 
 	private

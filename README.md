@@ -6,9 +6,10 @@ Sign up
 X- create show action
 - create show  view to display:
 X- - user name with welcome message
-- - list of instruments (links) with add more link, or add instrument if no instruments
+X- - list of instruments (links) with add more link, or add instrument if no instruments
 - - list of pieces (links) with link to add more, or add piece if no pieces
 - use ar method to order instruments by category
+- create a view muscian/new with a form with nested fields for creating first instrument upon musician creation
 
 DONE:
 
@@ -19,8 +20,6 @@ X- create a view with links for log in or sign up
 
 Sign up
 X- wire up musician#new
-X- create a view muscian/new with a form with nested fields for creating first instrument upon musician creation
-															******* scrapping nested form so instrument isn't required on sign up *******
 X- create needed routes
 X- set link in home page  to signup path
 X- write musician validations and add necessary front-end validations/required

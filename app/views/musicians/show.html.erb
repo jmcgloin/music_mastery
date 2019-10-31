@@ -1,9 +1,19 @@
 <h1>Welcome, <%= @musician.user_name %></h1>
 <h2>Your instruments</h2>
-<% if @musician.instruments.present? %>
-	<% @musician.instruments.each do |instrument| %>
-		<%= link_to "#{instrument.instrument_type}",  %> <!-- add in ordering by instrument category -->
+<% if @instruments.present? %>
+	<% @instruments.each do |instrument| %>
+		<%= link_to "#{instrument.instrument_type} | #{instrument.instrument_category} | #{instrument.tuning}", instrument_path(instrument) %> <!-- add in ordering by instrument category -->
 	<% end %>
+	<% link_to "Add another instrument", new_instrument_path  %>
 <% else %>
+	<p>You do not have any instruments, <%= link_to "click here", new_instrument_path %> to add one.</p>
+<% end %>
 
+<% if @pieces.present? %>
+	<% @pieces.each do |piece| %>
+		<%= link_to "#{piece.title}", piece_path(piece) %> <!-- add in ordering by piece category -->
+	<% end %>
+	<% link_to "Add another piece", new_piece_path  %>
+<% else %>
+	<p>You do not have any pieces, <%= link_to "click here", new_piece_path %> to add one.</p>
 <% end %>
