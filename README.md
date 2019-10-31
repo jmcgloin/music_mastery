@@ -2,14 +2,16 @@ TODO:
 
 NEXT:
 
+Log in
+X- correct path in welcome/home view
+X- wire up sessions#new
+X- write sessions/new view with log in form
+X- make sessions#create with a pry
+
+
+
 Sign up
 
-X- create show action
-- create show  view to display:
-X- - user name with welcome message
-X- - list of instruments (links) with add more link, or add instrument if no instruments
-X- - list of pieces (links) with link to add more, or add piece if no pieces
-X- create a view musician/new with a form with nested fields for creating first instrument upon musician creation
 
 
 
@@ -29,6 +31,12 @@ X- wire up musicians#create for:
 X- - strong params
 X- - redirect to musician_show if create succeeds
 X- - redirect to sign up if create fails
+X- create show action
+X- create show  view to display:
+X- - user name with welcome message
+X- - list of instruments (links) with add more link, or add instrument if no instruments
+X- - list of pieces (links) with link to add more, or add piece if no pieces
+X- create a view musician/new with a form with nested fields for creating first instrument upon musician creation
 
 LATER:
 

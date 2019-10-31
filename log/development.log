@@ -1175,3 +1175,48 @@ Processing by SessionsController#new as HTML
 Completed 200 OK in 40ms (Views: 38.8ms | ActiveRecord: 0.0ms | Allocations: 8979)
 
 
+Started GET "/login" for ::1 at 2019-10-31 14:17:40 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.8ms | Allocations: 1969)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 2906)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"create", :controller=>"session"}):
+    1: <h1>Log In</h1>
+    2: <%= form_for(:session, url: { controller: 'session', action: 'create'}) do |f| %>
+    3: 	<%= f.label :user_name %>
+    4: 	<%= f.text_field :user_name %>
+    5: 	<%= f.label :password %>
+  
+app/views/sessions/new.html.erb:2
+Started GET "/login" for ::1 at 2019-10-31 14:17:54 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.4ms | Allocations: 661)
+Completed 200 OK in 13ms (Views: 11.6ms | ActiveRecord: 0.0ms | Allocations: 9931)
+
+
+Started GET "/login" for ::1 at 2019-10-31 14:18:04 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.5ms | Allocations: 952)
+Completed 200 OK in 13ms (Views: 12.2ms | ActiveRecord: 0.0ms | Allocations: 9649)
+
+
+Started POST "/login" for ::1 at 2019-10-31 14:18:07 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"YqS1UfYM7l9Qu1WWXLYe4Zo3TjYmyqho/rbBk5xvSvO8/W7nlGu62GJ8EWjoY4PWmIRdkuL3LcyGbozIM7ENxg==", "session"=>{"user_name"=>"j", "password"=>"[FILTERED]"}, "commit"=>"Log In"}
+  Rendering sessions/create.html.erb within layouts/application
+  Rendered sessions/create.html.erb within layouts/application (Duration: 16.7ms | Allocations: 90)
+Completed 200 OK in 15844ms (Views: 28.3ms | ActiveRecord: 0.0ms | Allocations: 16774)
+
+
+Started GET "/login" for ::1 at 2019-10-31 14:18:37 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.4ms | Allocations: 447)
+Completed 200 OK in 14ms (Views: 13.6ms | ActiveRecord: 0.0ms | Allocations: 8988)
+
+
