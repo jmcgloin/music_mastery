@@ -948,3 +948,45 @@ Processing by MusiciansController#show as HTML
 Completed 200 OK in 2033ms (Views: 15.3ms | ActiveRecord: 1.9ms | Allocations: 19345)
 
 
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mMusician Exists? (1.3ms)[0m  [1m[34mSELECT 1 AS one FROM "musicians" WHERE "musicians"."user_name" = $1 LIMIT $2[0m  [["user_name", "j"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mMusician Create (44.5ms)[0m  [1m[32mINSERT INTO "musicians" ("user_name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_name", "j"], ["password_digest", "$2a$12$DLYDL4Pmt0mN8p9hyl12pu4eGYFiH/EBgi27iueS1G/./hLog1wjm"], ["created_at", "2019-10-31 14:57:00.757258"], ["updated_at", "2019-10-31 14:57:00.757258"]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mInstrument Create (32.4ms)[0m  [1m[32mINSERT INTO "instruments" ("instrument_type", "musician_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["instrument_type", "banjo"], ["musician_id", 3], ["created_at", "2019-10-31 14:57:11.216837"], ["updated_at", "2019-10-31 14:57:11.216837"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPiece Create (26.5ms)[0m  [1m[32mINSERT INTO "pieces" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Dixieland"], ["created_at", "2019-10-31 14:57:13.577788"], ["updated_at", "2019-10-31 14:57:13.577788"]]
+  [1m[36mMasteryTrack Create (1.4ms)[0m  [1m[32mINSERT INTO "mastery_tracks" ("instrument_id", "piece_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["instrument_id", 2], ["piece_id", 2], ["created_at", "2019-10-31 14:57:13.606531"], ["updated_at", "2019-10-31 14:57:13.606531"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mMusician Load (1.1ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" INNER JOIN "instruments" ON "musicians"."id" = "instruments"."musician_id" INNER JOIN "mastery_tracks" ON "instruments"."id" = "mastery_tracks"."instrument_id" WHERE "mastery_tracks"."piece_id" = $1 LIMIT $2[0m  [["piece_id", 2], ["LIMIT", 11]]
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1930276190058435135)[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to Transposition (20191031154101)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(1930276190058435135)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1930276190058435135)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateTranspositions (20191031172244)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (329.9ms)[0m  [1m[35mCREATE TABLE "transpositions" ("id" bigserial primary key, "instrument" character varying, "tuning" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20191031172244"]]
+  [1m[35m (13.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (27.8ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(1930276190058435135)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1930276190058435135)[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to RemoveTranspositionFromPieces (20191031172509)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (15.6ms)[0m  [1m[35mALTER TABLE "pieces" DROP COLUMN "transposition"[0m
+  [1m[36mprimary::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20191031172509"]]
+  [1m[35m (70.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(1930276190058435135)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
