@@ -5,7 +5,8 @@ NEXT:
 Sign up
 - wire up musician#new
 - create a view muscian/new with a form with nested fields for creating first instrument upon musician creation
-- create needed routes
+X- create needed routes
+- set link in home page  to signup path
 
 DONE:
 

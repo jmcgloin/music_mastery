@@ -287,3 +287,125 @@ Processing by WelcomeController#home as HTML
 Completed 200 OK in 12ms (Views: 11.6ms | ActiveRecord: 0.0ms | Allocations: 8604)
 
 
+Started GET "/" for ::1 at 2019-10-30 22:13:19 -0400
+Processing by WelcomeController#home as HTML
+  Rendering welcome/home.html.erb within layouts/application
+  Rendered welcome/home.html.erb within layouts/application (Duration: 0.5ms | Allocations: 199)
+Completed 200 OK in 12ms (Views: 11.4ms | ActiveRecord: 0.0ms | Allocations: 9454)
+
+
+Started GET "/" for ::1 at 2019-10-30 22:13:20 -0400
+Processing by WelcomeController#home as HTML
+  Rendering welcome/home.html.erb within layouts/application
+  Rendered welcome/home.html.erb within layouts/application (Duration: 0.4ms | Allocations: 70)
+Completed 200 OK in 17ms (Views: 15.7ms | ActiveRecord: 0.0ms | Allocations: 8610)
+
+
+Started GET "/" for ::1 at 2019-10-30 22:13:43 -0400
+Processing by WelcomeController#home as HTML
+  Rendering welcome/home.html.erb within layouts/application
+  Rendered welcome/home.html.erb within layouts/application (Duration: 0.6ms | Allocations: 194)
+Completed 200 OK in 12ms (Views: 10.8ms | ActiveRecord: 0.0ms | Allocations: 9461)
+
+
+Started GET "/signup" for ::1 at 2019-10-30 22:13:44 -0400
+Processing by MusiciansController#new as HTML
+  Rendering musicians/new.html.erb within layouts/application
+  Rendered musicians/new.html.erb within layouts/application (Duration: 3.0ms | Allocations: 2048)
+Completed 200 OK in 53ms (Views: 33.0ms | ActiveRecord: 8.0ms | Allocations: 17360)
+
+
+Started POST "/musicians" for ::1 at 2019-10-30 22:14:09 -0400
+Processing by MusiciansController#create as HTML
+  Parameters: {"authenticity_token"=>"RZIK9yeQAQpuvuCWl8KY5HPJ2vZnoRYsClnjVuuMH2wyYWjUNt0mnKBp4IOIWBe7RW34B9E6jAJfjxMd+cF97g==", "musician"=>{"user_name"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create Musician"}
+No template found for MusiciansController#create, rendering head :no_content
+Completed 204 No Content in 44426ms (ActiveRecord: 0.0ms | Allocations: 23058)
+
+
+Started GET "/signup" for ::1 at 2019-10-30 22:20:36 -0400
+Processing by MusiciansController#new as HTML
+  Rendering musicians/new.html.erb within layouts/application
+  Rendered musicians/new.html.erb within layouts/application (Duration: 53.1ms | Allocations: 13437)
+Completed 500 Internal Server Error in 76ms (ActiveRecord: 8.9ms | Allocations: 21935)
+
+
+  
+ActionView::Template::Error (undefined method `instrument_type' for #<Musician:0x00007fe1a24ff110>
+Did you mean?  instrument_ids
+               instrument_ids=):
+     6: 	<%= f.text_field :password_confirmation , placeholder: "Re-enter your password." %>
+     7: 	<%= f.fields_for @musician.instruments.build() do |instrument_fields| %>
+     8: 		<%= f.label :instrument_type %>
+     9: 		<%= f.text_field :instrument_type , placeholder: "What instrument do you play?" %>
+    10: 		<%= f.label :instrument_category %>
+    11: 		<%= f.text_field :instrument_category , placeholder: "What category is this instrument?" %>
+    12: 		<%= f.label :instrument_tuning %>
+  
+app/views/musicians/new.html.erb:9
+app/views/musicians/new.html.erb:7
+app/views/musicians/new.html.erb:2
+Started GET "/signup" for ::1 at 2019-10-30 22:20:59 -0400
+Processing by MusiciansController#new as HTML
+  Rendering musicians/new.html.erb within layouts/application
+  Rendered musicians/new.html.erb within layouts/application (Duration: 20.8ms | Allocations: 5437)
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 0.0ms | Allocations: 6385)
+
+
+  
+ActionView::Template::Error (undefined method `instrument_tuning' for #<Instrument:0x00007fe1a2451470>
+Did you mean?  instrument_type
+               instrument_type?
+               instrument_type=):
+    10: 		<%= instrument_fields.label :instrument_category %>
+    11: 		<%= instrument_fields.text_field :instrument_category , placeholder: "What category is this instrument?" %>
+    12: 		<%= instrument_fields.label :instrument_tuning %>
+    13: 		<%= instrument_fields.text_field :instrument_tuning , placeholder: "What tuning is this instrument?" %>
+    14: 	<% end %>
+    15: 	
+    16: 	<%= f.submit %>
+  
+app/views/musicians/new.html.erb:13
+app/views/musicians/new.html.erb:7
+app/views/musicians/new.html.erb:2
+Started GET "/signup" for ::1 at 2019-10-30 22:21:37 -0400
+Processing by MusiciansController#new as HTML
+  Rendering musicians/new.html.erb within layouts/application
+  Rendered musicians/new.html.erb within layouts/application (Duration: 3.9ms | Allocations: 1194)
+Completed 200 OK in 16ms (Views: 14.7ms | ActiveRecord: 0.0ms | Allocations: 10479)
+
+
+Started GET "/signup" for ::1 at 2019-10-30 22:22:14 -0400
+Processing by MusiciansController#new as HTML
+  Rendering musicians/new.html.erb within layouts/application
+  Rendered musicians/new.html.erb within layouts/application (Duration: 3.1ms | Allocations: 1195)
+Completed 200 OK in 18ms (Views: 15.8ms | ActiveRecord: 0.0ms | Allocations: 10489)
+
+
+Started GET "/signup" for ::1 at 2019-10-30 22:22:22 -0400
+Processing by MusiciansController#new as HTML
+  Rendering musicians/new.html.erb within layouts/application
+  Rendered musicians/new.html.erb within layouts/application (Duration: 2.2ms | Allocations: 885)
+Completed 200 OK in 13ms (Views: 11.9ms | ActiveRecord: 0.0ms | Allocations: 9441)
+
+
+Started GET "/signup" for ::1 at 2019-10-30 22:25:29 -0400
+Processing by MusiciansController#new as HTML
+  Rendering musicians/new.html.erb within layouts/application
+  Rendered musicians/new.html.erb within layouts/application (Duration: 5.1ms | Allocations: 2484)
+Completed 200 OK in 18ms (Views: 16.7ms | ActiveRecord: 0.0ms | Allocations: 11763)
+
+
+Started POST "/musicians" for ::1 at 2019-10-30 22:26:05 -0400
+Processing by MusiciansController#create as HTML
+  Parameters: {"authenticity_token"=>"vZ1oUXjUci7K/RvYna43+qixEsXODO+Fabean07VmWkw4G+OIAJESsHipOvjBuhRpqQHxRr/gfP22oky9KOvOw==", "musician"=>{"user_name"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "instrument"=>{"instrument_type"=>"", "instrument_category"=>"", "tuning"=>"c"}}, "commit"=>"Create Musician"}
+No template found for MusiciansController#create, rendering head :no_content
+Completed 204 No Content in 23156ms (ActiveRecord: 0.0ms | Allocations: 8858)
+
+
+Started GET "/signup" for ::1 at 2019-10-30 22:26:32 -0400
+Processing by MusiciansController#new as HTML
+  Rendering musicians/new.html.erb within layouts/application
+  Rendered musicians/new.html.erb within layouts/application (Duration: 4.6ms | Allocations: 1922)
+Completed 200 OK in 15ms (Views: 14.1ms | ActiveRecord: 0.0ms | Allocations: 10479)
+
+
