@@ -1,0 +1,2 @@
+class MasteryTracksController < ApplicationController
+end
