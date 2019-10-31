@@ -409,3 +409,39 @@ Processing by MusiciansController#new as HTML
 Completed 200 OK in 15ms (Views: 14.1ms | ActiveRecord: 0.0ms | Allocations: 10479)
 
 
+Started GET "/signup" for ::1 at 2019-10-30 22:44:23 -0400
+Processing by MusiciansController#new as HTML
+  Rendering musicians/new.html.erb within layouts/application
+  Rendered musicians/new.html.erb within layouts/application (Duration: 3.5ms | Allocations: 1924)
+Completed 200 OK in 14ms (Views: 13.3ms | ActiveRecord: 0.0ms | Allocations: 10481)
+
+
+Started GET "/signup" for ::1 at 2019-10-30 22:45:43 -0400
+Processing by MusiciansController#new as HTML
+  Rendering musicians/new.html.erb within layouts/application
+  Rendered musicians/new.html.erb within layouts/application (Duration: 24.1ms | Allocations: 8801)
+Completed 200 OK in 58ms (Views: 27.8ms | ActiveRecord: 15.1ms | Allocations: 23441)
+
+
+Started GET "/signup" for ::1 at 2019-10-30 22:47:16 -0400
+Processing by MusiciansController#new as HTML
+  Rendering musicians/new.html.erb within layouts/application
+  Rendered musicians/new.html.erb within layouts/application (Duration: 22.9ms | Allocations: 4685)
+Completed 200 OK in 36ms (Views: 33.2ms | ActiveRecord: 0.0ms | Allocations: 13884)
+
+
+Started POST "/musicians" for ::1 at 2019-10-30 22:47:48 -0400
+Processing by MusiciansController#create as HTML
+  Parameters: {"authenticity_token"=>"QxIZvzEq4CnxQAiCIteO3ilpoWBspBkHy00fIbkKEQTObx5gafzWTfpft7Fcf1F1J3y0YLhXd3FUIAyMA3wnVg==", "musician"=>{"user_name"=>"j", "email"=>"j@email.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "instrument"=>{"instrument_type"=>"", "instrument_category"=>"", "tuning"=>"c"}}, "commit"=>"Create Musician"}
+No template found for MusiciansController#create, rendering head :no_content
+Completed 204 No Content in 323467ms (ActiveRecord: 0.0ms | Allocations: 9636)
+
+
+Started GET "/signup" for ::1 at 2019-10-30 22:53:32 -0400
+Processing by MusiciansController#new as HTML
+  Rendering musicians/new.html.erb within layouts/application
+  Rendered musicians/new.html.erb within layouts/application (Duration: 4.5ms | Allocations: 1914)
+Completed 200 OK in 15ms (Views: 13.7ms | ActiveRecord: 0.0ms | Allocations: 10467)
+
+
+  [1m[36mMusician Load (0.3ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" LIMIT $1[0m  [["LIMIT", 11]]
