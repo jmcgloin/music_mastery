@@ -3,10 +3,11 @@ TODO:
 NEXT:
 
 Sign up
-- write musician validations and add necessary front-end validations/required
-- wire up musicians#create for:
-- - redirect to musician_show if create succeeds
-- - redirect to sign up if create fails
+X- write musician validations and add necessary front-end validations/required
+X- wire up musicians#create for:
+X- - strong params
+X- - redirect to musician_show if create succeeds
+X- - redirect to sign up if create fails
 
 DONE:
 
@@ -18,6 +19,7 @@ X- create a view with links for log in or sign up
 Sign up
 X- wire up musician#new
 X- create a view muscian/new with a form with nested fields for creating first instrument upon musician creation
+															******* scrapping nested form so instrument isn't required on sign up *******
 X- create needed routes
 X- set link in home page  to signup path
 

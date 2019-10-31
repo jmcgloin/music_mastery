@@ -1,22 +1,14 @@
 <h1>Create a new account</h1>
 <div>
-<%= form_for(@musician) do |f| %>
+<%= form_for(@musician, url: { controller: 'musicians', action: 'create' }) do |f| %>
 	<%= f.label :user_name %>
-	<%= f.text_field :user_name %>
+	<%= f.text_field :user_name, require: true %>
 	<%= f.label :email %>
-	<%= f.text_field :email %>
+	<%= f.text_field :email, require: true %>
 	<%= f.label :password %>
-	<%= f.password_field :password %>
+	<%= f.password_field :password, require: true %>
 	<%= f.label :password_confirmation %>
-	<%= f.password_field :password_confirmation %>
-	<%= f.fields_for @musician.instruments.build() do |instrument_fields| %>
-		<%= instrument_fields.label :instrument_type %>
-		<%= instrument_fields.text_field :instrument_type %>
-		<%= instrument_fields.label :instrument_category %>
-		<%= instrument_fields.text_field :instrument_category %>
-		<%= instrument_fields.label :tuning %>
-		<%= instrument_fields.text_field :tuning %>
-	<% end %>
+	<%= f.password_field :password_confirmation, require: true %>
 	
 	<%= f.submit %>
 <% end %>
