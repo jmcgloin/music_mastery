@@ -2,12 +2,10 @@ TODO:
 
 NEXT:
 
-Log in
-X- correct path in welcome/home view
-X- wire up sessions#new
-X- write sessions/new view with log in form
-X- make sessions#create with a pry
-
+Log In
+- correct new password field
+- build sessions#create to redirect  or render on authentication
+- strong params
 
 
 Sign up
@@ -16,6 +14,12 @@ Sign up
 
 
 DONE:
+
+Log in
+X- correct path in welcome/home view
+X- wire up sessions#new
+X- write sessions/new view with log in form
+X- make sessions#create with a pry
 
 Home page
 X- wire up welcome#home

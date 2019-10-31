@@ -1220,3 +1220,40 @@ Processing by SessionsController#new as HTML
 Completed 200 OK in 14ms (Views: 13.6ms | ActiveRecord: 0.0ms | Allocations: 8988)
 
 
+Started GET "/login" for ::1 at 2019-10-31 14:27:51 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.4ms | Allocations: 952)
+Completed 200 OK in 11ms (Views: 10.8ms | ActiveRecord: 0.0ms | Allocations: 9625)
+
+
+Started GET "/login" for ::1 at 2019-10-31 14:28:10 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 2.8ms | Allocations: 649)
+Completed 200 OK in 17ms (Views: 15.0ms | ActiveRecord: 0.0ms | Allocations: 9919)
+
+
+Started POST "/login" for ::1 at 2019-10-31 14:28:15 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"cAJ4aglyVLk1TEnscsJ7Z3rhqEXcAc0LazHzvJqqqNauW6PcaxUAPgeLDRLGF+ZQeFK74Rg8SK8T6b7nNXTv4w==", "session"=>{"user_name"=>"j", "password"=>"[FILTERED]"}, "commit"=>"Log In"}
+  [1m[36mMusician Load (0.4ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."user_name" = $1 LIMIT $2[0m  [["user_name", "j"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `create'
+Redirected to http://localhost:3000/musicians/2
+Completed 302 Found in 12259ms (ActiveRecord: 6.0ms | Allocations: 16712)
+
+
+Started GET "/musicians/2" for ::1 at 2019-10-31 14:28:27 -0400
+Processing by MusiciansController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mMusician Load (0.6ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/musicians_controller.rb:31:in `set_musician'
+  Rendering musicians/show.html.erb within layouts/application
+  [1m[36mInstrument Load (0.7ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" WHERE "instruments"."musician_id" = $1[0m  [["musician_id", 2]]
+  ↳ app/views/musicians/show.html.erb:3
+  [1m[36mPiece Load (1.0ms)[0m  [1m[34mSELECT "pieces".* FROM "pieces" INNER JOIN "mastery_tracks" ON "pieces"."id" = "mastery_tracks"."piece_id" INNER JOIN "instruments" ON "mastery_tracks"."instrument_id" = "instruments"."id" WHERE "instruments"."musician_id" = $1[0m  [["musician_id", 2]]
+  ↳ app/views/musicians/show.html.erb:12
+  Rendered musicians/show.html.erb within layouts/application (Duration: 20.8ms | Allocations: 5076)
+Completed 200 OK in 48ms (Views: 24.6ms | ActiveRecord: 12.2ms | Allocations: 19915)
+
+
