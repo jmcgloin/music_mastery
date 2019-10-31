@@ -18,7 +18,7 @@ class MusiciansController < ApplicationController
 		#  add validation that ensures only logged  in musician can see only their page
 		@instruments = @musician.instruments
 		@pieces = @musician.pieces
-		binding.pry
+		# binding.pry
 	end
 
 	private

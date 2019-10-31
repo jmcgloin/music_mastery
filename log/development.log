@@ -990,3 +990,188 @@ Migrating to RemoveTranspositionFromPieces (20191031172509)
   [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
   [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(1930276190058435135)[0m
   [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/musicians/2" for ::1 at 2019-10-31 13:35:42 -0400
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MusiciansController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mMusician Load (0.8ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/musicians_controller.rb:31:in `set_musician'
+Started GET "/" for ::1 at 2019-10-31 13:35:48 -0400
+Processing by WelcomeController#home as HTML
+  Rendering welcome/home.html.erb within layouts/application
+  Rendered welcome/home.html.erb within layouts/application (Duration: 1.3ms | Allocations: 343)
+Completed 200 OK in 1089ms (Views: 1087.1ms | ActiveRecord: 0.0ms | Allocations: 1254852)
+
+
+Started GET "/signup" for ::1 at 2019-10-31 13:35:52 -0400
+Processing by MusiciansController#new as HTML
+  Rendering musicians/new.html.erb within layouts/application
+  Rendered musicians/new.html.erb within layouts/application (Duration: 98.7ms | Allocations: 13422)
+Completed 500 Internal Server Error in 101ms (ActiveRecord: 8.3ms | Allocations: 14243)
+
+
+  
+ActionView::Template::Error (undefined method `instrument_type' for #<Musician:0x00007f3a19e7c2f0>
+Did you mean?  instrument_ids
+               instrument_ids=):
+    11: 	<%= f.password_field :password_confirmation, require: true %>
+    12: 	<%= f.fields_for @musician.instruments.build() do  |instruments_fields| %>
+    13: 		<%= f.label :instrument_type %>
+    14: 		<%= f.text_field :instrument_type %>
+    15: 		<%= f.label :instrument_category %>
+    16: 		<%= f.text_field :instrument_category %>
+    17: 		<%= f.label :tuning %>
+  
+app/views/musicians/new.html.erb:14
+app/views/musicians/new.html.erb:12
+app/views/musicians/new.html.erb:3
+Started GET "/signup" for ::1 at 2019-10-31 13:36:11 -0400
+Processing by MusiciansController#new as HTML
+  Rendering musicians/new.html.erb within layouts/application
+  Rendered musicians/new.html.erb within layouts/application (Duration: 5.5ms | Allocations: 3059)
+Completed 200 OK in 19ms (Views: 17.4ms | ActiveRecord: 0.0ms | Allocations: 12366)
+
+
+Started GET "/signup" for ::1 at 2019-10-31 13:44:24 -0400
+  Rendering musicians/show.html.erb within layouts/application
+  [1m[36mInstrument Load (0.9ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" WHERE "instruments"."musician_id" = $1[0m  [["musician_id", 2]]
+  ↳ app/views/musicians/show.html.erb:3
+  [1m[36mPiece Load (1.1ms)[0m  [1m[34mSELECT "pieces".* FROM "pieces" INNER JOIN "mastery_tracks" ON "pieces"."id" = "mastery_tracks"."piece_id" INNER JOIN "instruments" ON "mastery_tracks"."instrument_id" = "instruments"."id" WHERE "instruments"."musician_id" = $1[0m  [["musician_id", 2]]
+  ↳ app/views/musicians/show.html.erb:12
+  Rendered musicians/show.html.erb within layouts/application (Duration: 17.0ms | Allocations: 4750)
+Completed 200 OK in 543979ms (Views: 21.9ms | ActiveRecord: 17.0ms | Allocations: 1810286)
+
+
+Processing by MusiciansController#new as HTML
+  Rendering musicians/new.html.erb within layouts/application
+  [1m[36mInstrument Load (0.5ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments"[0m
+  ↳ app/models/instrument.rb:7:in `map'
+  Rendered musicians/new.html.erb within layouts/application (Duration: 37.4ms | Allocations: 10681)
+Completed 200 OK in 64ms (Views: 42.7ms | ActiveRecord: 10.6ms | Allocations: 25326)
+
+
+Started GET "/signup" for ::1 at 2019-10-31 13:45:16 -0400
+Processing by MusiciansController#new as HTML
+  Rendering musicians/new.html.erb within layouts/application
+  [1m[36mInstrument Load (0.4ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments"[0m
+  ↳ app/models/instrument.rb:7:in `map'
+  Rendered musicians/new.html.erb within layouts/application (Duration: 6.7ms | Allocations: 3085)
+Completed 200 OK in 18ms (Views: 16.3ms | ActiveRecord: 0.4ms | Allocations: 12379)
+
+
+Started POST "/signup" for ::1 at 2019-10-31 13:46:09 -0400
+Processing by MusiciansController#create as HTML
+  Parameters: {"authenticity_token"=>"PcJNsp1qdocsjCXWlb1nHOkhtlEr88+2C0lN/N/JuaDjm5YE/w0iAB5LYSghaPor65Kl9e/OShJzkQCncBf+lQ==", "musician"=>{"user_name"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "instrument"=>{"instrument_type"=>"", "instrument_category"=>"", "tuning"=>""}}, "commit"=>"Create Musician"}
+[31mUnpermitted parameter: :instrument[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/musicians_controller.rb:9:in `create'
+  [1m[36mMusician Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "musicians" WHERE "musicians"."user_name" = $1 LIMIT $2[0m  [["user_name", ""], ["LIMIT", 1]]
+  ↳ app/controllers/musicians_controller.rb:9:in `create'
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/musicians_controller.rb:9:in `create'
+  Rendering musicians/new.html.erb within layouts/application
+  [1m[36mInstrument Load (0.6ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments"[0m
+  ↳ app/models/instrument.rb:7:in `map'
+  Rendered musicians/new.html.erb within layouts/application (Duration: 5.8ms | Allocations: 2672)
+Completed 200 OK in 28ms (Views: 14.3ms | ActiveRecord: 2.1ms | Allocations: 15513)
+
+
+Started GET "/signup" for ::1 at 2019-10-31 13:53:27 -0400
+Processing by MusiciansController#new as HTML
+  Rendering musicians/new.html.erb within layouts/application
+  Rendered musicians/new.html.erb within layouts/application (Duration: 15.1ms | Allocations: 9551)
+Completed 200 OK in 34ms (Views: 24.6ms | ActiveRecord: 0.0ms | Allocations: 23803)
+
+
+Started GET "/signup" for ::1 at 2019-10-31 13:53:56 -0400
+Processing by MusiciansController#new as HTML
+  Rendering musicians/new.html.erb within layouts/application
+  Rendered musicians/new.html.erb within layouts/application (Duration: 26.7ms | Allocations: 2782)
+Completed 200 OK in 39ms (Views: 37.4ms | ActiveRecord: 0.0ms | Allocations: 12078)
+
+
+Started GET "/signup" for ::1 at 2019-10-31 13:54:32 -0400
+Processing by MusiciansController#new as HTML
+  Rendering musicians/new.html.erb within layouts/application
+  Rendered musicians/new.html.erb within layouts/application (Duration: 6.2ms | Allocations: 2768)
+Completed 200 OK in 18ms (Views: 17.2ms | ActiveRecord: 0.0ms | Allocations: 12059)
+
+
+Started GET "/signup" for ::1 at 2019-10-31 13:55:49 -0400
+Processing by MusiciansController#new as HTML
+  Rendering musicians/new.html.erb within layouts/application
+  Rendered musicians/new.html.erb within layouts/application (Duration: 6.8ms | Allocations: 2774)
+Completed 200 OK in 22ms (Views: 19.8ms | ActiveRecord: 0.0ms | Allocations: 12062)
+
+
+Started GET "/signup" for ::1 at 2019-10-31 13:55:50 -0400
+Processing by MusiciansController#new as HTML
+  Rendering musicians/new.html.erb within layouts/application
+  Rendered musicians/new.html.erb within layouts/application (Duration: 6.2ms | Allocations: 2361)
+Completed 200 OK in 18ms (Views: 17.7ms | ActiveRecord: 0.0ms | Allocations: 10919)
+
+
+Started GET "/signup" for ::1 at 2019-10-31 13:56:23 -0400
+Processing by MusiciansController#new as HTML
+  Rendering musicians/new.html.erb within layouts/application
+  Rendered musicians/new.html.erb within layouts/application (Duration: 21.1ms | Allocations: 9702)
+Completed 200 OK in 51ms (Views: 26.8ms | ActiveRecord: 12.4ms | Allocations: 24220)
+
+
+Started GET "/signup" for ::1 at 2019-10-31 13:56:24 -0400
+Processing by MusiciansController#new as HTML
+  Rendering musicians/new.html.erb within layouts/application
+  Rendered musicians/new.html.erb within layouts/application (Duration: 4.8ms | Allocations: 2354)
+Completed 200 OK in 17ms (Views: 15.9ms | ActiveRecord: 0.0ms | Allocations: 10919)
+
+
+Started GET "/signup" for ::1 at 2019-10-31 13:58:25 -0400
+Processing by MusiciansController#new as HTML
+  Rendering musicians/new.html.erb within layouts/application
+  Rendered musicians/new.html.erb within layouts/application (Duration: 20.2ms | Allocations: 9694)
+Completed 200 OK in 44ms (Views: 25.1ms | ActiveRecord: 9.7ms | Allocations: 24158)
+
+
+Started GET "/signup" for ::1 at 2019-10-31 14:05:15 -0400
+Processing by MusiciansController#new as HTML
+  Rendering musicians/new.html.erb within layouts/application
+  Rendered musicians/new.html.erb within layouts/application (Duration: 14.7ms | Allocations: 9510)
+Completed 200 OK in 34ms (Views: 23.9ms | ActiveRecord: 0.0ms | Allocations: 23799)
+
+
+Started GET "/signup" for ::1 at 2019-10-31 14:06:59 -0400
+Processing by MusiciansController#new as HTML
+  Rendering musicians/new.html.erb within layouts/application
+  Rendered musicians/new.html.erb within layouts/application (Duration: 25.2ms | Allocations: 10242)
+Completed 200 OK in 59ms (Views: 31.7ms | ActiveRecord: 15.0ms | Allocations: 25302)
+
+
+Started GET "/signup" for ::1 at 2019-10-31 14:07:36 -0400
+Processing by MusiciansController#new as HTML
+  Rendering musicians/new.html.erb within layouts/application
+  Rendered musicians/new.html.erb within layouts/application (Duration: 20.7ms | Allocations: 9844)
+Completed 200 OK in 46ms (Views: 26.5ms | ActiveRecord: 9.5ms | Allocations: 24310)
+
+
+Started POST "/signup" for ::1 at 2019-10-31 14:10:12 -0400
+Processing by MusiciansController#create as HTML
+  Parameters: {"authenticity_token"=>"CLDZcajtjU0db8OjxeLCvcBuqhJ9OIAs7XPrHB7W5vDW6QLHyorZyi+oh11xN1+Kwt25trkFBYiVq6ZHsQihxQ==", "musician"=>{"user_name"=>"j", "email"=>"j.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "instrument"=>{"instrument_type"=>"Trumpet", "instrument_category"=>"Brass", "tuning"=>"Bb(-2)"}}, "commit"=>"Create Musician"}
+[31mUnpermitted parameter: :instrument[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/musicians_controller.rb:9:in `create'
+  [1m[36mMusician Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "musicians" WHERE "musicians"."user_name" = $1 LIMIT $2[0m  [["user_name", "j"], ["LIMIT", 1]]
+  ↳ app/controllers/musicians_controller.rb:9:in `create'
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/musicians_controller.rb:9:in `create'
+  Rendering musicians/new.html.erb within layouts/application
+  Rendered musicians/new.html.erb within layouts/application (Duration: 40.1ms | Allocations: 9689)
+Completed 200 OK in 429ms (Views: 45.5ms | ActiveRecord: 10.6ms | Allocations: 27565)
+
+
+Started GET "/login" for ::1 at 2019-10-31 14:11:00 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 24.2ms | Allocations: 90)
+Completed 200 OK in 40ms (Views: 38.8ms | ActiveRecord: 0.0ms | Allocations: 8979)
+
+

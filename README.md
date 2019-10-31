@@ -9,8 +9,9 @@ X- create show action
 X- - user name with welcome message
 X- - list of instruments (links) with add more link, or add instrument if no instruments
 X- - list of pieces (links) with link to add more, or add piece if no pieces
-- use ar method to order instruments by category
-- create a view muscian/new with a form with nested fields for creating first instrument upon musician creation
+X- create a view musician/new with a form with nested fields for creating first instrument upon musician creation
+
+
 
 DONE:
 
@@ -33,6 +34,9 @@ LATER:
 
 Sign up
 - add flash message when failure
+
+Musician show
+- use ar method to order instruments by category
 
 Navbar
 - create partial to render navbar in layout/application

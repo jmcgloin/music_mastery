@@ -9,6 +9,14 @@
 	<%= f.password_field :password, require: true %>
 	<%= f.label :password_confirmation %>
 	<%= f.password_field :password_confirmation, require: true %>
+	<%= f.fields_for @musician.instruments.build() do  |instruments_fields| %>
+		<%= instruments_fields.label :instrument_type %>
+		<%= instruments_fields.text_field :instrument_type %>
+		<%= instruments_fields.label :instrument_category %>
+		<%= instruments_fields.select :instrument_category, Instrument.all_families %>
+		<%= instruments_fields.label :tuning %>
+		<%= instruments_fields.select :tuning, Instrument.all_tunings, selected: "C(+0)" %>
+	<% end %>
 	
 	<%= f.submit %>
 <% end %>
