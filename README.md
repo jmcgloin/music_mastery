@@ -2,14 +2,9 @@ TODO:
 
 NEXT:
 
-
-Log out
-- write sessions#destroy
-- redirect to welcome#home on log out
-- add restrictions from accessing pages when not logged in
-- add restrictions from accession pages user doesn't own/shouldn't have access to
-- add basic nav bar to  application view, with logged in condition
-
+X- delete sessions/create view
+- install flash
+- set up error messages for log in and sign up
 
 Log In
 
@@ -20,6 +15,13 @@ Sign up
 
 
 DONE:
+
+Log out
+X- write sessions#destroy
+X- redirect to welcome#home on log out
+X- add restrictions from accessing pages when not logged in
+X- add restrictions from accession pages user doesn't own/shouldn't have access to
+X- add basic nav bar to  application view, with logged in condition
 
 Log in
 X- correct path in welcome/home view

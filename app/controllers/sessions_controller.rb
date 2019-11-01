@@ -11,6 +11,7 @@ class SessionsController < ApplicationController
   		session[:musician_id] = @musician.id
   		redirect_to musician_path(@musician)
   	else
+      flash[:alert] = "User name or password incorrect.  Please try again or Sign Up."
   		render :new # add flash message about errors
   	end
   end

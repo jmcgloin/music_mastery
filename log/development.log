@@ -1813,3 +1813,352 @@ Processing by SessionsController#new as HTML
 Completed 200 OK in 16ms (Views: 15.0ms | ActiveRecord: 0.0ms | Allocations: 9593)
 
 
+Started GET "/signup" for ::1 at 2019-10-31 23:57:21 -0400
+Processing by MusiciansController#new as HTML
+  Rendering musicians/new.html.erb within layouts/application
+  Rendered musicians/new.html.erb within layouts/application (Duration: 5.9ms | Allocations: 2485)
+Completed 200 OK in 17ms (Views: 16.4ms | ActiveRecord: 0.0ms | Allocations: 11049)
+
+
+Started POST "/signup" for ::1 at 2019-10-31 23:58:02 -0400
+Processing by MusiciansController#create as HTML
+  Parameters: {"authenticity_token"=>"gO+x5eXp14op1NWILUGMljdQihL7nmgie+UB1qsom+q6sG3qlyH4U85RLX+jWZs37K2e8+btLv6Vir8IeLzYJw==", "musician"=>{"user_name"=>"j", "email"=>"j.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "instrument"=>{"instrument_type"=>"heart strings", "instrument_category"=>"String", "tuning"=>"C(+0)"}}, "commit"=>"Create Musician"}
+[31mUnpermitted parameter: :instrument[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/musicians_controller.rb:13:in `create'
+  [1m[36mMusician Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "musicians" WHERE "musicians"."user_name" = $1 LIMIT $2[0m  [["user_name", "j"], ["LIMIT", 1]]
+  ↳ app/controllers/musicians_controller.rb:13:in `create'
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/musicians_controller.rb:13:in `create'
+  Rendering musicians/new.html.erb within layouts/application
+  Rendered musicians/new.html.erb within layouts/application (Duration: 3.3ms | Allocations: 2492)
+Completed 200 OK in 373ms (Views: 11.8ms | ActiveRecord: 1.6ms | Allocations: 14532)
+
+
+  [1m[36mInstrument Load (0.5ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" LIMIT $1[0m  [["LIMIT", 11]]
+Started GET "/signup" for ::1 at 2019-11-01 00:05:56 -0400
+  
+SyntaxError (/home/jason/learning-dev/learn-co/rails/project/music_mastery/app/controllers/musicians_controller.rb:19: syntax error, unexpected end
+		end
+		^~~
+/home/jason/learning-dev/learn-co/rails/project/music_mastery/app/controllers/musicians_controller.rb:37: syntax error, unexpected end-of-input, expecting end):
+  
+app/controllers/musicians_controller.rb:19: syntax error, unexpected end
+app/controllers/musicians_controller.rb:37: syntax error, unexpected end-of-input, expecting end
+app/controllers/musicians_controller.rb:19: syntax error, unexpected end
+app/controllers/musicians_controller.rb:37: syntax error, unexpected end-of-input, expecting end
+app/controllers/musicians_controller.rb:19: syntax error, unexpected end
+app/controllers/musicians_controller.rb:37: syntax error, unexpected end-of-input, expecting end
+Started GET "/signup" for ::1 at 2019-11-01 00:06:07 -0400
+Processing by MusiciansController#new as HTML
+  Rendering musicians/new.html.erb within layouts/application
+  Rendered musicians/new.html.erb within layouts/application (Duration: 134.2ms | Allocations: 60528)
+Completed 500 Internal Server Error in 152ms (ActiveRecord: 6.2ms | Allocations: 67387)
+
+
+  
+ActionView::Template::Error (undefined method `render_flash_messages' for #<#<Class:0x00007fe14671d750>:0x00007fe146723498>):
+    1: <h1>Create a new account</h1>
+    2: <div>
+    3: 	<%= render_flash_messages dismissable:true %>
+    4: <%= form_for(@musician, url: { controller: 'musicians', action: 'create' }) do |f| %>
+    5: 	<%= f.label :user_name %>
+    6: 	<%= f.text_field :user_name, require: true %>
+  
+app/views/musicians/new.html.erb:3
+Started GET "/signup" for ::1 at 2019-11-01 00:08:05 -0400
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MusiciansController#new as HTML
+  Rendering musicians/new.html.erb within layouts/application
+  Rendered musicians/new.html.erb within layouts/application (Duration: 2387.6ms | Allocations: 782616)
+Completed 200 OK in 3563ms (Views: 3531.7ms | ActiveRecord: 12.7ms | Allocations: 2043750)
+
+
+Started POST "/signup" for ::1 at 2019-11-01 00:08:25 -0400
+Processing by MusiciansController#create as HTML
+  Parameters: {"authenticity_token"=>"GRVR8wcM37XnpINsAh9TXYE9I+0veD6tMbYkiu7wZrrMBSiE81I2uwqlg1h2oO/vWFowPAA127zXRfA8Oo/XNQ==", "musician"=>{"user_name"=>"j", "email"=>"jkl", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "instrument"=>{"instrument_type"=>"kll", "instrument_category"=>"String", "tuning"=>"C(+0)"}}, "commit"=>"Create Musician"}
+[31mUnpermitted parameter: :instrument[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/musicians_controller.rb:13:in `create'
+  [1m[36mMusician Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "musicians" WHERE "musicians"."user_name" = $1 LIMIT $2[0m  [["user_name", "j"], ["LIMIT", 1]]
+  ↳ app/controllers/musicians_controller.rb:13:in `create'
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/musicians_controller.rb:13:in `create'
+Started GET "/signup" for ::1 at 2019-11-01 00:11:58 -0400
+Processing by MusiciansController#new as HTML
+  Rendering musicians/new.html.erb within layouts/application
+  Rendered musicians/new.html.erb within layouts/application (Duration: 19.8ms | Allocations: 5983)
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 0.0ms | Allocations: 6944)
+
+
+Started GET "/signup" for ::1 at 2019-11-01 00:12:02 -0400
+Processing by MusiciansController#new as HTML
+  Rendering musicians/new.html.erb within layouts/application
+  Rendered musicians/new.html.erb within layouts/application (Duration: 54.5ms | Allocations: 1368)
+Completed 500 Internal Server Error in 56ms (ActiveRecord: 0.0ms | Allocations: 1786)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <h1>Create a new account</h1>
+<div>
+	<% if @musician.errors %>
+		<% @musician.errors.full_messages.each do |error| %>
+			<% alert: error %>
+			<%= render_flash_messages dismissible: true %>
+		<% end %>
+	<% end %>
+<%= form_for(@musician, url: { controller: 'musicians', action: 'create' }) do |f| %>
+	<%= f.label :user_name %>
+	<%= f.text_field :user_name, require: true %>
+	<%= f.label :email %>
+	<%= f.text_field :email, require: true %>
+	<%= f.label :password %>
+	<%= f.password_field :password, require: true %>
+	<%= f.label :password_confirmation %>
+	<%= f.password_field :password_confirmation, require: true %>
+	<%= f.fields_for @musician.instruments.build() do  |instruments_fields| %>
+		<%= instruments_fields.label :instrument_type %>
+		<%= instruments_fields.text_field :instrument_type %>
+		<%= instruments_fields.label :instrument_category %>
+		<%= instruments_fields.select :instrument_category, Instrument.all_families %>
+		<%= instruments_fields.label :tuning %>
+		<%= instruments_fields.select :tuning, Instrument.all_tunings, selected: "C(+0)" %>
+	<% end %>
+	
+	<%= f.submit %>
+<% end %>
+</div>
+):
+1:    <h1>Create a new account</h1>
+2:    <div>
+3:    	<% if @musician.errors %>
+4:    		<% @musician.errors.full_messages.each do |error| %>
+5:    			<% alert: error %>
+6:    			<%= render_flash_messages dismissible: true %>
+7:    		<% end %>
+8:    	<% end %>
+9:    <%= form_for(@musician, url: { controller: 'musicians', action: 'create' }) do |f| %>
+10:    	<%= f.label :user_name %>
+11:    	<%= f.text_field :user_name, require: true %>
+12:    	<%= f.label :email %>
+13:    	<%= f.text_field :email, require: true %>
+14:    	<%= f.label :password %>
+15:    	<%= f.password_field :password, require: true %>
+16:    	<%= f.label :password_confirmation %>
+17:    	<%= f.password_field :password_confirmation, require: true %>
+18:    	<%= f.fields_for @musician.instruments.build() do  |instruments_fields| %>
+19:    		<%= instruments_fields.label :instrument_type %>
+20:    		<%= instruments_fields.text_field :instrument_type %>
+21:    		<%= instruments_fields.label :instrument_category %>
+22:    		<%= instruments_fields.select :instrument_category, Instrument.all_families %>
+23:    		<%= instruments_fields.label :tuning %>
+24:    		<%= instruments_fields.select :tuning, Instrument.all_tunings, selected: "C(+0)" %>
+25:    	<% end %>
+26:    	
+27:    	<%= f.submit %>
+28:    <% end %>
+29:    </div>
+  
+app/views/musicians/new.html.erb:5: syntax error, unexpected ':', expecting end
+app/views/musicians/new.html.erb:31: syntax error, unexpected end, expecting end-of-input
+app/views/musicians/new.html.erb:5: syntax error, unexpected ':', expecting end
+app/views/musicians/new.html.erb:31: syntax error, unexpected end, expecting end-of-input
+app/views/musicians/new.html.erb:5: syntax error, unexpected ':', expecting end
+app/views/musicians/new.html.erb:31: syntax error, unexpected end, expecting end-of-input
+app/views/musicians/new.html.erb:5: syntax error, unexpected ':', expecting end
+app/views/musicians/new.html.erb:31: syntax error, unexpected end, expecting end-of-input
+app/views/musicians/new.html.erb:5: syntax error, unexpected ':', expecting end
+app/views/musicians/new.html.erb:31: syntax error, unexpected end, expecting end-of-input
+app/views/musicians/new.html.erb:5: syntax error, unexpected ':', expecting end
+app/views/musicians/new.html.erb:31: syntax error, unexpected end, expecting end-of-input
+Started GET "/signup" for ::1 at 2019-11-01 00:13:22 -0400
+Processing by MusiciansController#new as HTML
+  Rendering musicians/new.html.erb within layouts/application
+  Rendered musicians/new.html.erb within layouts/application (Duration: 6.0ms | Allocations: 2989)
+Completed 200 OK in 19ms (Views: 18.1ms | ActiveRecord: 0.0ms | Allocations: 12338)
+
+
+Started GET "/signup" for ::1 at 2019-11-01 00:13:24 -0400
+Processing by MusiciansController#new as HTML
+  Rendering musicians/new.html.erb within layouts/application
+  Rendered musicians/new.html.erb within layouts/application (Duration: 9.0ms | Allocations: 2487)
+Completed 200 OK in 39ms (Views: 37.3ms | ActiveRecord: 0.0ms | Allocations: 11064)
+
+
+Started POST "/signup" for ::1 at 2019-11-01 00:13:30 -0400
+Processing by MusiciansController#create as HTML
+  Parameters: {"authenticity_token"=>"X4/XIgs/KfkUzQRMH4vP9kBbilTYhvNDg1YfLXU2ocOKn65V/2HA9/nMBHhrNHNEmTyZhffLFlJlpcuboUkQTA==", "musician"=>{"user_name"=>"j", "email"=>"jkl", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "instrument"=>{"instrument_type"=>"jl", "instrument_category"=>"String", "tuning"=>"C(+0)"}}, "commit"=>"Create Musician"}
+[31mUnpermitted parameter: :instrument[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/musicians_controller.rb:13:in `create'
+  [1m[36mMusician Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "musicians" WHERE "musicians"."user_name" = $1 LIMIT $2[0m  [["user_name", "j"], ["LIMIT", 1]]
+  ↳ app/controllers/musicians_controller.rb:13:in `create'
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/musicians_controller.rb:13:in `create'
+  Rendering musicians/new.html.erb within layouts/application
+  Rendered musicians/new.html.erb within layouts/application (Duration: 5.6ms | Allocations: 2957)
+Completed 200 OK in 5040ms (Views: 16.1ms | ActiveRecord: 2.0ms | Allocations: 107327)
+
+
+Started GET "/signup" for ::1 at 2019-11-01 00:14:05 -0400
+Processing by MusiciansController#new as HTML
+  Rendering musicians/new.html.erb within layouts/application
+  Rendered musicians/new.html.erb within layouts/application (Duration: 4.9ms | Allocations: 2478)
+Completed 200 OK in 17ms (Views: 15.8ms | ActiveRecord: 0.0ms | Allocations: 11050)
+
+
+Started GET "/signup" for ::1 at 2019-11-01 00:17:56 -0400
+  Rendering musicians/new.html.erb within layouts/application
+  Rendered musicians/new.html.erb within layouts/application (Duration: 5.6ms | Allocations: 3461)
+Completed 200 OK in 593155ms (Views: 18.7ms | ActiveRecord: 1.0ms | Allocations: 1348317)
+
+
+Started GET "/" for ::1 at 2019-11-01 00:18:18 -0400
+Started GET "/signup" for ::1 at 2019-11-01 00:18:18 -0400
+Processing by MusiciansController#new as HTML
+  Rendering musicians/new.html.erb within layouts/application
+  Rendered musicians/new.html.erb within layouts/application (Duration: 20.3ms | Allocations: 9787)
+Completed 200 OK in 52ms (Views: 24.8ms | ActiveRecord: 13.0ms | Allocations: 24410)
+
+
+Processing by WelcomeController#home as HTML
+Processing by MusiciansController#new as HTML
+  Rendering welcome/home.html.erb within layouts/application
+  Rendered welcome/home.html.erb within layouts/application (Duration: 0.8ms | Allocations: 209)
+  Rendering musicians/new.html.erb within layouts/application
+  Rendered musicians/new.html.erb within layouts/application (Duration: 30.0ms | Allocations: 11391)
+Completed 200 OK in 81ms (Views: 76.4ms | ActiveRecord: 0.0ms | Allocations: 32666)
+
+
+Completed 200 OK in 84ms (Views: 58.5ms | ActiveRecord: 12.3ms | Allocations: 33604)
+
+
+Started GET "/login" for ::1 at 2019-11-01 00:18:24 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 2.3ms | Allocations: 678)
+Completed 200 OK in 19ms (Views: 17.6ms | ActiveRecord: 0.0ms | Allocations: 9620)
+
+
+Started POST "/login" for ::1 at 2019-11-01 00:18:30 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"LnRLKTKbAmOxyfjtd1rwA6tlGRuCB6HppSqYrF5VCPJ94yxaJECyoMpH7Ul3LjDA4zLI+gZptvLt3pYfRiYTSg==", "session"=>{"user_name"=>"hdkj", "password"=>"[FILTERED]"}, "commit"=>"Log In"}
+  [1m[36mMusician Load (0.4ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."user_name" = $1 LIMIT $2[0m  [["user_name", "hdkj"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:9:in `create'
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.9ms | Allocations: 438)
+Completed 200 OK in 18ms (Views: 13.3ms | ActiveRecord: 0.7ms | Allocations: 9815)
+
+
+Started GET "/login" for ::1 at 2019-11-01 00:19:24 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 4.6ms | Allocations: 1540)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms | Allocations: 2489)
+
+
+  
+ActionView::Template::Error (undefined method `errors' for nil:NilClass):
+    1: <h1>Log In</h1>
+    2: <% if @musician.errors %>
+    3: 		<% @musician.errors.full_messages.each do |error| %>
+    4: 			<% flash[:alert] = error %>
+    5: 			<%= render_flash_messages dismissible: true %>
+  
+app/views/sessions/new.html.erb:2
+Started GET "/login" for ::1 at 2019-11-01 00:23:04 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.4ms | Allocations: 1228)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 1795)
+
+
+  
+ActionView::Template::Error (undefined method `errors' for nil:NilClass):
+    1: <h1>Log In</h1>
+    2: <% if @musician.errors %>
+    3: 		<% @musician.errors.full_messages.each do |error| %>
+    4: 			<% flash[:alert] = error %>
+    5: 			<%= render_flash_messages dismissible: true %>
+  
+app/views/sessions/new.html.erb:2
+Started GET "/login" for ::1 at 2019-11-01 00:23:32 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 2.0ms | Allocations: 1254)
+Completed 200 OK in 13ms (Views: 12.5ms | ActiveRecord: 0.0ms | Allocations: 10602)
+
+
+Started GET "/login" for ::1 at 2019-11-01 00:24:30 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.9ms | Allocations: 470)
+Completed 200 OK in 15ms (Views: 13.6ms | ActiveRecord: 0.0ms | Allocations: 9020)
+
+
+Started GET "/login" for ::1 at 2019-11-01 00:24:31 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.6ms | Allocations: 463)
+Completed 200 OK in 14ms (Views: 12.6ms | ActiveRecord: 0.0ms | Allocations: 9009)
+
+
+Started GET "/login" for ::1 at 2019-11-01 00:24:31 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.1ms | Allocations: 463)
+Completed 200 OK in 13ms (Views: 12.1ms | ActiveRecord: 0.0ms | Allocations: 9009)
+
+
+Started GET "/login" for ::1 at 2019-11-01 00:24:31 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.2ms | Allocations: 463)
+Completed 200 OK in 11ms (Views: 10.5ms | ActiveRecord: 0.0ms | Allocations: 9003)
+
+
+Started POST "/login" for ::1 at 2019-11-01 00:24:36 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"/nXkQN5PBPXu3spchD96PrjlU8VdiMXJstR2b1X9h+crZZ03KhHt+wPfymjwgMaMYYJAFHLFINhUJ6LZgYI2aA==", "session"=>{"user_name"=>"fdsddf", "password"=>"[FILTERED]"}, "commit"=>"Log In"}
+  [1m[36mMusician Load (0.3ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."user_name" = $1 LIMIT $2[0m  [["user_name", "fdsddf"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:9:in `create'
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.9ms | Allocations: 513)
+Completed 200 OK in 25ms (Views: 9.6ms | ActiveRecord: 1.9ms | Allocations: 14266)
+
+
+Started GET "/login" for ::1 at 2019-11-01 00:24:42 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.8ms | Allocations: 528)
+Completed 200 OK in 13ms (Views: 11.8ms | ActiveRecord: 0.0ms | Allocations: 9097)
+
+
+Started GET "/login" for ::1 at 2019-11-01 00:24:44 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.2ms | Allocations: 463)
+Completed 200 OK in 14ms (Views: 13.5ms | ActiveRecord: 0.0ms | Allocations: 9005)
+
+
+Started POST "/login" for ::1 at 2019-11-01 00:24:49 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"uFoBak5bVz4G47N1+WTJ1d2SavLGPDguSp823yPseGxtSngdugW+MOvis0GN23VnBPV5I+lx3T+sbOJp95PJ4w==", "session"=>{"user_name"=>"j", "password"=>"[FILTERED]"}, "commit"=>"Log In"}
+  [1m[36mMusician Load (0.4ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."user_name" = $1 LIMIT $2[0m  [["user_name", "j"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:9:in `create'
+Redirected to http://localhost:3000/musicians/2
+Completed 302 Found in 366ms (ActiveRecord: 4.4ms | Allocations: 4295)
+
+
+Started GET "/musicians/2" for ::1 at 2019-11-01 00:24:50 -0400
+Processing by MusiciansController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mMusician Load (0.6ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_musician'
+  Rendering musicians/show.html.erb within layouts/application
+  [1m[36mInstrument Load (0.6ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" WHERE "instruments"."musician_id" = $1[0m  [["musician_id", 2]]
+  ↳ app/views/musicians/show.html.erb:3
+  Rendered musicians/show.html.erb within layouts/application (Duration: 6.1ms | Allocations: 1648)
+Completed 200 OK in 23ms (Views: 14.1ms | ActiveRecord: 3.4ms | Allocations: 13047)
+
+

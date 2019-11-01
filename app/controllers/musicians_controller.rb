@@ -14,7 +14,7 @@ class MusiciansController < ApplicationController
 			session[:musician_id] = @musician.id
 			redirect_to musician_path(@musician)
 		else
-			render :new # add flash message here
+			render :new
 		end
 	end
 

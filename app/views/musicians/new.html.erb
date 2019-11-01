@@ -1,5 +1,11 @@
 <h1>Create a new account</h1>
 <div>
+	<% if @musician.errors %>
+		<% @musician.errors.full_messages.each do |error| %>
+			<% flash[:alert] = error %>
+			<%= render_flash_messages dismissible: true %>
+		<% end %>
+	<% end %>
 <%= form_for(@musician, url: { controller: 'musicians', action: 'create' }) do |f| %>
 	<%= f.label :user_name %>
 	<%= f.text_field :user_name, require: true %>
