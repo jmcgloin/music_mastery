@@ -1257,3 +1257,559 @@ Processing by MusiciansController#show as HTML
 Completed 200 OK in 48ms (Views: 24.6ms | ActiveRecord: 12.2ms | Allocations: 19915)
 
 
+Started GET "/" for ::1 at 2019-10-31 22:49:56 -0400
+  [1m[35m (24.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by WelcomeController#home as HTML
+  Rendering welcome/home.html.erb within layouts/application
+  Rendered welcome/home.html.erb within layouts/application (Duration: 20.6ms | Allocations: 348)
+Completed 200 OK in 1364ms (Views: 1340.5ms | ActiveRecord: 0.0ms | Allocations: 1254817)
+
+
+Started GET "/login" for ::1 at 2019-10-31 22:50:03 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 133.5ms | Allocations: 3913)
+Completed 200 OK in 149ms (Views: 148.2ms | ActiveRecord: 0.0ms | Allocations: 12851)
+
+
+Started POST "/login" for ::1 at 2019-10-31 22:50:08 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"0psTnlIRYPdicin+QSHDmnJe4KK3n1foNVQhx5V8vR+YtT9wsyr9+mvxSSE9VFX5a9vtoNWkmq+Httv9M0GjZQ==", "session"=>{"user_name"=>"j", "password"=>"[FILTERED]"}, "commit"=>"Log In"}
+  [1m[36mMusician Load (40.2ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."user_name" = $1 LIMIT $2[0m  [["user_name", "j"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `create'
+Redirected to http://localhost:3000/musicians/2
+Completed 302 Found in 575ms (ActiveRecord: 153.4ms | Allocations: 8135)
+
+
+Started GET "/musicians/2" for ::1 at 2019-10-31 22:50:09 -0400
+Processing by MusiciansController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mMusician Load (0.5ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/musicians_controller.rb:31:in `set_musician'
+  Rendering musicians/show.html.erb within layouts/application
+  [1m[36mInstrument Load (25.2ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" WHERE "instruments"."musician_id" = $1[0m  [["musician_id", 2]]
+  ↳ app/views/musicians/show.html.erb:3
+  [1m[36mPiece Load (22.5ms)[0m  [1m[34mSELECT "pieces".* FROM "pieces" INNER JOIN "mastery_tracks" ON "pieces"."id" = "mastery_tracks"."piece_id" INNER JOIN "instruments" ON "mastery_tracks"."instrument_id" = "instruments"."id" WHERE "instruments"."musician_id" = $1[0m  [["musician_id", 2]]
+  ↳ app/views/musicians/show.html.erb:12
+  Rendered musicians/show.html.erb within layouts/application (Duration: 81.3ms | Allocations: 5540)
+Completed 200 OK in 316ms (Views: 37.2ms | ActiveRecord: 59.1ms | Allocations: 22433)
+
+
+Started GET "/musicians/2" for ::1 at 2019-10-31 22:51:24 -0400
+  
+SyntaxError (/home/jason/learning-dev/learn-co/rails/project/music_mastery/config/routes.rb:11: syntax error, unexpected tIDENTIFIER, expecting end
+...out', to: 'sessions#destroy' as: 'logout'
+...                             ^~):
+  
+config/routes.rb:11: syntax error, unexpected tIDENTIFIER, expecting end
+config/routes.rb:11: syntax error, unexpected tIDENTIFIER, expecting end
+config/routes.rb:11: syntax error, unexpected tIDENTIFIER, expecting end
+Started GET "/musicians/2" for ::1 at 2019-10-31 22:51:41 -0400
+  
+ArgumentError (Invalid route name, already in use: 'logout' 
+You may have defined two routes with the same name using the `:as` option, or you may be overriding a route already defined by a resource with the same naming. For the latter, you can restrict the routes created with `resources` as explained here: 
+https://guides.rubyonrails.org/routing.html#restricting-the-routes-created):
+  
+config/routes.rb:11:in `block in <main>'
+config/routes.rb:1:in `<main>'
+Started GET "/musicians/2" for ::1 at 2019-10-31 22:51:58 -0400
+Processing by MusiciansController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mMusician Load (0.3ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/musicians_controller.rb:31:in `set_musician'
+  Rendering musicians/show.html.erb within layouts/application
+  [1m[36mInstrument Load (0.3ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" WHERE "instruments"."musician_id" = $1[0m  [["musician_id", 2]]
+  ↳ app/views/musicians/show.html.erb:3
+  [1m[36mPiece Load (0.5ms)[0m  [1m[34mSELECT "pieces".* FROM "pieces" INNER JOIN "mastery_tracks" ON "pieces"."id" = "mastery_tracks"."piece_id" INNER JOIN "instruments" ON "mastery_tracks"."instrument_id" = "instruments"."id" WHERE "instruments"."musician_id" = $1[0m  [["musician_id", 2]]
+  ↳ app/views/musicians/show.html.erb:12
+  Rendered musicians/show.html.erb within layouts/application (Duration: 17.1ms | Allocations: 4702)
+Completed 200 OK in 74ms (Views: 20.3ms | ActiveRecord: 14.2ms | Allocations: 25210)
+
+
+Started GET "/logout" for ::1 at 2019-10-31 22:52:04 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/logout"):
+  
+actionpack (6.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.0.7) lib/webpacker/dev_server_proxy.rb:29:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.0) lib/rails/engine.rb:526:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/logout" for ::1 at 2019-10-31 22:52:15 -0400
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/welcome/home
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 282)
+
+
+Started GET "/welcome/home" for ::1 at 2019-10-31 22:52:15 -0400
+Processing by WelcomeController#home as HTML
+  Rendering welcome/home.html.erb within layouts/application
+  Rendered welcome/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 76)
+Completed 200 OK in 10ms (Views: 9.4ms | ActiveRecord: 0.0ms | Allocations: 8774)
+
+
+Started GET "/musicians/2" for ::1 at 2019-10-31 22:52:28 -0400
+Processing by MusiciansController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mMusician Load (0.4ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/musicians_controller.rb:31:in `set_musician'
+  Rendering musicians/show.html.erb within layouts/application
+  [1m[36mInstrument Load (0.4ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" WHERE "instruments"."musician_id" = $1[0m  [["musician_id", 2]]
+  ↳ app/views/musicians/show.html.erb:3
+  [1m[36mPiece Load (0.5ms)[0m  [1m[34mSELECT "pieces".* FROM "pieces" INNER JOIN "mastery_tracks" ON "pieces"."id" = "mastery_tracks"."piece_id" INNER JOIN "instruments" ON "mastery_tracks"."instrument_id" = "instruments"."id" WHERE "instruments"."musician_id" = $1[0m  [["musician_id", 2]]
+  ↳ app/views/musicians/show.html.erb:12
+  Rendered musicians/show.html.erb within layouts/application (Duration: 15.8ms | Allocations: 4693)
+Completed 200 OK in 55ms (Views: 17.6ms | ActiveRecord: 15.8ms | Allocations: 25137)
+
+
+Started GET "/musicians/2" for ::1 at 2019-10-31 22:55:08 -0400
+Processing by MusiciansController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mMusician Load (0.5ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/musicians_controller.rb:33:in `set_musician'
+Redirected to http://localhost:3000/welcome/home
+Completed 302 Found in 22ms (ActiveRecord: 6.6ms | Allocations: 6841)
+
+
+Started GET "/welcome/home" for ::1 at 2019-10-31 22:55:08 -0400
+Processing by WelcomeController#home as HTML
+  Rendering welcome/home.html.erb within layouts/application
+  Rendered welcome/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 76)
+Completed 200 OK in 16ms (Views: 15.0ms | ActiveRecord: 0.0ms | Allocations: 8771)
+
+
+Started GET "/musicians/2" for ::1 at 2019-10-31 22:55:28 -0400
+Processing by MusiciansController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mMusician Load (0.5ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/musicians_controller.rb:33:in `set_musician'
+Redirected to http://localhost:3000/welcome/home
+Completed 302 Found in 3ms (ActiveRecord: 0.5ms | Allocations: 824)
+
+
+Started GET "/welcome/home" for ::1 at 2019-10-31 22:55:28 -0400
+Processing by WelcomeController#home as HTML
+  Rendering welcome/home.html.erb within layouts/application
+  Rendered welcome/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 69)
+Completed 200 OK in 12ms (Views: 11.7ms | ActiveRecord: 0.0ms | Allocations: 8606)
+
+
+Started GET "/welcome/home" for ::1 at 2019-10-31 23:06:01 -0400
+Processing by WelcomeController#home as HTML
+  Rendering welcome/home.html.erb within layouts/application
+  Rendered welcome/home.html.erb within layouts/application (Duration: 0.2ms | Allocations: 76)
+Completed 200 OK in 11ms (Views: 10.1ms | ActiveRecord: 0.0ms | Allocations: 8759)
+
+
+Started GET "/musicians/2" for ::1 at 2019-10-31 23:06:08 -0400
+Processing by MusiciansController#show as HTML
+  Parameters: {"id"=>"2"}
+Redirected to http://localhost:3000/welcome/home
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 279)
+
+
+Started GET "/welcome/home" for ::1 at 2019-10-31 23:06:08 -0400
+Processing by WelcomeController#home as HTML
+  Rendering welcome/home.html.erb within layouts/application
+  Rendered welcome/home.html.erb within layouts/application (Duration: 0.2ms | Allocations: 70)
+Completed 200 OK in 11ms (Views: 10.0ms | ActiveRecord: 0.0ms | Allocations: 8610)
+
+
+Started GET "/login" for ::1 at 2019-10-31 23:06:13 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 2.5ms | Allocations: 956)
+Completed 200 OK in 16ms (Views: 14.8ms | ActiveRecord: 0.0ms | Allocations: 9649)
+
+
+Started POST "/login" for ::1 at 2019-10-31 23:06:18 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"NPe7qHT+rs9tkos2y9RCXisfyDmr5DGZ5YXMIZPdhgyVON+3BplQPA2X1kbtC4zHUK2IZmfUGRNknNSCR52Kvg==", "session"=>{"user_name"=>"j", "password"=>"[FILTERED]"}, "commit"=>"Log In"}
+  [1m[36mMusician Load (0.3ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."user_name" = $1 LIMIT $2[0m  [["user_name", "j"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `create'
+Redirected to http://localhost:3000/musicians/2
+Completed 302 Found in 367ms (ActiveRecord: 0.5ms | Allocations: 6787)
+
+
+Started GET "/musicians/2" for ::1 at 2019-10-31 23:06:18 -0400
+Processing by MusiciansController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mMusician Load (0.5ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_musician'
+  Rendering musicians/show.html.erb within layouts/application
+  [1m[36mInstrument Load (0.5ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" WHERE "instruments"."musician_id" = $1[0m  [["musician_id", 2]]
+  ↳ app/views/musicians/show.html.erb:3
+  Rendered musicians/show.html.erb within layouts/application (Duration: 10.5ms | Allocations: 1330)
+Completed 200 OK in 28ms (Views: 17.1ms | ActiveRecord: 6.3ms | Allocations: 12459)
+
+
+Started GET "/instruments/new" for ::1 at 2019-10-31 23:06:24 -0400
+  
+AbstractController::ActionNotFound (The action 'new' could not be found for InstrumentsController):
+  
+actionpack (6.0.0) lib/abstract_controller/base.rb:131:in `process'
+actionview (6.0.0) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.0.0) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (6.0.0) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (6.0.0) lib/action_dispatch/routing/route_set.rb:51:in `dispatch'
+actionpack (6.0.0) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.0) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.0) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.0) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.0) lib/action_dispatch/routing/route_set.rb:837:in `call'
+rack (2.0.7) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.7) lib/rack/etag.rb:25:in `call'
+rack (2.0.7) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.7) lib/rack/head.rb:12:in `call'
+actionpack (6.0.0) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.7) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.7) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/cookies.rb:648:in `call'
+activerecord (6.0.0) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.0) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.0) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.0.7) lib/webpacker/dev_server_proxy.rb:29:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.0) lib/rails/engine.rb:526:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/musicians/2" for ::1 at 2019-10-31 23:06:30 -0400
+Processing by MusiciansController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mMusician Load (0.5ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_musician'
+  Rendering musicians/show.html.erb within layouts/application
+  [1m[36mInstrument Load (0.3ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" WHERE "instruments"."musician_id" = $1[0m  [["musician_id", 2]]
+  ↳ app/views/musicians/show.html.erb:3
+  Rendered musicians/show.html.erb within layouts/application (Duration: 2.2ms | Allocations: 753)
+Completed 200 OK in 16ms (Views: 12.8ms | ActiveRecord: 0.9ms | Allocations: 9847)
+
+
+Started GET "/login" for ::1 at 2019-10-31 23:06:39 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.9ms | Allocations: 445)
+Completed 200 OK in 11ms (Views: 10.2ms | ActiveRecord: 0.0ms | Allocations: 8991)
+
+
+Started GET "/welcome/home" for ::1 at 2019-10-31 23:06:40 -0400
+Processing by WelcomeController#home as HTML
+  Rendering welcome/home.html.erb within layouts/application
+  Rendered welcome/home.html.erb within layouts/application (Duration: 0.2ms | Allocations: 69)
+Completed 200 OK in 10ms (Views: 9.7ms | ActiveRecord: 0.0ms | Allocations: 8606)
+
+
+Started GET "/welcome/home" for ::1 at 2019-10-31 23:07:30 -0400
+Processing by WelcomeController#home as HTML
+  Rendering welcome/home.html.erb within layouts/application
+  Rendered welcome/home.html.erb within layouts/application (Duration: 0.2ms | Allocations: 76)
+Completed 200 OK in 10ms (Views: 9.5ms | ActiveRecord: 0.0ms | Allocations: 8759)
+
+
+Started GET "/welcome/home" for ::1 at 2019-10-31 23:07:32 -0400
+Processing by WelcomeController#home as HTML
+  Rendering welcome/home.html.erb within layouts/application
+  Rendered welcome/home.html.erb within layouts/application (Duration: 0.5ms | Allocations: 69)
+Completed 200 OK in 35ms (Views: 33.2ms | ActiveRecord: 0.0ms | Allocations: 8610)
+
+
+Started GET "/welcome/home" for ::1 at 2019-10-31 23:07:32 -0400
+Processing by WelcomeController#home as HTML
+  Rendering welcome/home.html.erb within layouts/application
+  Rendered welcome/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 69)
+Completed 200 OK in 12ms (Views: 11.5ms | ActiveRecord: 0.0ms | Allocations: 8614)
+
+
+Started GET "/welcome/home" for ::1 at 2019-10-31 23:07:33 -0400
+Processing by WelcomeController#home as HTML
+  Rendering welcome/home.html.erb within layouts/application
+  Rendered welcome/home.html.erb within layouts/application (Duration: 0.2ms | Allocations: 69)
+Completed 200 OK in 11ms (Views: 10.8ms | ActiveRecord: 0.0ms | Allocations: 8614)
+
+
+Started GET "/welcome/home" for ::1 at 2019-10-31 23:07:33 -0400
+Processing by WelcomeController#home as HTML
+  Rendering welcome/home.html.erb within layouts/application
+  Rendered welcome/home.html.erb within layouts/application (Duration: 0.4ms | Allocations: 69)
+Completed 200 OK in 13ms (Views: 11.8ms | ActiveRecord: 0.0ms | Allocations: 8608)
+
+
+Started GET "/welcome/home" for ::1 at 2019-10-31 23:08:34 -0400
+Processing by WelcomeController#home as HTML
+  [1m[36mMusician Load (0.4ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_musician'
+Redirected to http://localhost:3000/musicians/2
+Completed 302 Found in 21ms (ActiveRecord: 8.3ms | Allocations: 6782)
+
+
+Started GET "/musicians/2" for ::1 at 2019-10-31 23:08:34 -0400
+Processing by MusiciansController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mMusician Load (0.5ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_musician'
+  Rendering musicians/show.html.erb within layouts/application
+  [1m[36mInstrument Load (0.4ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" WHERE "instruments"."musician_id" = $1[0m  [["musician_id", 2]]
+  ↳ app/views/musicians/show.html.erb:3
+  Rendered musicians/show.html.erb within layouts/application (Duration: 5.3ms | Allocations: 1281)
+Completed 200 OK in 19ms (Views: 11.0ms | ActiveRecord: 3.4ms | Allocations: 12307)
+
+
+Started GET "/signup" for ::1 at 2019-10-31 23:08:44 -0400
+Processing by MusiciansController#new as HTML
+  Rendering musicians/new.html.erb within layouts/application
+  Rendered musicians/new.html.erb within layouts/application (Duration: 137.8ms | Allocations: 8874)
+Completed 200 OK in 148ms (Views: 144.1ms | ActiveRecord: 2.9ms | Allocations: 17489)
+
+
+Started GET "/signup" for ::1 at 2019-10-31 23:09:30 -0400
+Processing by MusiciansController#new as HTML
+  [1m[36mMusician Load (0.5ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_musician'
+Redirected to http://localhost:3000/musicians/2
+Completed 302 Found in 17ms (ActiveRecord: 5.8ms | Allocations: 6772)
+
+
+Started GET "/musicians/2" for ::1 at 2019-10-31 23:09:30 -0400
+Processing by MusiciansController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mMusician Load (0.5ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_musician'
+  Rendering musicians/show.html.erb within layouts/application
+  [1m[36mInstrument Load (0.4ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" WHERE "instruments"."musician_id" = $1[0m  [["musician_id", 2]]
+  ↳ app/views/musicians/show.html.erb:3
+  Rendered musicians/show.html.erb within layouts/application (Duration: 6.3ms | Allocations: 1280)
+Completed 200 OK in 40ms (Views: 33.0ms | ActiveRecord: 2.9ms | Allocations: 12302)
+
+
+Started GET "/login" for ::1 at 2019-10-31 23:09:42 -0400
+Processing by SessionsController#new as HTML
+  [1m[36mMusician Load (0.3ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_musician'
+Redirected to http://localhost:3000/musicians/2
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms | Allocations: 813)
+
+
+Started GET "/musicians/2" for ::1 at 2019-10-31 23:09:42 -0400
+Processing by MusiciansController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mMusician Load (0.3ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_musician'
+  Rendering musicians/show.html.erb within layouts/application
+  [1m[36mInstrument Load (0.4ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" WHERE "instruments"."musician_id" = $1[0m  [["musician_id", 2]]
+  ↳ app/views/musicians/show.html.erb:3
+  Rendered musicians/show.html.erb within layouts/application (Duration: 3.3ms | Allocations: 753)
+Completed 200 OK in 16ms (Views: 13.7ms | ActiveRecord: 0.7ms | Allocations: 9849)
+
+
+Started GET "/musicians/2" for ::1 at 2019-10-31 23:11:52 -0400
+Processing by MusiciansController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mMusician Load (0.3ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_musician'
+  Rendering musicians/show.html.erb within layouts/application
+  [1m[36mInstrument Load (0.4ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" WHERE "instruments"."musician_id" = $1[0m  [["musician_id", 2]]
+  ↳ app/views/musicians/show.html.erb:3
+  Rendered musicians/show.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1107)
+Completed 500 Internal Server Error in 262ms (ActiveRecord: 0.7ms | Allocations: 129670)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `current_user' for #<#<Class:0x00007fe145f84c00>:0x00007fe145f8a6c8>
+Did you mean?  current_musician):
+     8:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     9:     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    10:     <nav>
+    11:       <%= current_user.user_name %>
+    12:     </nav>
+    13:   </head>
+    14: 
+  
+app/views/layouts/application.html.erb:11
+Started GET "/musicians/2" for ::1 at 2019-10-31 23:12:06 -0400
+Processing by MusiciansController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mMusician Load (0.3ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_musician'
+  Rendering musicians/show.html.erb within layouts/application
+  [1m[36mInstrument Load (0.2ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" WHERE "instruments"."musician_id" = $1[0m  [["musician_id", 2]]
+  ↳ app/views/musicians/show.html.erb:3
+  Rendered musicians/show.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1104)
+  [1m[36mCACHE Musician Load (0.0ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_musician'
+Completed 200 OK in 19ms (Views: 16.2ms | ActiveRecord: 0.6ms | Allocations: 11433)
+
+
+Started GET "/musicians/2" for ::1 at 2019-10-31 23:13:12 -0400
+Processing by MusiciansController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mMusician Load (0.2ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_musician'
+  Rendering musicians/show.html.erb within layouts/application
+  [1m[36mInstrument Load (0.2ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" WHERE "instruments"."musician_id" = $1[0m  [["musician_id", 2]]
+  ↳ app/views/musicians/show.html.erb:3
+  Rendered musicians/show.html.erb within layouts/application (Duration: 5.1ms | Allocations: 1624)
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 7.1ms | Allocations: 11921)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <!DOCTYPE html>
+<html>
+  <head>
+    <title>MusicMastery</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <nav>
+      <% if logged_in %>
+        <%= link_to "LOG OUT, logout_path  %>
+      <% end %>
+    </nav>
+  </head>
+
+  <body>
+    <%= yield %>
+  </body>
+</html>
+
+):
+1:    <!DOCTYPE html>
+2:    <html>
+3:      <head>
+4:        <title>MusicMastery</title>
+5:        <%= csrf_meta_tags %>
+6:        <%= csp_meta_tag %>
+7:    
+8:        <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+9:        <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+10:        <nav>
+11:          <% if logged_in %>
+12:            <%= link_to "LOG OUT, logout_path  %>
+13:          <% end %>
+14:        </nav>
+15:      </head>
+16:    
+17:      <body>
+18:        <%= yield %>
+19:      </body>
+20:    </html>
+  
+app/views/layouts/application.html.erb:23: unterminated string meets end of file
+app/views/layouts/application.html.erb:23: syntax error, unexpected end-of-input, expecting ')'
+app/views/layouts/application.html.erb:23: unterminated string meets end of file
+app/views/layouts/application.html.erb:23: syntax error, unexpected end-of-input, expecting ')'
+app/views/layouts/application.html.erb:23: unterminated string meets end of file
+app/views/layouts/application.html.erb:23: syntax error, unexpected end-of-input, expecting ')'
+app/views/layouts/application.html.erb:23: unterminated string meets end of file
+app/views/layouts/application.html.erb:23: syntax error, unexpected end-of-input, expecting ')'
+app/views/layouts/application.html.erb:23: unterminated string meets end of file
+app/views/layouts/application.html.erb:23: syntax error, unexpected end-of-input, expecting ')'
+app/views/layouts/application.html.erb:23: unterminated string meets end of file
+app/views/layouts/application.html.erb:23: syntax error, unexpected end-of-input, expecting ')'
+Started GET "/musicians/2" for ::1 at 2019-10-31 23:13:29 -0400
+Processing by MusiciansController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mMusician Load (0.3ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_musician'
+  Rendering musicians/show.html.erb within layouts/application
+  [1m[36mInstrument Load (0.2ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" WHERE "instruments"."musician_id" = $1[0m  [["musician_id", 2]]
+  ↳ app/views/musicians/show.html.erb:3
+  Rendered musicians/show.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1102)
+Completed 200 OK in 15ms (Views: 12.8ms | ActiveRecord: 0.5ms | Allocations: 11026)
+
+
+Started GET "/logout" for ::1 at 2019-10-31 23:13:32 -0400
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/welcome/home
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 284)
+
+
+Started GET "/welcome/home" for ::1 at 2019-10-31 23:13:32 -0400
+Processing by WelcomeController#home as HTML
+  Rendering welcome/home.html.erb within layouts/application
+  Rendered welcome/home.html.erb within layouts/application (Duration: 0.5ms | Allocations: 199)
+Completed 200 OK in 11ms (Views: 9.9ms | ActiveRecord: 0.0ms | Allocations: 9144)
+
+
+Started GET "/musicians/2" for ::1 at 2019-10-31 23:13:37 -0400
+Processing by MusiciansController#show as HTML
+  Parameters: {"id"=>"2"}
+Redirected to http://localhost:3000/welcome/home
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 270)
+
+
+Started GET "/welcome/home" for ::1 at 2019-10-31 23:13:37 -0400
+Processing by WelcomeController#home as HTML
+  Rendering welcome/home.html.erb within layouts/application
+  Rendered welcome/home.html.erb within layouts/application (Duration: 0.2ms | Allocations: 69)
+Completed 200 OK in 11ms (Views: 10.7ms | ActiveRecord: 0.0ms | Allocations: 8612)
+
+
+Started GET "/signup" for ::1 at 2019-10-31 23:13:44 -0400
+Processing by MusiciansController#new as HTML
+  Rendering musicians/new.html.erb within layouts/application
+  Rendered musicians/new.html.erb within layouts/application (Duration: 16.6ms | Allocations: 7948)
+Completed 200 OK in 27ms (Views: 23.9ms | ActiveRecord: 1.9ms | Allocations: 16552)
+
+
+Started GET "/login" for ::1 at 2019-10-31 23:13:48 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 2.7ms | Allocations: 663)
+Completed 200 OK in 16ms (Views: 15.0ms | ActiveRecord: 0.0ms | Allocations: 9593)
+
+

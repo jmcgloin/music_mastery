@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get 'welcome/home', to: 'welcome#home', as: 'welcome'
   get '/login', to: 'sessions#new', as: 'login'
   post '/login', to: 'sessions#create'
-  post '/logout', to: 'sessions#destroy'
+  get '/logout', to: 'sessions#destroy', as: 'logout'
   get '/signup', to: 'musicians#new', as: 'signup'
   post '/signup', to: 'musicians#create'
 

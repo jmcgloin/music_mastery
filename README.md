@@ -2,10 +2,16 @@ TODO:
 
 NEXT:
 
+
+Log out
+- write sessions#destroy
+- redirect to welcome#home on log out
+- add restrictions from accessing pages when not logged in
+- add restrictions from accession pages user doesn't own/shouldn't have access to
+- add basic nav bar to  application view, with logged in condition
+
+
 Log In
-- correct new password field
-- build sessions#create to redirect  or render on authentication
-- strong params
 
 
 Sign up
@@ -20,6 +26,9 @@ X- correct path in welcome/home view
 X- wire up sessions#new
 X- write sessions/new view with log in form
 X- make sessions#create with a pry
+- correct new password field
+- build sessions#create to redirect  or render on authentication
+- strong params
 
 Home page
 X- wire up welcome#home

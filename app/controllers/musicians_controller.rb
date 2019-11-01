@@ -1,7 +1,11 @@
 class MusiciansController < ApplicationController
-	before_action :set_musician, only: [:show]
+	
 	def new
-		@musician = Musician.new
+		if logged_in
+      redirect_to musician_path(current_musician)
+    else
+    	@musician = Musician.new
+    end
 	end
 
 	def create
@@ -15,20 +19,18 @@ class MusiciansController < ApplicationController
 	end
 
 	def show
-		#  add validation that ensures only logged  in musician can see only their page
-		@instruments = @musician.instruments
-		@pieces = @musician.pieces
-		# binding.pry
+		@musician = current_musician
+		if !!@musician
+			@instruments = @musician.instruments
+		else
+			redirect_to welcome_path
+		end
 	end
 
 	private
 
 	def musician_params
 		params.require(:musician).permit(:user_name, :email, :password, :password_confirmation)
-	end
-
-	def set_musician
-		@musician = Musician.find_by(id: params[:id])
 	end
 
 end

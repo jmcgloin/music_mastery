@@ -1,5 +1,8 @@
 class SessionsController < ApplicationController
   def new
+    if logged_in
+      redirect_to musician_path(current_musician)
+    end
   end
 
   def create
@@ -10,6 +13,11 @@ class SessionsController < ApplicationController
   	else
   		render :new # add flash message about errors
   	end
+  end
+
+  def destroy
+    session.clear
+    redirect_to welcome_path
   end
 
   private
