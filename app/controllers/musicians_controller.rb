@@ -5,10 +5,12 @@ class MusiciansController < ApplicationController
       redirect_to musician_path(current_musician)
     else
     	@musician = Musician.new
+    	@musician.instruments.build()
     end
 	end
 
 	def create
+		binding.pry
 		@musician = Musician.new(musician_params)
 		
 		if @musician.save
@@ -33,7 +35,7 @@ class MusiciansController < ApplicationController
 	def musician_params
 		# binding.pry
 		params.require(:musician).permit(:user_name, :email, :password, :password_confirmation,
-			instrument: [:instrument_type, :instrument_category, :tuning])
+			instruments_attributes: [:instrument_type, :instrument_category, :tuning])
 	end
 
 end

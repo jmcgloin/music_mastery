@@ -15,7 +15,7 @@
 	<%= f.password_field :password, require: true %>
 	<%= f.label :password_confirmation %>
 	<%= f.password_field :password_confirmation, require: true %>
-	<%= f.fields_for @musician.instruments.build() do  |instruments_fields| %>
+	<%= f.fields_for :instruments do  |instruments_fields| %>
 		<%= instruments_fields.label :instrument_type %>
 		<%= instruments_fields.text_field :instrument_type %>
 		<%= instruments_fields.label :instrument_category %>
