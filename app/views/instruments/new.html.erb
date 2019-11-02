@@ -1,0 +1,11 @@
+<h1>Add an instrument</h1>
+<%= form_for(@instrument) do |f| %>
+	<%= f.hidden_field :musician_id, value: @musician.id %>
+	<%= f.label :instrument_type %>
+	<%= f.text_field :instrument_type %>
+	<%= f.label :instrument_category %>
+	<%= f.select :instrument_category, Instrument.all_families %>
+	<%= f.label :tuning %>
+	<%= f.select :tuning, Instrument.all_tunings, selected: "C(+0)" %>
+	<%= f.submit  %>
+<% end %>

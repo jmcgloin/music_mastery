@@ -4,7 +4,14 @@ NEXT:
 
 New instrument
 X- first instrument via new musician sign up page
-- additional instrument create by link to  nested route through musician
+X- additional instrument create by link to  nested route through musician
+- create instrument show view to include
+- - attributes about the instrument
+- - a link to add a piece
+- - a list of associated pieces
+- - a mastery indicator to identify whether pieces have active mastery tracks or not and what level if so
+- create instrument new view
+
 - instrument show page to create mastery track for existing piece (will  need to  create pieces  before this)
 
 
