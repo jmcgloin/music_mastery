@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_31_172509) do
+ActiveRecord::Schema.define(version: 2019_11_02_031305) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 2019_10_31_172509) do
 
   create_table "transpositions", force: :cascade do |t|
     t.string "instrument"
-    t.string "tuning"
+    t.string "key"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
