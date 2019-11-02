@@ -2,9 +2,11 @@ TODO:
 
 NEXT:
 
-X- delete sessions/create view
-- install flash
-- set up error messages for log in and sign up
+New instrument
+- first instrument via new musician sign up page
+- additional instrument create by link to  nested route through musician
+- instrument show page to create mastery track for existing piece (will  need to  create pieces  before this)
+
 
 Log In
 
@@ -15,6 +17,10 @@ Sign up
 
 
 DONE:
+
+X- delete sessions/create view
+X- install flash
+X- set up error messages for log in and sign up
 
 Log out
 X- write sessions#destroy

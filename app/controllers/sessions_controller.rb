@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   def new
+    binding.pry
     if logged_in
       redirect_to musician_path(current_musician)
     end

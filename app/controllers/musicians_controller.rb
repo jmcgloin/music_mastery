@@ -10,6 +10,7 @@ class MusiciansController < ApplicationController
 
 	def create
 		@musician = Musician.new(musician_params)
+		
 		if @musician.save
 			session[:musician_id] = @musician.id
 			redirect_to musician_path(@musician)
@@ -30,7 +31,9 @@ class MusiciansController < ApplicationController
 	private
 
 	def musician_params
-		params.require(:musician).permit(:user_name, :email, :password, :password_confirmation)
+		# binding.pry
+		params.require(:musician).permit(:user_name, :email, :password, :password_confirmation,
+			instrument: [:instrument_type, :instrument_category, :tuning])
 	end
 
 end

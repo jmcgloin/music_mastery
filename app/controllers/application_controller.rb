@@ -6,7 +6,11 @@ class ApplicationController < ActionController::Base
 	end
 
 	def current_musician
-		logged_in ? Musician.find_by(id: session[:musician_id]) : nil
+		musician = logged_in ? Musician.find_by(id: session[:musician_id]) : nil
+		if !musician
+			session.clear
+		end
+		musician
 	end	
 
 end
