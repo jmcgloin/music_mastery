@@ -2,11 +2,11 @@
 <h2>Your instruments</h2>
 <% if @instruments.present? %>
 	<% @instruments.each do |instrument| %>
-		<%= link_to "#{instrument.instrument_type} | #{instrument.instrument_category} | #{instrument.tuning}", instrument_path(instrument) %> <!-- add in ordering by instrument category -->
+		<p><%= link_to "#{instrument.instrument_type} | #{instrument.instrument_category} | #{instrument.tuning}", instrument_path(instrument) %> <!-- add in ordering by instrument category --></p>
 	<% end %>
-	<% link_to "Add another instrument", new_instrument_path  %>
+	<%= link_to "Add another instrument", new_musician_instrument_path(@musician)  %>
 <% else %>
-	<p>You do not have any instruments, <%= link_to "click here", new_instrument_path %> to add one.</p>
+	<p>You do not have any instruments, <%= link_to "click here", new_musician_instrument_path(@musician) %> to add one.</p>
 <% end %>
 
 <% if @pieces.present? %>

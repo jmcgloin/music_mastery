@@ -3,7 +3,7 @@ TODO:
 NEXT:
 
 New instrument
-- first instrument via new musician sign up page
+X- first instrument via new musician sign up page
 - additional instrument create by link to  nested route through musician
 - instrument show page to create mastery track for existing piece (will  need to  create pieces  before this)
 
