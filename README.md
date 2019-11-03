@@ -10,7 +10,8 @@ X- additional instrument create by link to  nested route through musician
 - - a link to add a piece
 - - a list of associated pieces
 - - a mastery indicator to identify whether pieces have active mastery tracks or not and what level if so
-- create instrument new view
+X- create instrument new view
+S- instrument#create to  create  new instrument and associate with musician
 
 - instrument show page to create mastery track for existing piece (will  need to  create pieces  before this)
 

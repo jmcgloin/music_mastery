@@ -9,7 +9,19 @@ class InstrumentsController < ApplicationController
 	end
 
 	def create
-		binding.pry
+		if instrument_params[:musician_id] = session[:musician_id]
+			@instrument = Instrument.new(instrument_params)
+			@instrument.save && (redirect_to musician_path(session[:musician_id]) and return)
+			render :new, flash[:alert] = @instrument.errors.full_messages.first
+		else
+			redirect_to welcome_path
+		end
+	end
+
+	private
+
+	def instrument_params
+		params.require(:instrument).permit(:musician_id, :instrument_type, :instrument_category, :tuning)
 	end
 
 end
