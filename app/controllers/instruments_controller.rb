@@ -2,7 +2,6 @@ class InstrumentsController < ApplicationController
 
 	def new
 		authorized?(params[:musician_id])
-		binding.pry
 		@instrument = Instrument.new
 		@musician = Musician.find_by(id: params[:musician_id])
 	end
@@ -10,8 +9,10 @@ class InstrumentsController < ApplicationController
 	def create
 		if authorized?(instrument_params[:musician_id])
 			@instrument = Instrument.new(instrument_params)
-			@instrument.save && (redirect_to(musician_path(@instrument.musician_id)) and return)
-			render :new, flash[:alert] = @instrument.errors.full_messages.first
+			@musician = @instrument.musician
+			@instrument.save && (redirect_to(musician_path(@musician)) and return)
+			flash[:alert] = @instrument.errors.full_messages.first
+			render :new and return
 		else
 			redirect_to welcome_path
 		end

@@ -1,0 +1,17 @@
+<h1>Create a new piece</h1>
+<%= form_for(@piece) do |f| %>
+	<%= f.label :title %>
+	<%= f.text_field :title %>
+	<%= f.label :composer %>
+	<%= f.text_field :composer %>
+	<%= f.label :key_signature %>
+	<%= f.text_field :key_signature %>
+	<%= f.label :time_signature %>
+	<%= f.text_field :time_signature %>
+	<%= f.label :tempo %>
+	<%= f.text_field :tempo %>
+	<%= f.label :difficulty %>
+	<%= f.select :difficulty, (1..10).map{ |i| [i]} %>
+	
+	<%= f.submit "Create"%>
+<% end %>

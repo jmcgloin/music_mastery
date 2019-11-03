@@ -8,18 +8,20 @@ Rails.application.routes.draw do
   get '/logout', to: 'sessions#destroy', as: 'logout'
   get '/signup', to: 'musicians#new', as: 'signup'
   post '/signup', to: 'musicians#create'
+  get '/instrument/:instrument_id/pieces', to: 'pieces#instrument', as: 'piece_instrument'
 
   resources :instruments do
-    resources :pieces, only: [:show, :new]
     resources :mastery_tracks, only: [:show, :new]
   end
-  resources :mastery_tracks
-  resources :pieces
-  resources :musicians do
-  	resources :instruments, only: [:show, :new]
-    resources :pieces, only: [:show, :new]
+
+  resources :mastery_tracks do
+    resources :pieces, only: [:new, :show]
   end
 
+  resources :pieces
 
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  resources :musicians do
+  	resources :instruments, only: [:show, :new]
+  end
+
 end
