@@ -1,1 +1,14 @@
-<h1>@instrument.instrument_type</h1>
+<h1><%= @instrument.instrument_type %></h1>
+<h2>About this instrument</h2>
+<p>It is a member of the <%= @instrument.instrument_category %> family and is in the key of <%= @instrument.tuning %></p>
+<% if @pieces.present? %>
+	<h2>Your sheet music for this instrument</h2>
+	<% @pieces.each do |piece| %>
+		<p><%= link_to "#{piece.title} by #{piece.composer}", piece_path(piece) %>
+			<%= MasteryTrack.mastery_of(piece, @instrument)&.levle_of_mastery || "No track started" %>
+		</p>
+	<% end %>
+	<p><%= link_to 'Click here', new_instrument_piece_path(@instrument) %> to add some more.</p>
+<% else %>
+	<h2>You don't have any sheet music for this instrument. <%= link_to 'Click here', new_instrument_piece_path(@instrument) %> to add some.</h2>
+<% end %>

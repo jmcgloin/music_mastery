@@ -4158,3 +4158,740 @@ Processing by WelcomeController#home as HTML
 Completed 200 OK in 11ms (Views: 10.0ms | ActiveRecord: 0.0ms | Allocations: 9151)
 
 
+  [1m[36mMusician Load (0.5ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" ORDER BY "musicians"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+Started GET "/login" for ::1 at 2019-11-02 23:37:53 -0400
+Processing by SessionsController#new as HTML
+Started GET "/login" for ::1 at 2019-11-02 23:38:53 -0400
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.8ms | Allocations: 1194)
+Completed 200 OK in 124114ms (Views: 13.7ms | ActiveRecord: 0.0ms | Allocations: 20727)
+
+
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.3ms | Allocations: 976)
+Completed 200 OK in 11ms (Views: 10.8ms | ActiveRecord: 0.0ms | Allocations: 9661)
+
+
+Started POST "/login" for ::1 at 2019-11-02 23:40:04 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"UnmywZR7hJNBUIUQTtZRA9d5e8PnjuIehCld9IX+grKUs7FS2ENM/7IO1Mfd7eXJRwKRTK/dztG8H/9oCnP23Q==", "session"=>{"user_name"=>"j", "password"=>"[FILTERED]"}, "commit"=>"Log In"}
+  [1m[36mMusician Load (0.4ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."user_name" = $1 LIMIT $2[0m  [["user_name", "j"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:9:in `create'
+Completed 500 Internal Server Error in 373ms (ActiveRecord: 6.7ms | Allocations: 7460)
+
+
+  
+TypeError (no implicit conversion of Symbol into Integer):
+  
+app/controllers/sessions_controller.rb:14:in `create'
+Started POST "/login" for ::1 at 2019-11-02 23:41:08 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"UnmywZR7hJNBUIUQTtZRA9d5e8PnjuIehCld9IX+grKUs7FS2ENM/7IO1Mfd7eXJRwKRTK/dztG8H/9oCnP23Q==", "session"=>{"user_name"=>"j", "password"=>"[FILTERED]"}, "commit"=>"Log In"}
+  [1m[36mMusician Load (0.4ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."user_name" = $1 LIMIT $2[0m  [["user_name", "j"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:9:in `create'
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.3ms | Allocations: 1025)
+Completed 200 OK in 389ms (Views: 10.9ms | ActiveRecord: 7.2ms | Allocations: 16379)
+
+
+Started POST "/login" for ::1 at 2019-11-02 23:41:13 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"wtkV0PLq+l1P4WHPZCaoMsl4fGyZAAmPTbirxKH7/uEEExZDvtIyMby/MBj3HRz4WQOW49FTJUB1jglYLnaKjg==", "session"=>{"user_name"=>"j", "password"=>"[FILTERED]"}, "commit"=>"Log In"}
+  [1m[36mMusician Load (0.6ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."user_name" = $1 LIMIT $2[0m  [["user_name", "j"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:9:in `create'
+Redirected to http://localhost:3000/musicians/5
+Completed 302 Found in 354ms (ActiveRecord: 0.6ms | Allocations: 977)
+
+
+Started GET "/musicians/5" for ::1 at 2019-11-02 23:41:14 -0400
+Processing by MusiciansController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mMusician Load (0.6ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_musician'
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.6ms | Allocations: 2143)
+
+
+  
+SyntaxError (/home/jason/learning-dev/learn-co/rails/project/music_mastery/app/models/instrument.rb:20: syntax error, unexpected end-of-input, expecting end):
+  
+app/models/instrument.rb:20: syntax error, unexpected end-of-input, expecting end
+app/models/instrument.rb:20: syntax error, unexpected end-of-input, expecting end
+app/models/instrument.rb:20: syntax error, unexpected end-of-input, expecting end
+app/controllers/musicians_controller.rb:26:in `show'
+Started GET "/musicians/5" for ::1 at 2019-11-02 23:41:39 -0400
+Processing by MusiciansController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mMusician Load (0.5ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_musician'
+  Rendering musicians/show.html.erb within layouts/application
+  [1m[36mInstrument Load (0.6ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" WHERE "instruments"."musician_id" = $1[0m  [["musician_id", 5]]
+  ↳ app/views/musicians/show.html.erb:3
+  Rendered musicians/show.html.erb within layouts/application (Duration: 7.5ms | Allocations: 1658)
+Completed 200 OK in 42ms (Views: 16.7ms | ActiveRecord: 8.6ms | Allocations: 19171)
+
+
+Started GET "/musicians/5/instruments/new" for ::1 at 2019-11-02 23:41:45 -0400
+Processing by InstrumentsController#new as HTML
+  Parameters: {"musician_id"=>"5"}
+  [1m[36mMusician Load (0.6ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_musician'
+Redirected to http://localhost:3000/welcome/home
+  [1m[36mMusician Load (0.5ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/instruments_controller.rb:6:in `new'
+Completed 302 Found in 20ms (ActiveRecord: 4.5ms | Allocations: 5165)
+
+
+Started GET "/welcome/home" for ::1 at 2019-11-02 23:41:45 -0400
+Processing by WelcomeController#home as HTML
+  [1m[36mMusician Load (0.5ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_musician'
+Redirected to http://localhost:3000/musicians/5
+Completed 302 Found in 3ms (ActiveRecord: 0.5ms | Allocations: 858)
+
+
+Started GET "/musicians/5" for ::1 at 2019-11-02 23:41:45 -0400
+Processing by MusiciansController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mMusician Load (0.4ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_musician'
+  Rendering musicians/show.html.erb within layouts/application
+  [1m[36mInstrument Load (0.3ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" WHERE "instruments"."musician_id" = $1[0m  [["musician_id", 5]]
+  ↳ app/views/musicians/show.html.erb:3
+  Rendered musicians/show.html.erb within layouts/application (Duration: 1.5ms | Allocations: 757)
+Completed 200 OK in 12ms (Views: 9.7ms | ActiveRecord: 0.6ms | Allocations: 9913)
+
+
+Started GET "/musicians/5/instruments/new" for ::1 at 2019-11-02 23:41:48 -0400
+Processing by InstrumentsController#new as HTML
+  Parameters: {"musician_id"=>"5"}
+  [1m[36mMusician Load (0.5ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_musician'
+Redirected to http://localhost:3000/welcome/home
+  [1m[36mMusician Load (0.4ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/instruments_controller.rb:6:in `new'
+Completed 302 Found in 6ms (ActiveRecord: 1.0ms | Allocations: 1382)
+
+
+Started GET "/welcome/home" for ::1 at 2019-11-02 23:41:48 -0400
+Processing by WelcomeController#home as HTML
+  [1m[36mMusician Load (0.5ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_musician'
+Redirected to http://localhost:3000/musicians/5
+Completed 302 Found in 2ms (ActiveRecord: 0.5ms | Allocations: 846)
+
+
+Started GET "/musicians/5" for ::1 at 2019-11-02 23:41:48 -0400
+Processing by MusiciansController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mMusician Load (0.5ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_musician'
+  Rendering musicians/show.html.erb within layouts/application
+  [1m[36mInstrument Load (0.3ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" WHERE "instruments"."musician_id" = $1[0m  [["musician_id", 5]]
+  ↳ app/views/musicians/show.html.erb:3
+  Rendered musicians/show.html.erb within layouts/application (Duration: 1.6ms | Allocations: 757)
+Completed 200 OK in 12ms (Views: 10.1ms | ActiveRecord: 0.8ms | Allocations: 9905)
+
+
+Started GET "/musicians/5/instruments/new" for ::1 at 2019-11-02 23:41:49 -0400
+Processing by InstrumentsController#new as HTML
+  Parameters: {"musician_id"=>"5"}
+  [1m[36mMusician Load (0.6ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_musician'
+Redirected to http://localhost:3000/welcome/home
+  [1m[36mMusician Load (0.4ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/instruments_controller.rb:6:in `new'
+Completed 302 Found in 5ms (ActiveRecord: 1.0ms | Allocations: 1390)
+
+
+Started GET "/welcome/home" for ::1 at 2019-11-02 23:41:49 -0400
+Processing by WelcomeController#home as HTML
+  [1m[36mMusician Load (0.2ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_musician'
+Redirected to http://localhost:3000/musicians/5
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms | Allocations: 848)
+
+
+Started GET "/musicians/5" for ::1 at 2019-11-02 23:41:49 -0400
+Processing by MusiciansController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mMusician Load (0.3ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_musician'
+  Rendering musicians/show.html.erb within layouts/application
+  [1m[36mInstrument Load (0.4ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" WHERE "instruments"."musician_id" = $1[0m  [["musician_id", 5]]
+  ↳ app/views/musicians/show.html.erb:3
+  Rendered musicians/show.html.erb within layouts/application (Duration: 1.6ms | Allocations: 757)
+Completed 200 OK in 12ms (Views: 10.2ms | ActiveRecord: 0.7ms | Allocations: 9901)
+
+
+Started GET "/musicians/5/instruments/new" for ::1 at 2019-11-02 23:41:50 -0400
+Processing by InstrumentsController#new as HTML
+  Parameters: {"musician_id"=>"5"}
+  [1m[36mMusician Load (0.3ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_musician'
+Redirected to http://localhost:3000/welcome/home
+  [1m[36mMusician Load (0.3ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/instruments_controller.rb:6:in `new'
+Completed 302 Found in 5ms (ActiveRecord: 0.6ms | Allocations: 1385)
+
+
+Started GET "/welcome/home" for ::1 at 2019-11-02 23:41:50 -0400
+Processing by WelcomeController#home as HTML
+  [1m[36mMusician Load (0.3ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_musician'
+Redirected to http://localhost:3000/musicians/5
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms | Allocations: 844)
+
+
+Started GET "/musicians/5" for ::1 at 2019-11-02 23:41:50 -0400
+Processing by MusiciansController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mMusician Load (0.3ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_musician'
+  Rendering musicians/show.html.erb within layouts/application
+  [1m[36mInstrument Load (0.3ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" WHERE "instruments"."musician_id" = $1[0m  [["musician_id", 5]]
+  ↳ app/views/musicians/show.html.erb:3
+  Rendered musicians/show.html.erb within layouts/application (Duration: 1.6ms | Allocations: 757)
+Completed 200 OK in 12ms (Views: 10.0ms | ActiveRecord: 0.6ms | Allocations: 9904)
+
+
+Started GET "/musicians/5" for ::1 at 2019-11-02 23:42:18 -0400
+Processing by MusiciansController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mMusician Load (0.4ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_musician'
+  Rendering musicians/show.html.erb within layouts/application
+  [1m[36mInstrument Load (0.3ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" WHERE "instruments"."musician_id" = $1[0m  [["musician_id", 5]]
+  ↳ app/views/musicians/show.html.erb:3
+  Rendered musicians/show.html.erb within layouts/application (Duration: 4.4ms | Allocations: 1279)
+Completed 200 OK in 37ms (Views: 11.7ms | ActiveRecord: 8.4ms | Allocations: 18409)
+
+
+Started GET "/musicians/5/instruments/new" for ::1 at 2019-11-02 23:42:20 -0400
+Processing by InstrumentsController#new as HTML
+  Parameters: {"musician_id"=>"5"}
+  [1m[36mMusician Load (0.3ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_musician'
+Redirected to http://localhost:3000/welcome/home
+Started GET "/musicians/5/instruments/new" for ::1 at 2019-11-02 23:43:20 -0400
+Processing by InstrumentsController#new as HTML
+  Parameters: {"musician_id"=>"5"}
+  [1m[36mMusician Load (0.6ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_musician'
+Redirected to http://localhost:3000/welcome/home
+Redirected to 
+  [1m[36mMusician Load (0.8ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/instruments_controller.rb:7:in `new'
+Completed 302 Found in 74254ms (ActiveRecord: 7.6ms | Allocations: 15546)
+
+
+Started GET "/welcome/home" for ::1 at 2019-11-02 23:44:34 -0400
+  [1m[36mMusician Load (0.7ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/instruments_controller.rb:7:in `new'
+Completed 302 Found in 137011ms (ActiveRecord: 1.0ms | Allocations: 33299)
+
+
+Processing by WelcomeController#home as HTML
+  [1m[36mMusician Load (0.5ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_musician'
+Redirected to http://localhost:3000/musicians/5
+Completed 302 Found in 20ms (ActiveRecord: 8.2ms | Allocations: 6865)
+
+
+Started GET "/musicians/5" for ::1 at 2019-11-02 23:44:37 -0400
+Processing by MusiciansController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mMusician Load (0.5ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_musician'
+  Rendering musicians/show.html.erb within layouts/application
+  [1m[36mInstrument Load (0.5ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" WHERE "instruments"."musician_id" = $1[0m  [["musician_id", 5]]
+  ↳ app/views/musicians/show.html.erb:3
+  Rendered musicians/show.html.erb within layouts/application (Duration: 5.8ms | Allocations: 1307)
+Completed 200 OK in 20ms (Views: 11.8ms | ActiveRecord: 3.5ms | Allocations: 12479)
+
+
+Started GET "/musicians/5" for ::1 at 2019-11-02 23:44:40 -0400
+Processing by MusiciansController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mMusician Load (0.5ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_musician'
+  Rendering musicians/show.html.erb within layouts/application
+  [1m[36mInstrument Load (0.4ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" WHERE "instruments"."musician_id" = $1[0m  [["musician_id", 5]]
+  ↳ app/views/musicians/show.html.erb:3
+  Rendered musicians/show.html.erb within layouts/application (Duration: 1.9ms | Allocations: 757)
+Completed 200 OK in 15ms (Views: 11.7ms | ActiveRecord: 0.9ms | Allocations: 9886)
+
+
+Started GET "/musicians/5/instruments/new" for ::1 at 2019-11-02 23:44:42 -0400
+Processing by InstrumentsController#new as HTML
+  Parameters: {"musician_id"=>"5"}
+  [1m[36mMusician Load (0.6ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_musician'
+Redirected to http://localhost:3000/welcome/home
+  [1m[36mMusician Load (0.6ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/instruments_controller.rb:7:in `new'
+Completed 302 Found in 2915ms (ActiveRecord: 5.8ms | Allocations: 12669)
+
+
+Started GET "/welcome/home" for ::1 at 2019-11-02 23:44:45 -0400
+Processing by WelcomeController#home as HTML
+  [1m[36mMusician Load (0.5ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_musician'
+Redirected to http://localhost:3000/musicians/5
+Completed 302 Found in 2ms (ActiveRecord: 0.5ms | Allocations: 845)
+
+
+Started GET "/musicians/5" for ::1 at 2019-11-02 23:44:45 -0400
+Processing by MusiciansController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mMusician Load (0.4ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_musician'
+  Rendering musicians/show.html.erb within layouts/application
+  [1m[36mInstrument Load (0.5ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" WHERE "instruments"."musician_id" = $1[0m  [["musician_id", 5]]
+  ↳ app/views/musicians/show.html.erb:3
+  Rendered musicians/show.html.erb within layouts/application (Duration: 2.3ms | Allocations: 757)
+Completed 200 OK in 16ms (Views: 11.4ms | ActiveRecord: 1.0ms | Allocations: 9905)
+
+
+Started GET "/musicians/5" for ::1 at 2019-11-02 23:46:16 -0400
+Processing by MusiciansController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mMusician Load (0.3ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_musician'
+  Rendering musicians/show.html.erb within layouts/application
+  [1m[36mInstrument Load (0.3ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" WHERE "instruments"."musician_id" = $1[0m  [["musician_id", 5]]
+  ↳ app/views/musicians/show.html.erb:3
+  Rendered musicians/show.html.erb within layouts/application (Duration: 1.6ms | Allocations: 757)
+Completed 200 OK in 14ms (Views: 11.7ms | ActiveRecord: 0.6ms | Allocations: 9902)
+
+
+Started GET "/musicians/5" for ::1 at 2019-11-02 23:46:28 -0400
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MusiciansController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mMusician Load (0.5ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_musician'
+  Rendering musicians/show.html.erb within layouts/application
+  [1m[36mInstrument Load (2.6ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" WHERE "instruments"."musician_id" = $1[0m  [["musician_id", 5]]
+  ↳ app/views/musicians/show.html.erb:3
+  Rendered musicians/show.html.erb within layouts/application (Duration: 25.2ms | Allocations: 2227)
+Completed 200 OK in 1142ms (Views: 1099.4ms | ActiveRecord: 10.8ms | Allocations: 1267882)
+
+
+Started GET "/musicians/5/instruments/new" for ::1 at 2019-11-02 23:46:32 -0400
+Processing by InstrumentsController#new as HTML
+  Parameters: {"musician_id"=>"5"}
+  [1m[36mMusician Load (0.6ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_musician'
+Redirected to http://localhost:3000/welcome/home
+Redirected to 
+  [1m[36mMusician Load (0.4ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/instruments_controller.rb:7:in `new'
+Completed 302 Found in 47252ms (ActiveRecord: 3.6ms | Allocations: 24479)
+
+
+Started GET "/musicians/5/instruments/new" for ::1 at 2019-11-02 23:47:19 -0400
+Started GET "/welcome/home" for ::1 at 2019-11-02 23:47:19 -0400
+Processing by InstrumentsController#new as HTML
+  Parameters: {"musician_id"=>"5"}
+  [1m[36mMusician Load (4.9ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+Processing by WelcomeController#home as HTML
+  ↳ app/controllers/application_controller.rb:9:in `current_musician'
+  [1m[36mMusician Load (0.6ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_musician'
+Redirected to http://localhost:3000/welcome/home
+Redirected to http://localhost:3000/musicians/5
+Completed 302 Found in 21ms (ActiveRecord: 16.8ms | Allocations: 9619)
+
+
+Started GET "/musicians/5" for ::1 at 2019-11-02 23:47:19 -0400
+Processing by MusiciansController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mMusician Load (0.8ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_musician'
+  Rendering musicians/show.html.erb within layouts/application
+  [1m[36mInstrument Load (0.5ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" WHERE "instruments"."musician_id" = $1[0m  [["musician_id", 5]]
+  ↳ app/views/musicians/show.html.erb:3
+  Rendered musicians/show.html.erb within layouts/application (Duration: 8.5ms | Allocations: 1371)
+Completed 200 OK in 26ms (Views: 14.5ms | ActiveRecord: 6.1ms | Allocations: 12576)
+
+
+  [1m[36mMusician Load (0.4ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/instruments_controller.rb:7:in `new'
+Completed 302 Found in 1371ms (ActiveRecord: 12.7ms | Allocations: 39036)
+
+
+Started GET "/welcome/home" for ::1 at 2019-11-02 23:47:20 -0400
+Processing by WelcomeController#home as HTML
+  [1m[36mMusician Load (0.2ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_musician'
+Redirected to http://localhost:3000/musicians/5
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms | Allocations: 837)
+
+
+Started GET "/musicians/5" for ::1 at 2019-11-02 23:47:20 -0400
+Processing by MusiciansController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mMusician Load (0.4ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_musician'
+  Rendering musicians/show.html.erb within layouts/application
+  [1m[36mInstrument Load (0.4ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" WHERE "instruments"."musician_id" = $1[0m  [["musician_id", 5]]
+  ↳ app/views/musicians/show.html.erb:3
+  Rendered musicians/show.html.erb within layouts/application (Duration: 1.7ms | Allocations: 758)
+Completed 200 OK in 13ms (Views: 10.6ms | ActiveRecord: 0.8ms | Allocations: 9895)
+
+
+Started GET "/musicians/5" for ::1 at 2019-11-02 23:47:24 -0400
+Processing by MusiciansController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mMusician Load (0.4ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_musician'
+  Rendering musicians/show.html.erb within layouts/application
+  [1m[36mInstrument Load (0.4ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" WHERE "instruments"."musician_id" = $1[0m  [["musician_id", 5]]
+  ↳ app/views/musicians/show.html.erb:3
+  Rendered musicians/show.html.erb within layouts/application (Duration: 2.0ms | Allocations: 758)
+Completed 200 OK in 33ms (Views: 30.3ms | ActiveRecord: 0.8ms | Allocations: 9916)
+
+
+Started GET "/musicians/5" for ::1 at 2019-11-02 23:47:24 -0400
+Processing by MusiciansController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mMusician Load (0.3ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_musician'
+  Rendering musicians/show.html.erb within layouts/application
+  [1m[36mInstrument Load (0.3ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" WHERE "instruments"."musician_id" = $1[0m  [["musician_id", 5]]
+  ↳ app/views/musicians/show.html.erb:3
+  Rendered musicians/show.html.erb within layouts/application (Duration: 1.6ms | Allocations: 757)
+Completed 200 OK in 14ms (Views: 11.1ms | ActiveRecord: 0.5ms | Allocations: 9892)
+
+
+Started GET "/musicians/5/instruments/new" for ::1 at 2019-11-02 23:47:25 -0400
+Processing by InstrumentsController#new as HTML
+  Parameters: {"musician_id"=>"5"}
+  [1m[36mMusician Load (0.5ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_musician'
+Redirected to http://localhost:3000/welcome/home
+  [1m[36mMusician Load (0.8ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/instruments_controller.rb:7:in `new'
+Completed 302 Found in 2164ms (ActiveRecord: 1.3ms | Allocations: 10296)
+
+
+Started GET "/welcome/home" for ::1 at 2019-11-02 23:47:28 -0400
+Processing by WelcomeController#home as HTML
+  [1m[36mMusician Load (0.6ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_musician'
+Redirected to http://localhost:3000/musicians/5
+Completed 302 Found in 3ms (ActiveRecord: 0.6ms | Allocations: 843)
+
+
+Started GET "/musicians/5" for ::1 at 2019-11-02 23:47:28 -0400
+Processing by MusiciansController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mMusician Load (0.4ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_musician'
+  Rendering musicians/show.html.erb within layouts/application
+  [1m[36mInstrument Load (0.6ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" WHERE "instruments"."musician_id" = $1[0m  [["musician_id", 5]]
+  ↳ app/views/musicians/show.html.erb:3
+  Rendered musicians/show.html.erb within layouts/application (Duration: 2.1ms | Allocations: 757)
+Completed 200 OK in 14ms (Views: 11.6ms | ActiveRecord: 1.0ms | Allocations: 9912)
+
+
+Started GET "/musicians/5" for ::1 at 2019-11-02 23:47:51 -0400
+Processing by MusiciansController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mMusician Load (0.5ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_musician'
+  Rendering musicians/show.html.erb within layouts/application
+  [1m[36mInstrument Load (0.5ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" WHERE "instruments"."musician_id" = $1[0m  [["musician_id", 5]]
+  ↳ app/views/musicians/show.html.erb:3
+  Rendered musicians/show.html.erb within layouts/application (Duration: 5.6ms | Allocations: 1279)
+Completed 200 OK in 37ms (Views: 12.1ms | ActiveRecord: 10.5ms | Allocations: 18439)
+
+
+Started GET "/musicians/5/instruments/new" for ::1 at 2019-11-02 23:47:54 -0400
+Processing by InstrumentsController#new as HTML
+  Parameters: {"musician_id"=>"5"}
+  [1m[36mMusician Load (0.9ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_musician'
+Redirected to http://localhost:3000/welcome/home
+  [1m[36mMusician Load (0.4ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/instruments_controller.rb:7:in `new'
+Completed 302 Found in 42742ms (ActiveRecord: 4.1ms | Allocations: 28263)
+
+
+Started GET "/welcome/home" for ::1 at 2019-11-02 23:48:37 -0400
+Processing by WelcomeController#home as HTML
+  [1m[36mMusician Load (0.2ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_musician'
+Redirected to http://localhost:3000/musicians/5
+Completed 302 Found in 17ms (ActiveRecord: 5.2ms | Allocations: 6828)
+
+
+Started GET "/musicians/5" for ::1 at 2019-11-02 23:48:37 -0400
+Processing by MusiciansController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mMusician Load (0.2ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_musician'
+  Rendering musicians/show.html.erb within layouts/application
+  [1m[36mInstrument Load (0.3ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" WHERE "instruments"."musician_id" = $1[0m  [["musician_id", 5]]
+  ↳ app/views/musicians/show.html.erb:3
+  Rendered musicians/show.html.erb within layouts/application (Duration: 4.6ms | Allocations: 1279)
+Completed 200 OK in 22ms (Views: 13.9ms | ActiveRecord: 2.3ms | Allocations: 12472)
+
+
+Started GET "/musicians/5" for ::1 at 2019-11-02 23:48:40 -0400
+Processing by MusiciansController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mMusician Load (0.4ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_musician'
+  Rendering musicians/show.html.erb within layouts/application
+  [1m[36mInstrument Load (0.5ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" WHERE "instruments"."musician_id" = $1[0m  [["musician_id", 5]]
+  ↳ app/views/musicians/show.html.erb:3
+  Rendered musicians/show.html.erb within layouts/application (Duration: 3.4ms | Allocations: 758)
+Completed 200 OK in 36ms (Views: 31.7ms | ActiveRecord: 0.9ms | Allocations: 9919)
+
+
+Started GET "/musicians/5" for ::1 at 2019-11-02 23:48:40 -0400
+Processing by MusiciansController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mMusician Load (0.2ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_musician'
+  Rendering musicians/show.html.erb within layouts/application
+  [1m[36mInstrument Load (0.3ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" WHERE "instruments"."musician_id" = $1[0m  [["musician_id", 5]]
+  ↳ app/views/musicians/show.html.erb:3
+  Rendered musicians/show.html.erb within layouts/application (Duration: 1.8ms | Allocations: 757)
+Completed 200 OK in 15ms (Views: 12.4ms | ActiveRecord: 0.5ms | Allocations: 9891)
+
+
+Started GET "/musicians/5/instruments/new" for ::1 at 2019-11-02 23:48:42 -0400
+Processing by InstrumentsController#new as HTML
+  Parameters: {"musician_id"=>"5"}
+  [1m[36mMusician Load (0.6ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_musician'
+  [1m[36mMusician Load (0.4ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/instruments_controller.rb:7:in `new'
+  Rendering instruments/new.html.erb within layouts/application
+  Rendered instruments/new.html.erb within layouts/application (Duration: 162.4ms | Allocations: 179790)
+Completed 200 OK in 4442ms (Views: 183.5ms | ActiveRecord: 5.2ms | Allocations: 209016)
+
+
+Started POST "/instruments" for ::1 at 2019-11-02 23:49:08 -0400
+Processing by InstrumentsController#create as HTML
+  Parameters: {"authenticity_token"=>"tAQHf9elfDq6vLLWwG+2E2yEuvvDlLlWDNRo1i7Y3hHLYmu+D4O+vIPwYAFMFCX/cEPwq1gcYyBA+gisARlnlw==", "instrument"=>{"musician_id"=>"5", "instrument_type"=>"Trumpet", "instrument_category"=>"Brass", "tuning"=>"Bb(-2)"}, "commit"=>"Create Instrument"}
+  [1m[36mMusician Load (0.7ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_musician'
+  [1m[36mCACHE Musician Load (0.0ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/instruments_controller.rb:13:in `create'
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/instruments_controller.rb:13:in `create'
+  [1m[36mInstrument Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "instruments" WHERE "instruments"."instrument_type" = $1 AND "instruments"."tuning" = $2 LIMIT $3[0m  [["instrument_type", "Trumpet"], ["tuning", "Bb(-2)"], ["LIMIT", 1]]
+  ↳ app/controllers/instruments_controller.rb:13:in `create'
+  [1m[36mInstrument Create (0.8ms)[0m  [1m[32mINSERT INTO "instruments" ("instrument_type", "instrument_category", "tuning", "musician_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["instrument_type", "Trumpet"], ["instrument_category", "Brass"], ["tuning", "Bb(-2)"], ["musician_id", 5], ["created_at", "2019-11-03 03:49:12.440054"], ["updated_at", "2019-11-03 03:49:12.440054"]]
+  ↳ app/controllers/instruments_controller.rb:13:in `create'
+  [1m[35m (14.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/instruments_controller.rb:13:in `create'
+Redirected to http://localhost:3000/musicians/5
+Completed 302 Found in 4057ms (ActiveRecord: 17.1ms | Allocations: 15216)
+
+
+Started GET "/musicians/5" for ::1 at 2019-11-02 23:49:12 -0400
+Processing by MusiciansController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mMusician Load (0.4ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_musician'
+  Rendering musicians/show.html.erb within layouts/application
+  [1m[36mInstrument Load (0.3ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" WHERE "instruments"."musician_id" = $1[0m  [["musician_id", 5]]
+  ↳ app/views/musicians/show.html.erb:3
+  Rendered musicians/show.html.erb within layouts/application (Duration: 1.9ms | Allocations: 828)
+Completed 200 OK in 14ms (Views: 11.5ms | ActiveRecord: 0.7ms | Allocations: 9968)
+
+
+Started GET "/musicians/5/instruments/new" for ::1 at 2019-11-02 23:49:30 -0400
+Processing by InstrumentsController#new as HTML
+  Parameters: {"musician_id"=>"5"}
+  [1m[36mMusician Load (0.7ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_musician'
+  [1m[36mMusician Load (0.6ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/instruments_controller.rb:7:in `new'
+  Rendering instruments/new.html.erb within layouts/application
+  Rendered instruments/new.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1446)
+Completed 200 OK in 20721ms (Views: 12.3ms | ActiveRecord: 1.4ms | Allocations: 25088)
+
+
+Started POST "/instruments" for ::1 at 2019-11-02 23:50:11 -0400
+Processing by InstrumentsController#create as HTML
+  Parameters: {"authenticity_token"=>"eipr0Pi6KgTluQyTKXO+G6dszuE7/5n6ld+kHStbD/oFTAcRIJzogtz13kSlCC33u6uEsaB3Q4zZ8cRnBJq2fA==", "instrument"=>{"musician_id"=>"5", "instrument_type"=>"Guitar", "instrument_category"=>"String", "tuning"=>"C(+0)"}, "commit"=>"Create Instrument"}
+  [1m[36mMusician Load (0.7ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_musician'
+  [1m[36mCACHE Musician Load (0.0ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/instruments_controller.rb:13:in `create'
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/instruments_controller.rb:13:in `create'
+  [1m[36mInstrument Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "instruments" WHERE "instruments"."instrument_type" = $1 AND "instruments"."tuning" = $2 LIMIT $3[0m  [["instrument_type", "Guitar"], ["tuning", "C(+0)"], ["LIMIT", 1]]
+  ↳ app/controllers/instruments_controller.rb:13:in `create'
+  [1m[36mInstrument Create (1.0ms)[0m  [1m[32mINSERT INTO "instruments" ("instrument_type", "instrument_category", "tuning", "musician_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["instrument_type", "Guitar"], ["instrument_category", "String"], ["tuning", "C(+0)"], ["musician_id", 5], ["created_at", "2019-11-03 03:50:20.912836"], ["updated_at", "2019-11-03 03:50:20.912836"]]
+  ↳ app/controllers/instruments_controller.rb:13:in `create'
+  [1m[35m (16.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/instruments_controller.rb:13:in `create'
+Redirected to http://localhost:3000/musicians/5
+Completed 302 Found in 9881ms (ActiveRecord: 19.8ms | Allocations: 13572)
+
+
+Started GET "/musicians/5" for ::1 at 2019-11-02 23:50:20 -0400
+Processing by MusiciansController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mMusician Load (0.4ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_musician'
+  Rendering musicians/show.html.erb within layouts/application
+  [1m[36mInstrument Load (0.4ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" WHERE "instruments"."musician_id" = $1[0m  [["musician_id", 5]]
+  ↳ app/views/musicians/show.html.erb:3
+  Rendered musicians/show.html.erb within layouts/application (Duration: 2.1ms | Allocations: 857)
+Completed 200 OK in 14ms (Views: 11.4ms | ActiveRecord: 0.8ms | Allocations: 9987)
+
+
+Started GET "/instruments/5" for ::1 at 2019-11-02 23:50:50 -0400
+Processing by InstrumentsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mInstrument Load (0.5ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" WHERE "instruments"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/instruments_controller.rb:21:in `show'
+  [1m[36mMusician Load (0.8ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_musician'
+  Rendering instruments/show.html.erb within layouts/application
+  [1m[36mPiece Load (35.8ms)[0m  [1m[34mSELECT "pieces".* FROM "pieces" INNER JOIN "mastery_tracks" ON "pieces"."id" = "mastery_tracks"."piece_id" WHERE "mastery_tracks"."instrument_id" = $1[0m  [["instrument_id", 5]]
+  ↳ app/views/instruments/show.html.erb:4
+  Rendered instruments/show.html.erb within layouts/application (Duration: 51.4ms | Allocations: 3276)
+Completed 200 OK in 5826ms (Views: 23.4ms | ActiveRecord: 46.6ms | Allocations: 25929)
+
+
+Started GET "/instruments/5" for ::1 at 2019-11-02 23:53:59 -0400
+Processing by InstrumentsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mInstrument Load (0.9ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" WHERE "instruments"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/instruments_controller.rb:21:in `show'
+  [1m[36mMusician Load (0.8ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_musician'
+  Rendering instruments/show.html.erb within layouts/application
+  [1m[36mPiece Load (1.0ms)[0m  [1m[34mSELECT "pieces".* FROM "pieces" INNER JOIN "mastery_tracks" ON "pieces"."id" = "mastery_tracks"."piece_id" WHERE "mastery_tracks"."instrument_id" = $1[0m  [["instrument_id", 5]]
+  ↳ app/views/instruments/show.html.erb:4
+  [1m[36mMasteryTrack Load (0.7ms)[0m  [1m[34mSELECT "mastery_tracks".* FROM "mastery_tracks" WHERE "mastery_tracks"."instrument_id" = $1 LIMIT $2[0m  [["instrument_id", 5], ["LIMIT", 11]]
+  [1m[36mCACHE MasteryTrack Load (0.0ms)[0m  [1m[34mSELECT "mastery_tracks".* FROM "mastery_tracks" WHERE "mastery_tracks"."instrument_id" = $1 LIMIT $2[0m  [["instrument_id", 5], ["LIMIT", 11]]
+  [1m[36mCACHE MasteryTrack Load (0.0ms)[0m  [1m[34mSELECT "mastery_tracks".* FROM "mastery_tracks" WHERE "mastery_tracks"."instrument_id" = $1 LIMIT $2[0m  [["instrument_id", 5], ["LIMIT", 11]]
+  [1m[36mCACHE MasteryTrack Load (0.0ms)[0m  [1m[34mSELECT "mastery_tracks".* FROM "mastery_tracks" WHERE "mastery_tracks"."instrument_id" = $1 LIMIT $2[0m  [["instrument_id", 5], ["LIMIT", 11]]
+  Rendered instruments/show.html.erb within layouts/application (Duration: 163.6ms | Allocations: 73160)
+Completed 500 Internal Server Error in 5482ms (ActiveRecord: 3.4ms | Allocations: 83072)
+
+
+  
+ActionView::Template::Error (undefined method `new_instrument_piece' for #<#<Class:0x00007fd65c070528>:0x00007fd65c076b80>
+Did you mean?  new_instrument_path
+               new_instrument_url):
+    10: 	<% end %>
+    11: 	<p><%= link_to 'Click here', new_instrument_piece(@instrument) %> to add some more.</p>
+    12: <% else %>
+    13: 	<h2>You don't have any sheet music for this instrument. <%= link_to 'Click here', new_instrument_piece(@instrument) %> to add some.</h2>
+    14: <% end %>
+  
+app/views/instruments/show.html.erb:13
+Started GET "/instruments/5" for ::1 at 2019-11-02 23:55:30 -0400
+Processing by InstrumentsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mInstrument Load (0.4ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" WHERE "instruments"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/instruments_controller.rb:21:in `show'
+  [1m[36mMusician Load (0.4ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_musician'
+  Rendering instruments/show.html.erb within layouts/application
+  [1m[36mPiece Load (0.4ms)[0m  [1m[34mSELECT "pieces".* FROM "pieces" INNER JOIN "mastery_tracks" ON "pieces"."id" = "mastery_tracks"."piece_id" WHERE "mastery_tracks"."instrument_id" = $1[0m  [["instrument_id", 5]]
+  ↳ app/views/instruments/show.html.erb:4
+  [1m[36mMasteryTrack Load (0.4ms)[0m  [1m[34mSELECT "mastery_tracks".* FROM "mastery_tracks" WHERE "mastery_tracks"."instrument_id" = $1 LIMIT $2[0m  [["instrument_id", 5], ["LIMIT", 11]]
+  [1m[36mCACHE MasteryTrack Load (0.0ms)[0m  [1m[34mSELECT "mastery_tracks".* FROM "mastery_tracks" WHERE "mastery_tracks"."instrument_id" = $1 LIMIT $2[0m  [["instrument_id", 5], ["LIMIT", 11]]
+  [1m[36mCACHE MasteryTrack Load (0.0ms)[0m  [1m[34mSELECT "mastery_tracks".* FROM "mastery_tracks" WHERE "mastery_tracks"."instrument_id" = $1 LIMIT $2[0m  [["instrument_id", 5], ["LIMIT", 11]]
+  [1m[36mCACHE MasteryTrack Load (0.0ms)[0m  [1m[34mSELECT "mastery_tracks".* FROM "mastery_tracks" WHERE "mastery_tracks"."instrument_id" = $1 LIMIT $2[0m  [["instrument_id", 5], ["LIMIT", 11]]
+  Rendered instruments/show.html.erb within layouts/application (Duration: 163.1ms | Allocations: 72634)
+Completed 500 Internal Server Error in 2726ms (ActiveRecord: 19.5ms | Allocations: 97610)
+
+
+  
+ActionView::Template::Error (undefined method `new_instrument_piece' for #<#<Class:0x00007fd660720a90>:0x00007fd66013b0f8>
+Did you mean?  new_instrument_piece_url
+               new_instrument_piece_path
+               new_instrument_path
+               new_instrument_url):
+    10: 	<% end %>
+    11: 	<p><%= link_to 'Click here', new_instrument_piece(@instrument) %> to add some more.</p>
+    12: <% else %>
+    13: 	<h2>You don't have any sheet music for this instrument. <%= link_to 'Click here', new_instrument_piece(@instrument) %> to add some.</h2>
+    14: <% end %>
+  
+app/views/instruments/show.html.erb:13
+Started GET "/instruments/5" for ::1 at 2019-11-02 23:56:04 -0400
+Processing by InstrumentsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mInstrument Load (0.6ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" WHERE "instruments"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/instruments_controller.rb:21:in `show'
+  [1m[36mMusician Load (0.8ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_musician'
+  Rendering instruments/show.html.erb within layouts/application
+  [1m[36mPiece Load (1.0ms)[0m  [1m[34mSELECT "pieces".* FROM "pieces" INNER JOIN "mastery_tracks" ON "pieces"."id" = "mastery_tracks"."piece_id" WHERE "mastery_tracks"."instrument_id" = $1[0m  [["instrument_id", 5]]
+  ↳ app/views/instruments/show.html.erb:4
+  Rendered instruments/show.html.erb within layouts/application (Duration: 3.8ms | Allocations: 1208)
+Completed 200 OK in 2782ms (Views: 13.4ms | ActiveRecord: 2.4ms | Allocations: 20804)
+
+
+Started GET "/instruments/5/pieces/new" for ::1 at 2019-11-02 23:56:14 -0400
+  
+AbstractController::ActionNotFound (The action 'new' could not be found for PiecesController):
+  
+actionpack (6.0.0) lib/abstract_controller/base.rb:131:in `process'
+actionview (6.0.0) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.0.0) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (6.0.0) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (6.0.0) lib/action_dispatch/routing/route_set.rb:51:in `dispatch'
+actionpack (6.0.0) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.0) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.0) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.0) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.0) lib/action_dispatch/routing/route_set.rb:837:in `call'
+rack (2.0.7) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.7) lib/rack/etag.rb:25:in `call'
+rack (2.0.7) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.7) lib/rack/head.rb:12:in `call'
+actionpack (6.0.0) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.7) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.7) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/cookies.rb:648:in `call'
+activerecord (6.0.0) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.0) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.0) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.0.7) lib/webpacker/dev_server_proxy.rb:29:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.0) lib/rails/engine.rb:526:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'

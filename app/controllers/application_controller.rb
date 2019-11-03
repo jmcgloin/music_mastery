@@ -10,7 +10,8 @@ class ApplicationController < ActionController::Base
 	end
 
 	def authorized?(id)
-		(current_musician.id == id) || (redirect_to welcome_path)
+		binding.pry
+		(current_musician.id == id.to_i) || (redirect_to welcome_path and return)
 	end
 
 end

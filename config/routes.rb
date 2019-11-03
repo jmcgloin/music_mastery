@@ -9,7 +9,10 @@ Rails.application.routes.draw do
   get '/signup', to: 'musicians#new', as: 'signup'
   post '/signup', to: 'musicians#create'
 
-  resources :instruments
+  resources :instruments do
+    resources :pieces, only: [:show, :new]
+    resources :mastery_tracks, only: [:show, :new]
+  end
   resources :mastery_tracks
   resources :pieces
   resources :musicians do
