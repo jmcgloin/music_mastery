@@ -6,11 +6,11 @@ class ApplicationController < ActionController::Base
 	end
 
 	def current_musician
-		musician = logged_in ? Musician.find_by(id: session[:musician_id]) : nil
-		if !musician
-			session.clear
-		end
-		musician
-	end	
+		logged_in && (@current_musician ||= Musician.find_by(id: session[:musician_id]))
+	end
+
+	def authorized?(id)
+		(current_musician.id == id) || (redirect_to welcome_path)
+	end
 
 end
