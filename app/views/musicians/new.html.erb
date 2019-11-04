@@ -6,24 +6,23 @@
 			<%= render_flash_messages dismissible: true %>
 		<% end %>
 	<% end %>
-<%= form_for(@musician, url: { controller: 'musicians', action: 'create' }) do |f| %>
+<%= form_for(@musician, url: { controller: 'musicians', action: 'create'}) do |f| %>
 	<%= f.label :user_name %>
-	<%= f.text_field :user_name, require: true %>
+	<%= f.text_field :user_name %>
 	<%= f.label :email %>
-	<%= f.text_field :email, require: true %>
+	<%= f.text_field :email %>
 	<%= f.label :password %>
-	<%= f.password_field :password, require: true %>
+	<%= f.text_field :password %>
 	<%= f.label :password_confirmation %>
-	<%= f.password_field :password_confirmation, require: true %>
-	<%= f.fields_for :instruments do  |instruments_fields| %>
-		<%= instruments_fields.label :instrument_type %>
-		<%= instruments_fields.text_field :instrument_type %>
-		<%= instruments_fields.label :instrument_category %>
-		<%= instruments_fields.select :instrument_category, Instrument.all_families %>
-		<%= instruments_fields.label :tuning %>
-		<%= instruments_fields.select :tuning, Instrument.all_tunings, selected: "C(+0)" %>
+	<%= f.text_field :password_confirmation %>
+	<%= f.fields_for :instrument do |instrument_fields| %>
+		<%= instrument_fields.label :instrument_type %>
+		<%= instrument_fields.text_field :instrument_type %>
+		<%= instrument_fields.label :instrument_category %>
+		<%= instrument_fields.select :instrument_category, Instrument.all_families%>
+		<%= instrument_fields.label :tuning %>
+		<%= instrument_fields.select :tuning, Instrument.all_tunings, selected: 'C(+0)' %>
 	<% end %>
-	
-	<%= f.submit %>
+	<%= f.submit  %>
 <% end %>
 </div>

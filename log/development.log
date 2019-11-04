@@ -6280,3 +6280,1743 @@ Processing by MusiciansController#show as HTML
 Completed 200 OK in 73ms (Views: 46.9ms | ActiveRecord: 9.0ms | Allocations: 21395)
 
 
+Started GET "/pieces/new" for ::1 at 2019-11-03 16:17:47 -0500
+Processing by PiecesController#new as HTML
+  [1m[36mInstrument Load (0.3ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" WHERE "instruments"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/pieces_controller.rb:6:in `new'
+  Rendering pieces/new.html.erb within layouts/application
+  Rendered pieces/new.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1553)
+Completed 200 OK in 17ms (Views: 13.0ms | ActiveRecord: 0.5ms | Allocations: 11114)
+
+
+Started POST "/pieces" for ::1 at 2019-11-03 16:17:56 -0500
+Processing by PiecesController#create as HTML
+  Parameters: {"authenticity_token"=>"UApzAfmpzc8PjmpFAj2KrGjHRzE9z9T5YjQYwDFuuRcSv+yqOx1rRXWMCdE7/UCmlOhZ1txvRqkqzTiWTZjiIQ==", "piece"=>{"title"=>"", "composer"=>"", "key_signature"=>"", "time_signature"=>"", "tempo"=>"", "difficulty"=>"1"}, "commit"=>"Create"}
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1930276190058435135)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddTransKeyAndTransInstToPieces (20191103212732)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "pieces" ADD "trans_key" character varying[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "pieces" ADD "trans_inst" character varying[0m
+  [1m[36mprimary::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20191103212732"]]
+  [1m[35m (16.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(1930276190058435135)[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+No template found for PiecesController#create, rendering head :no_content
+Completed 204 No Content in 663211ms (ActiveRecord: 0.0ms | Allocations: 13395)
+
+
+Started GET "/pieces/new" for ::1 at 2019-11-03 16:29:07 -0500
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PiecesController#new as HTML
+  [1m[36mInstrument Load (0.5ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" WHERE "instruments"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/pieces_controller.rb:6:in `new'
+  Rendering pieces/new.html.erb within layouts/application
+  Rendered pieces/new.html.erb within layouts/application (Duration: 5.5ms | Allocations: 2870)
+Completed 200 OK in 64ms (Views: 16.9ms | ActiveRecord: 14.8ms | Allocations: 29252)
+
+
+Started GET "/pieces/new" for ::1 at 2019-11-03 16:29:41 -0500
+Processing by PiecesController#new as HTML
+  [1m[36mInstrument Load (0.5ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" WHERE "instruments"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/pieces_controller.rb:6:in `new'
+  Rendering pieces/new.html.erb within layouts/application
+  Rendered pieces/new.html.erb within layouts/application (Duration: 3.9ms | Allocations: 2743)
+Completed 200 OK in 18ms (Views: 13.7ms | ActiveRecord: 0.5ms | Allocations: 12989)
+
+
+Started GET "/musicians/5" for ::1 at 2019-11-03 16:38:57 -0500
+Processing by MusiciansController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mMusician Load (0.7ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_musician'
+  Rendering musicians/show.html.erb within layouts/application
+  [1m[36mInstrument Load (0.6ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" WHERE "instruments"."musician_id" = $1[0m  [["musician_id", 5]]
+  ↳ app/views/musicians/show.html.erb:3
+  Rendered musicians/show.html.erb within layouts/application (Duration: 14.0ms | Allocations: 5756)
+Completed 200 OK in 50ms (Views: 20.2ms | ActiveRecord: 13.3ms | Allocations: 21483)
+
+
+Started GET "/instruments/6" for ::1 at 2019-11-03 16:39:32 -0500
+Processing by InstrumentsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mInstrument Load (0.3ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" WHERE "instruments"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/instruments_controller.rb:22:in `show'
+  [1m[36mMusician Load (0.3ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_musician'
+  Rendering instruments/show.html.erb within layouts/application
+  [1m[36mPiece Load (0.5ms)[0m  [1m[34mSELECT "pieces".* FROM "pieces" INNER JOIN "mastery_tracks" ON "pieces"."id" = "mastery_tracks"."piece_id" WHERE "mastery_tracks"."instrument_id" = $1[0m  [["instrument_id", 6]]
+  ↳ app/views/instruments/show.html.erb:4
+  Rendered instruments/show.html.erb within layouts/application (Duration: 3.5ms | Allocations: 1492)
+Completed 200 OK in 19ms (Views: 13.6ms | ActiveRecord: 1.1ms | Allocations: 12377)
+
+
+Started GET "/musicians/5" for ::1 at 2019-11-03 16:51:43 -0500
+Processing by MusiciansController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mMusician Load (0.7ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_musician'
+  Rendering musicians/show.html.erb within layouts/application
+  [1m[36mInstrument Load (0.7ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" WHERE "instruments"."musician_id" = $1[0m  [["musician_id", 5]]
+  ↳ app/views/musicians/show.html.erb:3
+  Rendered musicians/show.html.erb within layouts/application (Duration: 9.8ms | Allocations: 5538)
+Completed 200 OK in 35ms (Views: 18.3ms | ActiveRecord: 1.8ms | Allocations: 22492)
+
+
+Started GET "/pieces/new" for ::1 at 2019-11-03 16:51:45 -0500
+Processing by PiecesController#new as HTML
+  [1m[36mInstrument Load (0.2ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" WHERE "instruments"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/pieces_controller.rb:6:in `new'
+  Rendering pieces/new.html.erb within layouts/application
+  Rendered pieces/new.html.erb within layouts/application (Duration: 3.2ms | Allocations: 2408)
+Completed 200 OK in 39ms (Views: 12.3ms | ActiveRecord: 0.2ms | Allocations: 25308)
+
+
+Started POST "/pieces" for ::1 at 2019-11-03 16:53:27 -0500
+Processing by PiecesController#create as HTML
+  Parameters: {"authenticity_token"=>"4C4KD9QzhQJUREXU+hUhb8PM1AMnvyN3YBvz2JNuLJ+im5WkFocjiC5GJkDD1etlP+PK5MYfsSco4tOO75h3qQ==", "piece"=>{"title"=>"Bolero", "composer"=>"Ravel", "trans_key"=>"C(+0)", "trans_inst"=>"", "key_signature"=>"", "time_signature"=>"3:4", "tempo"=>"moderato assai", "difficulty"=>"5"}, "commit"=>"Create"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/pieces_controller.rb:12:in `create'
+  [1m[36mPiece Create (69.9ms)[0m  [1m[32mINSERT INTO "pieces" ("title", "key_signature", "time_signature", "difficulty", "tempo", "created_at", "updated_at", "composer", "trans_key", "trans_inst") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["title", "Bolero"], ["key_signature", ""], ["time_signature", "3:4"], ["difficulty", 5], ["tempo", "moderato assai"], ["created_at", "2019-11-03 21:53:27.764830"], ["updated_at", "2019-11-03 21:53:27.764830"], ["composer", "Ravel"], ["trans_key", "C(+0)"], ["trans_inst", ""]]
+  ↳ app/controllers/pieces_controller.rb:12:in `create'
+  [1m[35m (15.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/pieces_controller.rb:12:in `create'
+Redirected to http://localhost:3000/pieces
+Completed 302 Found in 94ms (ActiveRecord: 85.5ms | Allocations: 3127)
+
+
+Started GET "/pieces" for ::1 at 2019-11-03 16:53:27 -0500
+  
+AbstractController::ActionNotFound (The action 'index' could not be found for PiecesController):
+  
+actionpack (6.0.0) lib/abstract_controller/base.rb:131:in `process'
+actionview (6.0.0) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.0.0) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (6.0.0) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (6.0.0) lib/action_dispatch/routing/route_set.rb:51:in `dispatch'
+actionpack (6.0.0) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.0) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.0) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.0) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.0) lib/action_dispatch/routing/route_set.rb:837:in `call'
+rack (2.0.7) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.7) lib/rack/etag.rb:25:in `call'
+rack (2.0.7) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.7) lib/rack/head.rb:12:in `call'
+actionpack (6.0.0) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.7) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.7) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/cookies.rb:648:in `call'
+activerecord (6.0.0) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.0) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.0) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.0.7) lib/webpacker/dev_server_proxy.rb:29:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.0) lib/rails/engine.rb:526:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/pieces" for ::1 at 2019-11-03 16:56:09 -0500
+Processing by PiecesController#index as HTML
+  Rendering pieces/index.html.erb within layouts/application
+  Rendered pieces/index.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1372)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 2298)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    1: <h1>Available Pieces</h1>
+    2: <% @pieces.each do |piece| %>
+    3: 	<%= link_to "#{piece.title} by #{piece.composer}", piece_path(piece) %>
+    4: <% end %>
+  
+app/views/pieces/index.html.erb:2
+Started GET "/pieces" for ::1 at 2019-11-03 16:56:30 -0500
+Processing by PiecesController#index as HTML
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 2256)
+
+
+  
+NameError (uninitialized constant PiecesController::Pieces):
+  
+app/controllers/pieces_controller.rb:25:in `index'
+Started GET "/pieces" for ::1 at 2019-11-03 16:56:38 -0500
+Processing by PiecesController#index as HTML
+  Rendering pieces/index.html.erb within layouts/application
+  [1m[36mPiece Load (0.6ms)[0m  [1m[34mSELECT "pieces".* FROM "pieces"[0m
+  ↳ app/views/pieces/index.html.erb:2
+  Rendered pieces/index.html.erb within layouts/application (Duration: 24.0ms | Allocations: 7332)
+Completed 200 OK in 39ms (Views: 25.7ms | ActiveRecord: 9.2ms | Allocations: 18244)
+
+
+Started GET "/pieces/1" for ::1 at 2019-11-03 16:56:48 -0500
+Processing by PiecesController#show as HTML
+  Parameters: {"id"=>"1"}
+Completed 406 Not Acceptable in 3ms (ActiveRecord: 0.0ms | Allocations: 1042)
+
+
+  
+ActionController::MissingExactTemplate (PiecesController#show is missing a template for request formats: text/html):
+  
+actionpack (6.0.0) lib/action_controller/metal/implicit_render.rb:45:in `default_render'
+actionpack (6.0.0) lib/action_controller/metal/basic_implicit_render.rb:6:in `block in send_action'
+actionpack (6.0.0) lib/action_controller/metal/basic_implicit_render.rb:6:in `tap'
+actionpack (6.0.0) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (6.0.0) lib/abstract_controller/base.rb:196:in `process_action'
+actionpack (6.0.0) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (6.0.0) lib/abstract_controller/callbacks.rb:42:in `block in process_action'
+activesupport (6.0.0) lib/active_support/callbacks.rb:135:in `run_callbacks'
+actionpack (6.0.0) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (6.0.0) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (6.0.0) lib/action_controller/metal/instrumentation.rb:33:in `block in process_action'
+activesupport (6.0.0) lib/active_support/notifications.rb:180:in `block in instrument'
+activesupport (6.0.0) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (6.0.0) lib/active_support/notifications.rb:180:in `instrument'
+actionpack (6.0.0) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+actionpack (6.0.0) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+activerecord (6.0.0) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.0.0) lib/abstract_controller/base.rb:136:in `process'
+actionview (6.0.0) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.0.0) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (6.0.0) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (6.0.0) lib/action_dispatch/routing/route_set.rb:51:in `dispatch'
+actionpack (6.0.0) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.0) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.0) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.0) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.0) lib/action_dispatch/routing/route_set.rb:837:in `call'
+rack (2.0.7) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.7) lib/rack/etag.rb:25:in `call'
+rack (2.0.7) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.7) lib/rack/head.rb:12:in `call'
+actionpack (6.0.0) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.7) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.7) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/cookies.rb:648:in `call'
+activerecord (6.0.0) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.0) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.0) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.0.7) lib/webpacker/dev_server_proxy.rb:29:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.0) lib/rails/engine.rb:526:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1930276190058435135)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddTransKeyAndTransInstToPieces (20191103212732)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (75.5ms)[0m  [1m[35mALTER TABLE "pieces" DROP COLUMN "trans_inst"[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "pieces" DROP COLUMN "trans_key"[0m
+  [1m[36mprimary::SchemaMigration Destroy (1.0ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20191103212732"]]
+  [1m[35m (9.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(1930276190058435135)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/pieces/1" for ::1 at 2019-11-03 17:57:30 -0500
+Processing by PiecesController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendering pieces/show.html.erb within layouts/application
+  Rendered pieces/show.html.erb within layouts/application (Duration: 1.5ms | Allocations: 1342)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 2294)
+
+
+  
+ActionView::Template::Error (undefined method `title' for nil:NilClass):
+    1: <h1><%= @piece.title %></h1>
+    2: <h2>By <%= @piece.composer %></h2>
+  
+app/views/pieces/show.html.erb:1
+Started GET "/pieces/new" for ::1 at 2019-11-03 17:57:48 -0500
+Processing by PiecesController#new as HTML
+  [1m[36mInstrument Load (0.7ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" WHERE "instruments"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/pieces_controller.rb:6:in `new'
+  Rendering pieces/new.html.erb within layouts/application
+  Rendered pieces/new.html.erb within layouts/application (Duration: 14.6ms | Allocations: 5718)
+Completed 500 Internal Server Error in 59ms (ActiveRecord: 11.5ms | Allocations: 23085)
+
+
+  
+ActionView::Template::Error (undefined method `instrument' for #<Piece:0x00007f080df2ac58>
+Did you mean?  instruments
+               instruments=):
+    16: 		<%= f.label :key %>
+    17: 		<%= f.select :key, Instrument.all_tunings, selected: "C(+0)" %>
+    18: 		<%= f.label :instrument %>
+    19: 		<%= f.text_field :instrument %>
+    20: 	<% end %>
+    21: 	
+    22: 	<%= f.submit "Create"%>
+  
+app/views/pieces/new.html.erb:19
+app/views/pieces/new.html.erb:15
+app/views/pieces/new.html.erb:2
+Started GET "/pieces/new" for ::1 at 2019-11-03 17:59:23 -0500
+Processing by PiecesController#new as HTML
+  [1m[36mInstrument Load (0.4ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" WHERE "instruments"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/pieces_controller.rb:6:in `new'
+  Rendering pieces/new.html.erb within layouts/application
+  Rendered pieces/new.html.erb within layouts/application (Duration: 5.2ms | Allocations: 4364)
+Completed 200 OK in 60ms (Views: 16.8ms | ActiveRecord: 13.2ms | Allocations: 29943)
+
+
+Started POST "/pieces" for ::1 at 2019-11-03 17:59:41 -0500
+Processing by PiecesController#create as HTML
+  Parameters: {"authenticity_token"=>"iij4FrBnp5wO6X7sY/5esFcC6bxOCy7avp/od/88tFUBpkL9IYQheqLfyAIMycr+f+YVf55iofPAkh58AQLedA==", "piece"=>{"title"=>"Bolero", "composer"=>"Ravel", "key_signature"=>"", "time_signature"=>"", "tempo"=>"", "difficulty"=>"1", "transposition"=>{"key"=>"C(+0)", "instrument"=>""}}, "commit"=>"Create"}
+[31mUnpermitted parameter: :transposition[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/pieces_controller.rb:12:in `create'
+  [1m[36mPiece Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "pieces" WHERE "pieces"."title" = $1 AND "pieces"."composer" = $2 LIMIT $3[0m  [["title", "Bolero"], ["composer", "Ravel"], ["LIMIT", 1]]
+  ↳ app/controllers/pieces_controller.rb:12:in `create'
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/pieces_controller.rb:12:in `create'
+No template found for PiecesController#create, rendering head :no_content
+Completed 204 No Content in 1173345ms (ActiveRecord: 1.3ms | Allocations: 158961)
+
+
+Started GET "/musicians/5" for ::1 at 2019-11-03 18:19:17 -0500
+Processing by MusiciansController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mMusician Load (0.5ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_musician'
+  Rendering musicians/show.html.erb within layouts/application
+  [1m[36mInstrument Load (0.5ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" WHERE "instruments"."musician_id" = $1[0m  [["musician_id", 5]]
+  ↳ app/views/musicians/show.html.erb:3
+  Rendered musicians/show.html.erb within layouts/application (Duration: 19.5ms | Allocations: 6107)
+Completed 200 OK in 51ms (Views: 24.4ms | ActiveRecord: 11.1ms | Allocations: 23480)
+
+
+Started GET "/musicians/5" for ::1 at 2019-11-03 18:19:20 -0500
+Processing by MusiciansController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mMusician Load (0.8ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_musician'
+  Rendering musicians/show.html.erb within layouts/application
+  [1m[36mInstrument Load (0.4ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" WHERE "instruments"."musician_id" = $1[0m  [["musician_id", 5]]
+  ↳ app/views/musicians/show.html.erb:3
+  Rendered musicians/show.html.erb within layouts/application (Duration: 2.6ms | Allocations: 857)
+Completed 200 OK in 22ms (Views: 17.8ms | ActiveRecord: 1.2ms | Allocations: 9997)
+
+
+Started GET "/pieces/new" for ::1 at 2019-11-03 18:19:22 -0500
+Processing by PiecesController#new as HTML
+  [1m[36mInstrument Load (0.5ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" WHERE "instruments"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/pieces_controller.rb:6:in `new'
+  Rendering pieces/new.html.erb within layouts/application
+  Rendered pieces/new.html.erb within layouts/application (Duration: 5.5ms | Allocations: 3907)
+Completed 200 OK in 79ms (Views: 18.3ms | ActiveRecord: 9.4ms | Allocations: 26689)
+
+
+Started POST "/pieces" for ::1 at 2019-11-03 18:19:58 -0500
+Processing by PiecesController#create as HTML
+  Parameters: {"authenticity_token"=>"79t1ShQCRCKAcpF8gbmry8ESz/8wWCoZnovzN3vB2OGtburh1rbiqPpw8ui4eWHBPT3RGNH4uEnWctNhBzeD1w==", "piece"=>{"title"=>"Bolero", "composer"=>"Ravel", "key_signature"=>"", "time_signature"=>"", "tempo"=>"", "difficulty"=>"1", "transposition"=>{"key"=>"C(+0)", "instrument"=>""}}, "commit"=>"Create"}
+[31mUnpermitted parameter: :transposition[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/pieces_controller.rb:12:in `create'
+  [1m[36mPiece Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "pieces" WHERE "pieces"."title" = $1 AND "pieces"."composer" = $2 LIMIT $3[0m  [["title", "Bolero"], ["composer", "Ravel"], ["LIMIT", 1]]
+  ↳ app/controllers/pieces_controller.rb:12:in `create'
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/pieces_controller.rb:12:in `create'
+  [1m[36mPiece Load (0.4ms)[0m  [1m[34mSELECT "pieces".* FROM "pieces" WHERE "pieces"."title" = $1 AND "pieces"."composer" = $2 LIMIT $3[0m  [["title", "Bolero"], ["composer", "Ravel"], ["LIMIT", 1]]
+  ↳ app/controllers/pieces_controller.rb:15:in `create'
+Completed 500 Internal Server Error in 45ms (ActiveRecord: 6.5ms | Allocations: 13608)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/pieces_controller.rb:16:in `create'
+Started PUT "/__web_console/repl_sessions/4a5b50e5ac57582d7153bf49bb30ef81" for ::1 at 2019-11-03 18:20:16 -0500
+Started PUT "/__web_console/repl_sessions/4a5b50e5ac57582d7153bf49bb30ef81" for ::1 at 2019-11-03 18:20:20 -0500
+Started PUT "/__web_console/repl_sessions/4a5b50e5ac57582d7153bf49bb30ef81" for ::1 at 2019-11-03 18:21:38 -0500
+Started PUT "/__web_console/repl_sessions/4a5b50e5ac57582d7153bf49bb30ef81" for ::1 at 2019-11-03 18:21:55 -0500
+[31mUnpermitted parameter: :transposition[0m
+Started POST "/pieces" for ::1 at 2019-11-03 18:22:03 -0500
+Processing by PiecesController#create as HTML
+  Parameters: {"authenticity_token"=>"79t1ShQCRCKAcpF8gbmry8ESz/8wWCoZnovzN3vB2OGtburh1rbiqPpw8ui4eWHBPT3RGNH4uEnWctNhBzeD1w==", "piece"=>{"title"=>"Bolero", "composer"=>"Ravel", "key_signature"=>"", "time_signature"=>"", "tempo"=>"", "difficulty"=>"1", "transposition"=>{"key"=>"C(+0)", "instrument"=>""}}, "commit"=>"Create"}
+[31mUnpermitted parameter: :transposition[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/pieces_controller.rb:12:in `create'
+  [1m[36mPiece Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "pieces" WHERE "pieces"."title" = $1 AND "pieces"."composer" = $2 LIMIT $3[0m  [["title", "Bolero"], ["composer", "Ravel"], ["LIMIT", 1]]
+  ↳ app/controllers/pieces_controller.rb:12:in `create'
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/pieces_controller.rb:12:in `create'
+  [1m[36mPiece Load (0.6ms)[0m  [1m[34mSELECT "pieces".* FROM "pieces" WHERE "pieces"."title" = $1 AND "pieces"."composer" = $2 LIMIT $3[0m  [["title", "Bolero"], ["composer", "Ravel"], ["LIMIT", 1]]
+  ↳ app/controllers/pieces_controller.rb:15:in `create'
+[31mUnpermitted parameter: :transposition[0m
+  [1m[36mTransposition Load (20.8ms)[0m  [1m[34mSELECT "transpositions".* FROM "transpositions" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/pieces_controller.rb:16:in `create'
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/pieces_controller.rb:16:in `create'
+  [1m[36mTransposition Create (12.8ms)[0m  [1m[32mINSERT INTO "transpositions" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2019-11-03 23:22:04.128764"], ["updated_at", "2019-11-03 23:22:04.128764"]]
+  ↳ app/controllers/pieces_controller.rb:16:in `create'
+  [1m[35m (9.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/pieces_controller.rb:16:in `create'
+Completed 500 Internal Server Error in 94ms (ActiveRecord: 53.7ms | Allocations: 19986)
+
+
+  
+ActiveModel::MissingAttributeError (can't write unknown attribute `piece_id`):
+  
+app/controllers/pieces_controller.rb:17:in `create'
+Started PUT "/__web_console/repl_sessions/c72dc697b6d19fe1336b522a189c25b4" for ::1 at 2019-11-03 18:23:27 -0500
+Started PUT "/__web_console/repl_sessions/c72dc697b6d19fe1336b522a189c25b4" for ::1 at 2019-11-03 18:23:27 -0500
+Started GET "/pieces/new" for ::1 at 2019-11-03 18:24:31 -0500
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PiecesController#new as HTML
+  [1m[36mInstrument Load (0.6ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" WHERE "instruments"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/pieces_controller.rb:6:in `new'
+  Rendering pieces/new.html.erb within layouts/application
+  Rendered pieces/new.html.erb within layouts/application (Duration: 149.7ms | Allocations: 182544)
+Completed 200 OK in 1236ms (Views: 1162.6ms | ActiveRecord: 16.4ms | Allocations: 1457203)
+
+
+Started GET "/pieces/new" for ::1 at 2019-11-03 18:24:34 -0500
+Processing by PiecesController#new as HTML
+  [1m[36mInstrument Load (0.7ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" WHERE "instruments"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/pieces_controller.rb:6:in `new'
+  Rendering pieces/new.html.erb within layouts/application
+  Rendered pieces/new.html.erb within layouts/application (Duration: 4.0ms | Allocations: 3865)
+Completed 200 OK in 19ms (Views: 13.5ms | ActiveRecord: 0.7ms | Allocations: 13252)
+
+
+Started POST "/pieces" for ::1 at 2019-11-03 18:24:38 -0500
+Processing by PiecesController#create as HTML
+  Parameters: {"authenticity_token"=>"JTBjQygiaGI/n2DI7EJQPERafhXWbUrGf4lYYXa5OOKuvtmoucHuhJOp1iaDdcRybL6C1gYExe8BhK5qiIdSww==", "piece"=>{"title"=>"Bolero", "composer"=>"Ravel", "key_signature"=>"", "time_signature"=>"", "tempo"=>"", "difficulty"=>"1", "transposition"=>{"key"=>"C(+0)", "instrument"=>""}}, "commit"=>"Create"}
+[31mUnpermitted parameter: :transposition[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/pieces_controller.rb:12:in `create'
+  [1m[36mPiece Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "pieces" WHERE "pieces"."title" = $1 AND "pieces"."composer" = $2 LIMIT $3[0m  [["title", "Bolero"], ["composer", "Ravel"], ["LIMIT", 1]]
+  ↳ app/controllers/pieces_controller.rb:12:in `create'
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/pieces_controller.rb:12:in `create'
+  [1m[36mPiece Load (0.3ms)[0m  [1m[34mSELECT "pieces".* FROM "pieces" WHERE "pieces"."title" = $1 AND "pieces"."composer" = $2 LIMIT $3[0m  [["title", "Bolero"], ["composer", "Ravel"], ["LIMIT", 1]]
+  ↳ app/controllers/pieces_controller.rb:15:in `create'
+[31mUnpermitted parameter: :transposition[0m
+  [1m[36mTransposition Load (0.3ms)[0m  [1m[34mSELECT "transpositions".* FROM "transpositions" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/pieces_controller.rb:16:in `create'
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 4.2ms | Allocations: 10013)
+
+
+  
+ActiveModel::MissingAttributeError (can't write unknown attribute `piece_id`):
+  
+app/controllers/pieces_controller.rb:17:in `create'
+Started PUT "/__web_console/repl_sessions/5d88f09ee31bbc131ef3a305a2e4c9ce" for ::1 at 2019-11-03 18:25:11 -0500
+Started PUT "/__web_console/repl_sessions/5d88f09ee31bbc131ef3a305a2e4c9ce" for ::1 at 2019-11-03 18:25:12 -0500
+Started POST "/pieces" for ::1 at 2019-11-03 20:51:19 -0500
+Processing by PiecesController#create as HTML
+  Parameters: {"authenticity_token"=>"JTBjQygiaGI/n2DI7EJQPERafhXWbUrGf4lYYXa5OOKuvtmoucHuhJOp1iaDdcRybL6C1gYExe8BhK5qiIdSww==", "piece"=>{"title"=>"Bolero", "composer"=>"Ravel", "key_signature"=>"", "time_signature"=>"", "tempo"=>"", "difficulty"=>"1", "transposition"=>{"key"=>"C(+0)", "instrument"=>""}}, "commit"=>"Create"}
+[31mUnpermitted parameter: :transposition[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/pieces_controller.rb:12:in `create'
+  [1m[36mPiece Exists? (1.3ms)[0m  [1m[34mSELECT 1 AS one FROM "pieces" WHERE "pieces"."title" = $1 AND "pieces"."composer" = $2 LIMIT $3[0m  [["title", "Bolero"], ["composer", "Ravel"], ["LIMIT", 1]]
+  ↳ app/controllers/pieces_controller.rb:12:in `create'
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/pieces_controller.rb:12:in `create'
+  [1m[36mPiece Load (0.4ms)[0m  [1m[34mSELECT "pieces".* FROM "pieces" WHERE "pieces"."title" = $1 AND "pieces"."composer" = $2 LIMIT $3[0m  [["title", "Bolero"], ["composer", "Ravel"], ["LIMIT", 1]]
+  ↳ app/controllers/pieces_controller.rb:15:in `create'
+[31mUnpermitted parameter: :transposition[0m
+  [1m[36mTransposition Load (0.5ms)[0m  [1m[34mSELECT "transpositions".* FROM "transpositions" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/pieces_controller.rb:16:in `create'
+Completed 500 Internal Server Error in 34ms (ActiveRecord: 3.0ms | Allocations: 17184)
+
+
+  
+ActiveModel::MissingAttributeError (can't write unknown attribute `piece_id`):
+  
+app/controllers/pieces_controller.rb:17:in `create'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1930276190058435135)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreatePieceTranspositions (20191104015259)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (239.9ms)[0m  [1m[35mCREATE TABLE "piece_transpositions" ("id" bigserial primary key, "piece_id" integer, "transposition_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20191104015259"]]
+  [1m[35m (18.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(1930276190058435135)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/pieces" for ::1 at 2019-11-03 20:56:08 -0500
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PiecesController#create as HTML
+  Parameters: {"authenticity_token"=>"JTBjQygiaGI/n2DI7EJQPERafhXWbUrGf4lYYXa5OOKuvtmoucHuhJOp1iaDdcRybL6C1gYExe8BhK5qiIdSww==", "piece"=>{"title"=>"Bolero", "composer"=>"Ravel", "key_signature"=>"", "time_signature"=>"", "tempo"=>"", "difficulty"=>"1", "transposition"=>{"key"=>"C(+0)", "instrument"=>""}}, "commit"=>"Create"}
+[31mUnpermitted parameter: :transposition[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/pieces_controller.rb:12:in `create'
+  [1m[36mPiece Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "pieces" WHERE "pieces"."title" = $1 AND "pieces"."composer" = $2 LIMIT $3[0m  [["title", "Bolero"], ["composer", "Ravel"], ["LIMIT", 1]]
+  ↳ app/controllers/pieces_controller.rb:12:in `create'
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/pieces_controller.rb:12:in `create'
+  [1m[36mPiece Load (0.5ms)[0m  [1m[34mSELECT "pieces".* FROM "pieces" WHERE "pieces"."title" = $1 AND "pieces"."composer" = $2 LIMIT $3[0m  [["title", "Bolero"], ["composer", "Ravel"], ["LIMIT", 1]]
+  ↳ app/controllers/pieces_controller.rb:15:in `create'
+[31mUnpermitted parameter: :transposition[0m
+  [1m[36mTransposition Load (0.4ms)[0m  [1m[34mSELECT "transpositions".* FROM "transpositions" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/pieces_controller.rb:16:in `create'
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/pieces_controller.rb:17:in `create'
+  [1m[36mPieceTransposition Create (1.2ms)[0m  [1m[32mINSERT INTO "piece_transpositions" ("piece_id", "transposition_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["piece_id", 1], ["transposition_id", 1], ["created_at", "2019-11-04 01:56:08.337370"], ["updated_at", "2019-11-04 01:56:08.337370"]]
+  ↳ app/controllers/pieces_controller.rb:17:in `create'
+  [1m[35m (26.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/pieces_controller.rb:17:in `create'
+  [1m[36mTransposition Load (0.5ms)[0m  [1m[34mSELECT "transpositions".* FROM "transpositions" INNER JOIN "piece_transpositions" ON "transpositions"."id" = "piece_transpositions"."transposition_id" WHERE "piece_transpositions"."piece_id" = $1 LIMIT $2[0m  [["piece_id", 1], ["LIMIT", 11]]
+Completed 500 Internal Server Error in 112ms (ActiveRecord: 46.9ms | Allocations: 30770)
+
+
+  [1m[36mCACHE Transposition Load (0.0ms)[0m  [1m[34mSELECT "transpositions".* FROM "transpositions" INNER JOIN "piece_transpositions" ON "transpositions"."id" = "piece_transpositions"."transposition_id" WHERE "piece_transpositions"."piece_id" = $1 LIMIT $2[0m  [["piece_id", 1], ["LIMIT", 11]]
+  
+NoMethodError (undefined method `uniq!' for #<Transposition::ActiveRecord_Associations_CollectionProxy:0x00007f11e67b8d20>
+Did you mean?  uniq):
+  
+app/controllers/pieces_controller.rb:18:in `create'
+Started PUT "/__web_console/repl_sessions/889f45c0c3f67cd3c181ec931d216491" for ::1 at 2019-11-03 20:57:46 -0500
+Started PUT "/__web_console/repl_sessions/889f45c0c3f67cd3c181ec931d216491" for ::1 at 2019-11-03 20:57:50 -0500
+Started PUT "/__web_console/repl_sessions/889f45c0c3f67cd3c181ec931d216491" for ::1 at 2019-11-03 20:58:05 -0500
+  [1m[36mTransposition Load (0.9ms)[0m  [1m[34mSELECT "transpositions".* FROM "transpositions" INNER JOIN "piece_transpositions" ON "transpositions"."id" = "piece_transpositions"."transposition_id" WHERE "piece_transpositions"."piece_id" = $1 LIMIT $2[0m  [["piece_id", 1], ["LIMIT", 11]]
+Started POST "/pieces" for ::1 at 2019-11-03 21:01:09 -0500
+Processing by PiecesController#create as HTML
+  Parameters: {"authenticity_token"=>"JTBjQygiaGI/n2DI7EJQPERafhXWbUrGf4lYYXa5OOKuvtmoucHuhJOp1iaDdcRybL6C1gYExe8BhK5qiIdSww==", "piece"=>{"title"=>"Bolero", "composer"=>"Ravel", "key_signature"=>"", "time_signature"=>"", "tempo"=>"", "difficulty"=>"1", "transposition"=>{"key"=>"C(+0)", "instrument"=>""}}, "commit"=>"Create"}
+[31mUnpermitted parameter: :transposition[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/pieces_controller.rb:12:in `create'
+  [1m[36mPiece Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "pieces" WHERE "pieces"."title" = $1 AND "pieces"."composer" = $2 LIMIT $3[0m  [["title", "Bolero"], ["composer", "Ravel"], ["LIMIT", 1]]
+  ↳ app/controllers/pieces_controller.rb:12:in `create'
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/pieces_controller.rb:12:in `create'
+  [1m[36mPiece Load (0.3ms)[0m  [1m[34mSELECT "pieces".* FROM "pieces" WHERE "pieces"."title" = $1 AND "pieces"."composer" = $2 LIMIT $3[0m  [["title", "Bolero"], ["composer", "Ravel"], ["LIMIT", 1]]
+  ↳ app/controllers/pieces_controller.rb:15:in `create'
+[31mUnpermitted parameter: :transposition[0m
+  [1m[36mTransposition Load (0.5ms)[0m  [1m[34mSELECT "transpositions".* FROM "transpositions" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/pieces_controller.rb:16:in `create'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/pieces_controller.rb:17:in `create'
+  [1m[36mPieceTransposition Create (0.6ms)[0m  [1m[32mINSERT INTO "piece_transpositions" ("piece_id", "transposition_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["piece_id", 1], ["transposition_id", 1], ["created_at", "2019-11-04 02:01:09.458119"], ["updated_at", "2019-11-04 02:01:09.458119"]]
+  ↳ app/controllers/pieces_controller.rb:17:in `create'
+  [1m[35m (13.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/pieces_controller.rb:17:in `create'
+  [1m[36mTransposition Load (1.0ms)[0m  [1m[34mSELECT "transpositions".* FROM "transpositions" INNER JOIN "piece_transpositions" ON "transpositions"."id" = "piece_transpositions"."transposition_id" WHERE "piece_transpositions"."piece_id" = $1[0m  [["piece_id", 1]]
+  ↳ app/controllers/pieces_controller.rb:18:in `create'
+Redirected to http://localhost:3000/pieces
+Completed 302 Found in 191768ms (ActiveRecord: 29.8ms | Allocations: 61495)
+
+
+Started GET "/pieces" for ::1 at 2019-11-03 21:04:21 -0500
+Processing by PiecesController#index as HTML
+  Rendering pieces/index.html.erb within layouts/application
+  [1m[36mPiece Load (0.4ms)[0m  [1m[34mSELECT "pieces".* FROM "pieces"[0m
+  ↳ app/views/pieces/index.html.erb:2
+  Rendered pieces/index.html.erb within layouts/application (Duration: 17.1ms | Allocations: 6246)
+Completed 200 OK in 32ms (Views: 22.0ms | ActiveRecord: 5.2ms | Allocations: 18071)
+
+
+Started GET "/pieces/1" for ::1 at 2019-11-03 21:04:28 -0500
+Processing by PiecesController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendering pieces/show.html.erb within layouts/application
+  Rendered pieces/show.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1368)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 1922)
+
+
+  
+ActionView::Template::Error (undefined method `title' for nil:NilClass):
+    1: <h1><%= @piece.title %></h1>
+    2: <h2>By <%= @piece.composer %></h2>
+  
+app/views/pieces/show.html.erb:1
+Started GET "/pieces" for ::1 at 2019-11-03 21:04:29 -0500
+Processing by PiecesController#index as HTML
+  Rendering pieces/index.html.erb within layouts/application
+  [1m[36mPiece Load (0.4ms)[0m  [1m[34mSELECT "pieces".* FROM "pieces"[0m
+  ↳ app/views/pieces/index.html.erb:2
+  Rendered pieces/index.html.erb within layouts/application (Duration: 1.9ms | Allocations: 664)
+Completed 200 OK in 15ms (Views: 14.1ms | ActiveRecord: 0.4ms | Allocations: 9267)
+
+
+Started POST "/pieces" for ::1 at 2019-11-03 21:04:34 -0500
+Processing by PiecesController#create as HTML
+  Parameters: {"authenticity_token"=>"JTBjQygiaGI/n2DI7EJQPERafhXWbUrGf4lYYXa5OOKuvtmoucHuhJOp1iaDdcRybL6C1gYExe8BhK5qiIdSww==", "piece"=>{"title"=>"Bolero", "composer"=>"Ravel", "key_signature"=>"", "time_signature"=>"", "tempo"=>"", "difficulty"=>"1", "transposition"=>{"key"=>"C(+0)", "instrument"=>""}}, "commit"=>"Create"}
+[31mUnpermitted parameter: :transposition[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/pieces_controller.rb:12:in `create'
+  [1m[36mPiece Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "pieces" WHERE "pieces"."title" = $1 AND "pieces"."composer" = $2 LIMIT $3[0m  [["title", "Bolero"], ["composer", "Ravel"], ["LIMIT", 1]]
+  ↳ app/controllers/pieces_controller.rb:12:in `create'
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/pieces_controller.rb:12:in `create'
+  [1m[36mPiece Load (0.3ms)[0m  [1m[34mSELECT "pieces".* FROM "pieces" WHERE "pieces"."title" = $1 AND "pieces"."composer" = $2 LIMIT $3[0m  [["title", "Bolero"], ["composer", "Ravel"], ["LIMIT", 1]]
+  ↳ app/controllers/pieces_controller.rb:15:in `create'
+[31mUnpermitted parameter: :transposition[0m
+  [1m[36mTransposition Load (0.2ms)[0m  [1m[34mSELECT "transpositions".* FROM "transpositions" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/pieces_controller.rb:16:in `create'
+Completed 500 Internal Server Error in 299ms (ActiveRecord: 3.8ms | Allocations: 91655)
+
+
+  
+NameError (undefined local variable or method `piece' for #<PiecesController:0x00007f11e75f9e98>
+Did you mean?  @piece):
+  
+app/controllers/pieces_controller.rb:17:in `create'
+Started POST "/pieces" for ::1 at 2019-11-03 21:04:58 -0500
+Processing by PiecesController#create as HTML
+  Parameters: {"authenticity_token"=>"JTBjQygiaGI/n2DI7EJQPERafhXWbUrGf4lYYXa5OOKuvtmoucHuhJOp1iaDdcRybL6C1gYExe8BhK5qiIdSww==", "piece"=>{"title"=>"Bolero", "composer"=>"Ravel", "key_signature"=>"", "time_signature"=>"", "tempo"=>"", "difficulty"=>"1", "transposition"=>{"key"=>"C(+0)", "instrument"=>""}}, "commit"=>"Create"}
+[31mUnpermitted parameter: :transposition[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/pieces_controller.rb:12:in `create'
+  [1m[36mPiece Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "pieces" WHERE "pieces"."title" = $1 AND "pieces"."composer" = $2 LIMIT $3[0m  [["title", "Bolero"], ["composer", "Ravel"], ["LIMIT", 1]]
+  ↳ app/controllers/pieces_controller.rb:12:in `create'
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/pieces_controller.rb:12:in `create'
+  [1m[36mPiece Load (0.6ms)[0m  [1m[34mSELECT "pieces".* FROM "pieces" WHERE "pieces"."title" = $1 AND "pieces"."composer" = $2 LIMIT $3[0m  [["title", "Bolero"], ["composer", "Ravel"], ["LIMIT", 1]]
+  ↳ app/controllers/pieces_controller.rb:15:in `create'
+[31mUnpermitted parameter: :transposition[0m
+  [1m[36mTransposition Load (0.4ms)[0m  [1m[34mSELECT "transpositions".* FROM "transpositions" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/pieces_controller.rb:16:in `create'
+  [1m[36mTransposition Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "transpositions" INNER JOIN "piece_transpositions" ON "transpositions"."id" = "piece_transpositions"."transposition_id" WHERE "piece_transpositions"."piece_id" = $1 AND "transpositions"."id" = $2 LIMIT $3[0m  [["piece_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/pieces_controller.rb:17:in `create'
+Redirected to http://localhost:3000/pieces
+Completed 302 Found in 10130ms (ActiveRecord: 15.3ms | Allocations: 38220)
+
+
+Started GET "/pieces" for ::1 at 2019-11-03 21:05:08 -0500
+Processing by PiecesController#index as HTML
+  Rendering pieces/index.html.erb within layouts/application
+  [1m[36mPiece Load (0.4ms)[0m  [1m[34mSELECT "pieces".* FROM "pieces"[0m
+  ↳ app/views/pieces/index.html.erb:2
+  Rendered pieces/index.html.erb within layouts/application (Duration: 1.7ms | Allocations: 666)
+Completed 200 OK in 14ms (Views: 12.5ms | ActiveRecord: 0.4ms | Allocations: 9418)
+
+
+  [1m[36mPieceTransposition Load (0.7ms)[0m  [1m[34mSELECT "piece_transpositions".* FROM "piece_transpositions" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mInstrument Load (0.9ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" ORDER BY "instruments"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPiece Load (1.0ms)[0m  [1m[34mSELECT "pieces".* FROM "pieces" ORDER BY "pieces"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPiece Load (0.9ms)[0m  [1m[34mSELECT "pieces".* FROM "pieces" ORDER BY "pieces"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTransposition Load (0.9ms)[0m  [1m[34mSELECT "transpositions".* FROM "transpositions" INNER JOIN "piece_transpositions" ON "transpositions"."id" = "piece_transpositions"."transposition_id" WHERE "piece_transpositions"."piece_id" = $1 ORDER BY "transpositions"."id" ASC LIMIT $2[0m  [["piece_id", 1], ["LIMIT", 1]]
+  [1m[36mTransposition Load (1.1ms)[0m  [1m[34mSELECT "transpositions".* FROM "transpositions" INNER JOIN "piece_transpositions" ON "transpositions"."id" = "piece_transpositions"."transposition_id" WHERE "piece_transpositions"."piece_id" = $1 ORDER BY "transpositions"."id" ASC LIMIT $2[0m  [["piece_id", 1], ["LIMIT", 1]]
+  [1m[36mTransposition Load (1.2ms)[0m  [1m[34mSELECT "transpositions".* FROM "transpositions" INNER JOIN "piece_transpositions" ON "transpositions"."id" = "piece_transpositions"."transposition_id" WHERE "piece_transpositions"."piece_id" = $1 ORDER BY "transpositions"."id" ASC LIMIT $2[0m  [["piece_id", 1], ["LIMIT", 1]]
+  [1m[36mTransposition Load (0.9ms)[0m  [1m[34mSELECT "transpositions".* FROM "transpositions" INNER JOIN "piece_transpositions" ON "transpositions"."id" = "piece_transpositions"."transposition_id" WHERE "piece_transpositions"."piece_id" = $1[0m  [["piece_id", 1]]
+Started GET "/logout" for ::1 at 2019-11-03 21:17:00 -0500
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/welcome/home
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 308)
+
+
+Started GET "/welcome/home" for ::1 at 2019-11-03 21:17:00 -0500
+Processing by WelcomeController#home as HTML
+  Rendering welcome/home.html.erb within layouts/application
+  Rendered welcome/home.html.erb within layouts/application (Duration: 0.5ms | Allocations: 205)
+Completed 200 OK in 10ms (Views: 9.6ms | ActiveRecord: 0.0ms | Allocations: 9153)
+
+
+  [1m[36mMusician Load (0.8ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMusician Destroy (0.6ms)[0m  [1m[31mDELETE FROM "musicians" WHERE "musicians"."id" = $1[0m  [["id", 5]]
+  [1m[35m (12.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mInstrument Load (0.9ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mInstrument Destroy (0.6ms)[0m  [1m[31mDELETE FROM "instruments" WHERE "instruments"."id" = $1[0m  [["id", 5]]
+  [1m[35m (15.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mInstrument Destroy (0.5ms)[0m  [1m[31mDELETE FROM "instruments" WHERE "instruments"."id" = $1[0m  [["id", 6]]
+  [1m[35m (6.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPiece Load (1.3ms)[0m  [1m[34mSELECT "pieces".* FROM "pieces"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPiece Destroy (0.6ms)[0m  [1m[31mDELETE FROM "pieces" WHERE "pieces"."id" = $1[0m  [["id", 1]]
+  [1m[35m (19.3ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/nuclear" for ::1 at 2019-11-03 21:20:37 -0500
+Processing by ApplicationController#scorched_earth as HTML
+  [1m[36mMusician Load (0.8ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians"[0m
+  ↳ app/controllers/application_controller.rb:6:in `scorched_earth'
+  [1m[36mInstrument Load (0.6ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments"[0m
+  ↳ app/controllers/application_controller.rb:7:in `scorched_earth'
+  [1m[36mPiece Load (0.7ms)[0m  [1m[34mSELECT "pieces".* FROM "pieces"[0m
+  ↳ app/controllers/application_controller.rb:8:in `scorched_earth'
+  [1m[36mMasteryTrack Load (0.7ms)[0m  [1m[34mSELECT "mastery_tracks".* FROM "mastery_tracks"[0m
+  ↳ app/controllers/application_controller.rb:9:in `scorched_earth'
+  [1m[36mTransposition Load (0.8ms)[0m  [1m[34mSELECT "transpositions".* FROM "transpositions"[0m
+  ↳ app/controllers/application_controller.rb:10:in `scorched_earth'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/application_controller.rb:10:in `scorched_earth'
+  [1m[36mTransposition Destroy (0.6ms)[0m  [1m[31mDELETE FROM "transpositions" WHERE "transpositions"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `scorched_earth'
+  [1m[35m (51.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/application_controller.rb:10:in `scorched_earth'
+  [1m[36mPieceTransposition Load (0.7ms)[0m  [1m[34mSELECT "piece_transpositions".* FROM "piece_transpositions"[0m
+  ↳ app/controllers/application_controller.rb:11:in `scorched_earth'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/application_controller.rb:11:in `scorched_earth'
+  [1m[36mPieceTransposition Destroy (0.4ms)[0m  [1m[31mDELETE FROM "piece_transpositions" WHERE "piece_transpositions"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/application_controller.rb:11:in `scorched_earth'
+  [1m[35m (10.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/application_controller.rb:11:in `scorched_earth'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/application_controller.rb:11:in `scorched_earth'
+  [1m[36mPieceTransposition Destroy (0.4ms)[0m  [1m[31mDELETE FROM "piece_transpositions" WHERE "piece_transpositions"."id" = $1[0m  [["id", 2]]
+  ↳ app/controllers/application_controller.rb:11:in `scorched_earth'
+  [1m[35m (5.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/application_controller.rb:11:in `scorched_earth'
+Redirected to http://localhost:3000/welcome/home
+Completed 302 Found in 138ms (ActiveRecord: 91.7ms | Allocations: 25709)
+
+
+Started GET "/welcome/home" for ::1 at 2019-11-03 21:20:37 -0500
+Processing by WelcomeController#home as HTML
+  Rendering welcome/home.html.erb within layouts/application
+  Rendered welcome/home.html.erb within layouts/application (Duration: 0.2ms | Allocations: 76)
+Completed 200 OK in 10ms (Views: 9.4ms | ActiveRecord: 0.0ms | Allocations: 8786)
+
+
+Started GET "/login" for ::1 at 2019-11-03 21:20:40 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 3.0ms | Allocations: 1455)
+Completed 200 OK in 17ms (Views: 15.2ms | ActiveRecord: 0.0ms | Allocations: 10393)
+
+
+Started POST "/login" for ::1 at 2019-11-03 21:20:43 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"EpC/yAyGD4jTCF67YdzlzIKNSzvtOHuJlzPzp/TA8V6BqAY2QYAUJ2JgE79QI894yapGdkhXwrgEfCb0jQB5/A==", "session"=>{"user_name"=>"j", "password"=>"[FILTERED]"}, "commit"=>"Log In"}
+  [1m[36mMusician Load (0.4ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."user_name" = $1 LIMIT $2[0m  [["user_name", "j"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:9:in `create'
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.0ms | Allocations: 520)
+Completed 200 OK in 14ms (Views: 10.5ms | ActiveRecord: 0.7ms | Allocations: 9822)
+
+
+Started GET "/login" for ::1 at 2019-11-03 21:20:47 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.2ms | Allocations: 529)
+Completed 200 OK in 15ms (Views: 14.2ms | ActiveRecord: 0.0ms | Allocations: 9094)
+
+
+Started GET "/welcome/home" for ::1 at 2019-11-03 21:20:48 -0500
+Processing by WelcomeController#home as HTML
+  Rendering welcome/home.html.erb within layouts/application
+  Rendered welcome/home.html.erb within layouts/application (Duration: 0.4ms | Allocations: 75)
+Completed 200 OK in 14ms (Views: 13.4ms | ActiveRecord: 0.0ms | Allocations: 8624)
+
+
+Started GET "/signup" for ::1 at 2019-11-03 21:20:49 -0500
+Processing by MusiciansController#new as HTML
+  Rendering musicians/new.html.erb within layouts/application
+  Rendered musicians/new.html.erb within layouts/application (Duration: 14.1ms | Allocations: 3217)
+Completed 200 OK in 44ms (Views: 23.4ms | ActiveRecord: 4.3ms | Allocations: 20302)
+
+
+Started POST "/signup" for ::1 at 2019-11-03 21:21:12 -0500
+Processing by MusiciansController#create as HTML
+  Parameters: {"authenticity_token"=>"aYljRoKQ4AopNCQ0tXFOp8RLeDe50i/3pRY1gYKpms4t/9gGUj2Y/wlbI089EJaOvEU+lrnDIrg8X3dcYdFo9A==", "musician"=>{"user_name"=>"j", "email"=>"j.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "instruments_attributes"=>{"0"=>{"instrument_type"=>"Trumpet", "instrument_category"=>"Brass", "tuning"=>"Bb(-2)"}}}, "commit"=>"Create Musician"}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/musicians_controller.rb:15:in `create'
+  [1m[36mInstrument Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "instruments" WHERE "instruments"."instrument_type" = $1 AND "instruments"."tuning" IS NULL LIMIT $2[0m  [["instrument_type", "Trumpet"], ["LIMIT", 1]]
+  ↳ app/controllers/musicians_controller.rb:15:in `create'
+  [1m[36mMusician Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "musicians" WHERE "musicians"."user_name" = $1 LIMIT $2[0m  [["user_name", "j"], ["LIMIT", 1]]
+  ↳ app/controllers/musicians_controller.rb:15:in `create'
+  [1m[36mMusician Create (15.4ms)[0m  [1m[32mINSERT INTO "musicians" ("user_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_name", "j"], ["email", "j.com"], ["password_digest", "$2a$12$jrXr1XTluG4qf9L1Jdmi7.utsSpUGxSe3ooYgEJDihRPTtXkaOkzi"], ["created_at", "2019-11-04 02:21:13.029306"], ["updated_at", "2019-11-04 02:21:13.029306"]]
+  ↳ app/controllers/musicians_controller.rb:15:in `create'
+  [1m[36mInstrument Create (10.1ms)[0m  [1m[32mINSERT INTO "instruments" ("instrument_type", "instrument_category", "musician_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["instrument_type", "Trumpet"], ["instrument_category", "Brass"], ["musician_id", 6], ["created_at", "2019-11-04 02:21:13.047116"], ["updated_at", "2019-11-04 02:21:13.047116"]]
+  ↳ app/controllers/musicians_controller.rb:15:in `create'
+  [1m[35m (14.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/musicians_controller.rb:15:in `create'
+Redirected to http://localhost:3000/musicians/6
+Completed 302 Found in 410ms (ActiveRecord: 41.1ms | Allocations: 7282)
+
+
+Started GET "/musicians/6" for ::1 at 2019-11-03 21:21:13 -0500
+Processing by MusiciansController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mMusician Load (0.5ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `current_musician'
+  Rendering musicians/show.html.erb within layouts/application
+  [1m[36mInstrument Load (0.5ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" WHERE "instruments"."musician_id" = $1[0m  [["musician_id", 6]]
+  ↳ app/views/musicians/show.html.erb:3
+  Rendered musicians/show.html.erb within layouts/application (Duration: 4.2ms | Allocations: 1339)
+Completed 200 OK in 19ms (Views: 14.5ms | ActiveRecord: 1.0ms | Allocations: 10712)
+
+
+Started GET "/musicians/6" for ::1 at 2019-11-03 21:24:09 -0500
+Processing by MusiciansController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mMusician Load (0.4ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `current_musician'
+  Rendering musicians/show.html.erb within layouts/application
+  [1m[36mInstrument Load (0.3ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" WHERE "instruments"."musician_id" = $1[0m  [["musician_id", 6]]
+  ↳ app/views/musicians/show.html.erb:3
+  Rendered musicians/show.html.erb within layouts/application (Duration: 15.2ms | Allocations: 6088)
+Completed 200 OK in 47ms (Views: 21.7ms | ActiveRecord: 10.9ms | Allocations: 23807)
+
+
+Started GET "/musicians/6/edit" for ::1 at 2019-11-03 21:29:30 -0500
+  
+AbstractController::ActionNotFound (The action 'edit' could not be found for MusiciansController):
+  
+actionpack (6.0.0) lib/abstract_controller/base.rb:131:in `process'
+actionview (6.0.0) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.0.0) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (6.0.0) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (6.0.0) lib/action_dispatch/routing/route_set.rb:51:in `dispatch'
+actionpack (6.0.0) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.0) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.0) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.0) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.0) lib/action_dispatch/routing/route_set.rb:837:in `call'
+rack (2.0.7) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.7) lib/rack/etag.rb:25:in `call'
+rack (2.0.7) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.7) lib/rack/head.rb:12:in `call'
+actionpack (6.0.0) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.7) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.7) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/cookies.rb:648:in `call'
+activerecord (6.0.0) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.0) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.0) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.0.7) lib/webpacker/dev_server_proxy.rb:29:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.0) lib/rails/engine.rb:526:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/musicians/6/update" for ::1 at 2019-11-03 21:29:37 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/musicians/6/update"):
+  
+actionpack (6.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.0.7) lib/webpacker/dev_server_proxy.rb:29:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.0) lib/rails/engine.rb:526:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/musicians/6/edit" for ::1 at 2019-11-03 21:31:05 -0500
+Processing by MusiciansController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mMusician Load (0.4ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/musicians_controller.rb:33:in `edit'
+Completed 406 Not Acceptable in 18ms (ActiveRecord: 5.0ms | Allocations: 7569)
+
+
+  
+ActionController::MissingExactTemplate (MusiciansController#edit is missing a template for request formats: text/html):
+  
+actionpack (6.0.0) lib/action_controller/metal/implicit_render.rb:45:in `default_render'
+actionpack (6.0.0) lib/action_controller/metal/basic_implicit_render.rb:6:in `block in send_action'
+actionpack (6.0.0) lib/action_controller/metal/basic_implicit_render.rb:6:in `tap'
+actionpack (6.0.0) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (6.0.0) lib/abstract_controller/base.rb:196:in `process_action'
+actionpack (6.0.0) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (6.0.0) lib/abstract_controller/callbacks.rb:42:in `block in process_action'
+activesupport (6.0.0) lib/active_support/callbacks.rb:135:in `run_callbacks'
+actionpack (6.0.0) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (6.0.0) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (6.0.0) lib/action_controller/metal/instrumentation.rb:33:in `block in process_action'
+activesupport (6.0.0) lib/active_support/notifications.rb:180:in `block in instrument'
+activesupport (6.0.0) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (6.0.0) lib/active_support/notifications.rb:180:in `instrument'
+actionpack (6.0.0) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+actionpack (6.0.0) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+activerecord (6.0.0) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.0.0) lib/abstract_controller/base.rb:136:in `process'
+actionview (6.0.0) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.0.0) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (6.0.0) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (6.0.0) lib/action_dispatch/routing/route_set.rb:51:in `dispatch'
+actionpack (6.0.0) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.0) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.0) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.0) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.0) lib/action_dispatch/routing/route_set.rb:837:in `call'
+rack (2.0.7) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.7) lib/rack/etag.rb:25:in `call'
+rack (2.0.7) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.7) lib/rack/head.rb:12:in `call'
+actionpack (6.0.0) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.7) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.7) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/cookies.rb:648:in `call'
+activerecord (6.0.0) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.0) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.0) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.0.7) lib/webpacker/dev_server_proxy.rb:29:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.0) lib/rails/engine.rb:526:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/musicians/6/edit" for ::1 at 2019-11-03 21:31:22 -0500
+Processing by MusiciansController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mMusician Load (0.7ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/musicians_controller.rb:33:in `edit'
+  Rendering musicians/edit.html.erb within layouts/application
+  [1m[36mInstrument Load (0.4ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" WHERE "instruments"."musician_id" = $1[0m  [["musician_id", 6]]
+  ↳ app/views/musicians/_form.html.erb:12
+  Rendered musicians/_form.html.erb (Duration: 61.4ms | Allocations: 11249)
+  Rendered musicians/edit.html.erb within layouts/application (Duration: 62.7ms | Allocations: 11536)
+Completed 200 OK in 81ms (Views: 71.5ms | ActiveRecord: 6.1ms | Allocations: 21351)
+
+
+Started PATCH "/signup" for ::1 at 2019-11-03 21:31:31 -0500
+  
+ActionController::RoutingError (No route matches [PATCH] "/signup"):
+  
+actionpack (6.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.0.7) lib/webpacker/dev_server_proxy.rb:29:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.0) lib/rails/engine.rb:526:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started PATCH "/signup" for ::1 at 2019-11-03 21:32:56 -0500
+  
+ActionController::RoutingError (No route matches [PATCH] "/signup"):
+  
+actionpack (6.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.0.7) lib/webpacker/dev_server_proxy.rb:29:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.0) lib/rails/engine.rb:526:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/musicians/6/edit" for ::1 at 2019-11-03 21:33:12 -0500
+Processing by MusiciansController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mMusician Load (0.4ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/musicians_controller.rb:33:in `edit'
+  Rendering musicians/edit.html.erb within layouts/application
+  [1m[36mInstrument Load (0.3ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" WHERE "instruments"."musician_id" = $1[0m  [["musician_id", 6]]
+  ↳ app/views/musicians/_form.html.erb:13
+  Rendered musicians/_form.html.erb (Duration: 5.6ms | Allocations: 3437)
+  Rendered musicians/edit.html.erb within layouts/application (Duration: 6.3ms | Allocations: 3722)
+Completed 200 OK in 19ms (Views: 15.8ms | ActiveRecord: 0.7ms | Allocations: 13620)
+
+
+Started GET "/musicians/6/edit" for ::1 at 2019-11-03 21:33:32 -0500
+Processing by MusiciansController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mMusician Load (0.4ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/musicians_controller.rb:33:in `edit'
+  Rendering musicians/edit.html.erb within layouts/application
+  [1m[36mInstrument Load (0.3ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" WHERE "instruments"."musician_id" = $1[0m  [["musician_id", 6]]
+  ↳ app/views/musicians/_form.html.erb:13
+  Rendered musicians/_form.html.erb (Duration: 6.2ms | Allocations: 3219)
+  Rendered musicians/edit.html.erb within layouts/application (Duration: 6.8ms | Allocations: 3503)
+Completed 200 OK in 20ms (Views: 17.1ms | ActiveRecord: 0.8ms | Allocations: 13399)
+
+
+Started PATCH "/musicians/6" for ::1 at 2019-11-03 21:33:36 -0500
+Processing by MusiciansController#update as HTML
+  Parameters: {"authenticity_token"=>"3kNT9q3JyfMhJNajK3uE7Y7EZUk1saYgEfpz0aaTshtGDo3T+aU4UNfs4ZN2uxVfWsi4BwVZzi2NVYLla23bUA==", "musician"=>{"user_name"=>"j", "email"=>"j.com", "instruments_attributes"=>{"0"=>{"instrument_type"=>"Trumpet", "instrument_category"=>"Brass", "tuning"=>"Bb(-2)", "id"=>"7"}}}, "commit"=>"Update Musician", "id"=>"6"}
+No template found for MusiciansController#update, rendering head :no_content
+Completed 204 No Content in 178364ms (ActiveRecord: 0.0ms | Allocations: 10035)
+
+
+Started GET "/logout" for ::1 at 2019-11-03 21:49:45 -0500
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/welcome/home
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 286)
+
+
+Started GET "/welcome/home" for ::1 at 2019-11-03 21:49:45 -0500
+Processing by WelcomeController#home as HTML
+  Rendering welcome/home.html.erb within layouts/application
+  Rendered welcome/home.html.erb within layouts/application (Duration: 0.5ms | Allocations: 199)
+Completed 200 OK in 12ms (Views: 10.8ms | ActiveRecord: 0.0ms | Allocations: 9539)
+
+
+Started GET "/signup" for ::1 at 2019-11-03 21:49:47 -0500
+Processing by MusiciansController#new as HTML
+  Rendering musicians/new.html.erb within layouts/application
+  Rendered musicians/new.html.erb within layouts/application (Duration: 4.7ms | Allocations: 5715)
+Completed 200 OK in 39ms (Views: 13.8ms | ActiveRecord: 0.0ms | Allocations: 26660)
+
+
+Started GET "/signup" for ::1 at 2019-11-03 21:50:08 -0500
+Processing by MusiciansController#new as HTML
+  Rendering musicians/new.html.erb within layouts/application
+  Rendered musicians/new.html.erb within layouts/application (Duration: 4.5ms | Allocations: 4966)
+Completed 200 OK in 19ms (Views: 17.1ms | ActiveRecord: 0.0ms | Allocations: 14394)
+
+
+Started GET "/signup" for ::1 at 2019-11-03 21:51:29 -0500
+Processing by MusiciansController#new as HTML
+  Rendering musicians/new.html.erb within layouts/application
+  Rendered musicians/new.html.erb within layouts/application (Duration: 4.8ms | Allocations: 5192)
+Completed 200 OK in 50ms (Views: 15.4ms | ActiveRecord: 11.6ms | Allocations: 26413)
+
+
+Started GET "/signup" for ::1 at 2019-11-03 21:51:48 -0500
+Processing by MusiciansController#new as HTML
+  Rendering musicians/new.html.erb within layouts/application
+  Rendered musicians/new.html.erb within layouts/application (Duration: 4.9ms | Allocations: 5201)
+Completed 200 OK in 84ms (Views: 17.4ms | ActiveRecord: 8.7ms | Allocations: 26464)
+
+
+Started GET "/welcome/home" for ::1 at 2019-11-03 21:52:02 -0500
+Processing by WelcomeController#home as HTML
+  Rendering welcome/home.html.erb within layouts/application
+  Rendered welcome/home.html.erb within layouts/application (Duration: 0.7ms | Allocations: 204)
+Completed 200 OK in 13ms (Views: 12.0ms | ActiveRecord: 0.0ms | Allocations: 9106)
+
+
+Started GET "/musicians/6/edit" for ::1 at 2019-11-03 21:52:04 -0500
+  
+AbstractController::ActionNotFound (The action 'edit' could not be found for MusiciansController):
+  
+actionpack (6.0.0) lib/abstract_controller/base.rb:131:in `process'
+actionview (6.0.0) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.0.0) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (6.0.0) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (6.0.0) lib/action_dispatch/routing/route_set.rb:51:in `dispatch'
+actionpack (6.0.0) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.0) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.0) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.0) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.0) lib/action_dispatch/routing/route_set.rb:837:in `call'
+rack (2.0.7) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.7) lib/rack/etag.rb:25:in `call'
+rack (2.0.7) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.7) lib/rack/head.rb:12:in `call'
+actionpack (6.0.0) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.7) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.7) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/cookies.rb:648:in `call'
+activerecord (6.0.0) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.0) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.0) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.0.7) lib/webpacker/dev_server_proxy.rb:29:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.0) lib/rails/engine.rb:526:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/welcome/home" for ::1 at 2019-11-03 21:52:05 -0500
+Processing by WelcomeController#home as HTML
+  Rendering welcome/home.html.erb within layouts/application
+  Rendered welcome/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 69)
+Completed 200 OK in 15ms (Views: 14.1ms | ActiveRecord: 0.0ms | Allocations: 8614)
+
+
+Started GET "/musicians/6/edit" for ::1 at 2019-11-03 21:52:05 -0500
+  
+AbstractController::ActionNotFound (The action 'edit' could not be found for MusiciansController):
+  
+actionpack (6.0.0) lib/abstract_controller/base.rb:131:in `process'
+actionview (6.0.0) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.0.0) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (6.0.0) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (6.0.0) lib/action_dispatch/routing/route_set.rb:51:in `dispatch'
+actionpack (6.0.0) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.0) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.0) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.0) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.0) lib/action_dispatch/routing/route_set.rb:837:in `call'
+rack (2.0.7) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.7) lib/rack/etag.rb:25:in `call'
+rack (2.0.7) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.7) lib/rack/head.rb:12:in `call'
+actionpack (6.0.0) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.7) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.7) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/cookies.rb:648:in `call'
+activerecord (6.0.0) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.0) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.0) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.0.7) lib/webpacker/dev_server_proxy.rb:29:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.0) lib/rails/engine.rb:526:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/welcome/home" for ::1 at 2019-11-03 21:52:06 -0500
+Processing by WelcomeController#home as HTML
+  Rendering welcome/home.html.erb within layouts/application
+  Rendered welcome/home.html.erb within layouts/application (Duration: 0.2ms | Allocations: 69)
+Completed 200 OK in 15ms (Views: 14.5ms | ActiveRecord: 0.0ms | Allocations: 8611)
+
+
+Started GET "/login" for ::1 at 2019-11-03 21:53:10 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.7ms | Allocations: 700)
+Completed 200 OK in 14ms (Views: 13.3ms | ActiveRecord: 0.0ms | Allocations: 9992)
+
+
+Started POST "/login" for ::1 at 2019-11-03 21:53:13 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"TYfHvALcF8KFJMm8pWttAJ4CKkTOwYNa4G3ObuqqydteFdGZpK6qaCc83MSla3zfHZeRqWm0i99kMLZuSlTi1w==", "session"=>{"user_name"=>"j", "password"=>"[FILTERED]"}, "commit"=>"Log In"}
+  [1m[36mMusician Load (0.6ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."user_name" = $1 LIMIT $2[0m  [["user_name", "j"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:9:in `create'
+Redirected to http://localhost:3000/musicians/6
+Completed 302 Found in 359ms (ActiveRecord: 0.9ms | Allocations: 1197)
+
+
+Started GET "/musicians/6" for ::1 at 2019-11-03 21:53:14 -0500
+Processing by MusiciansController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mMusician Load (0.6ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `current_musician'
+  Rendering musicians/show.html.erb within layouts/application
+  [1m[36mInstrument Load (0.6ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" WHERE "instruments"."musician_id" = $1[0m  [["musician_id", 6]]
+  ↳ app/views/musicians/show.html.erb:3
+  Rendered musicians/show.html.erb within layouts/application (Duration: 3.6ms | Allocations: 1376)
+Completed 200 OK in 16ms (Views: 12.4ms | ActiveRecord: 1.2ms | Allocations: 10992)
+
+
+Started GET "/instruments/7" for ::1 at 2019-11-03 21:53:19 -0500
+Processing by InstrumentsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mInstrument Load (0.7ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" WHERE "instruments"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/instruments_controller.rb:22:in `show'
+  [1m[36mMusician Load (0.7ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `current_musician'
+  Rendering instruments/show.html.erb within layouts/application
+  [1m[36mPiece Load (1.1ms)[0m  [1m[34mSELECT "pieces".* FROM "pieces" INNER JOIN "mastery_tracks" ON "pieces"."id" = "mastery_tracks"."piece_id" WHERE "mastery_tracks"."instrument_id" = $1[0m  [["instrument_id", 7]]
+  ↳ app/views/instruments/show.html.erb:4
+  Rendered instruments/show.html.erb within layouts/application (Duration: 14.2ms | Allocations: 3380)
+Completed 200 OK in 42ms (Views: 16.3ms | ActiveRecord: 10.3ms | Allocations: 17729)
+
+
+Started GET "/instruments/7" for ::1 at 2019-11-03 21:54:29 -0500
+Processing by InstrumentsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mInstrument Load (0.6ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" WHERE "instruments"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/instruments_controller.rb:22:in `show'
+  [1m[36mMusician Load (0.4ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `current_musician'
+  Rendering instruments/show.html.erb within layouts/application
+  [1m[36mPiece Load (0.7ms)[0m  [1m[34mSELECT "pieces".* FROM "pieces" INNER JOIN "mastery_tracks" ON "pieces"."id" = "mastery_tracks"."piece_id" WHERE "mastery_tracks"."instrument_id" = $1[0m  [["instrument_id", 7]]
+  ↳ app/views/instruments/show.html.erb:5
+  Rendered instruments/show.html.erb within layouts/application (Duration: 3.8ms | Allocations: 1243)
+Completed 200 OK in 24ms (Views: 16.5ms | ActiveRecord: 1.7ms | Allocations: 11742)
+
+
+Started GET "/instruments/7/edit" for ::1 at 2019-11-03 21:54:31 -0500
+Processing by InstrumentsController#edit as HTML
+  Parameters: {"id"=>"7"}
+  Rendering instruments/edit.html.erb within layouts/application
+  Rendered instruments/edit.html.erb within layouts/application (Duration: 1.2ms | Allocations: 1090)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 1593)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <%= form_for(@instrument) do |f| %>
+    2: 	<%= f.hidden_field :musician_id, value: @musician.id %>
+    3: 	<%= f.label :instrument_type %>
+    4: 	<%= f.text_field :instrument_type %>
+  
+app/views/instruments/edit.html.erb:1
+Started GET "/instruments/7/edit" for ::1 at 2019-11-03 21:55:29 -0500
+Processing by InstrumentsController#edit as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mInstrument Load (0.3ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" WHERE "instruments"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/instruments_controller.rb:32:in `edit'
+  Rendering instruments/edit.html.erb within layouts/application
+  Rendered instruments/edit.html.erb within layouts/application (Duration: 1.6ms | Allocations: 1419)
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 3.7ms | Allocations: 8537)
+
+
+  
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+    1: <%= form_for(@instrument) do |f| %>
+    2: 	<%= f.hidden_field :musician_id, value: @musician.id %>
+    3: 	<%= f.label :instrument_type %>
+    4: 	<%= f.text_field :instrument_type %>
+    5: 	<%= f.label :instrument_category %>
+  
+app/views/instruments/edit.html.erb:2
+app/views/instruments/edit.html.erb:1
+Started GET "/instruments/7/edit" for ::1 at 2019-11-03 21:55:52 -0500
+Processing by InstrumentsController#edit as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mInstrument Load (0.3ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" WHERE "instruments"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/instruments_controller.rb:32:in `edit'
+  [1m[36mMusician Load (0.2ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/instruments_controller.rb:33:in `edit'
+  Rendering instruments/edit.html.erb within layouts/application
+  Rendered instruments/edit.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1575)
+Completed 200 OK in 43ms (Views: 12.4ms | ActiveRecord: 6.8ms | Allocations: 23704)
+
+
+Started PATCH "/instruments/7" for ::1 at 2019-11-03 21:59:11 -0500
+  
+AbstractController::ActionNotFound (The action 'update' could not be found for InstrumentsController):
+  
+actionpack (6.0.0) lib/abstract_controller/base.rb:131:in `process'
+actionview (6.0.0) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.0.0) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (6.0.0) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (6.0.0) lib/action_dispatch/routing/route_set.rb:51:in `dispatch'
+actionpack (6.0.0) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.0) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.0) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.0) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.0) lib/action_dispatch/routing/route_set.rb:837:in `call'
+rack (2.0.7) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.7) lib/rack/etag.rb:25:in `call'
+rack (2.0.7) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.7) lib/rack/head.rb:12:in `call'
+actionpack (6.0.0) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.7) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.7) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/cookies.rb:648:in `call'
+activerecord (6.0.0) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.0) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.0) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.0.7) lib/webpacker/dev_server_proxy.rb:29:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.0) lib/rails/engine.rb:526:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/instruments/7/edit" for ::1 at 2019-11-03 21:59:19 -0500
+Processing by InstrumentsController#edit as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mInstrument Load (0.2ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" WHERE "instruments"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/instruments_controller.rb:32:in `edit'
+  [1m[36mMusician Load (0.4ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/instruments_controller.rb:33:in `edit'
+  Rendering instruments/edit.html.erb within layouts/application
+  Rendered instruments/edit.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1548)
+Completed 200 OK in 49ms (Views: 13.1ms | ActiveRecord: 9.9ms | Allocations: 23643)
+
+
+Started GET "/instruments/7/edit" for ::1 at 2019-11-03 21:59:20 -0500
+Processing by InstrumentsController#edit as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mInstrument Load (0.4ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" WHERE "instruments"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/instruments_controller.rb:32:in `edit'
+  [1m[36mMusician Load (0.3ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/instruments_controller.rb:33:in `edit'
+  Rendering instruments/edit.html.erb within layouts/application
+  Rendered instruments/edit.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1485)
+Completed 200 OK in 16ms (Views: 12.2ms | ActiveRecord: 0.8ms | Allocations: 11261)
+
+
+Started PATCH "/instruments/7" for ::1 at 2019-11-03 21:59:24 -0500
+  
+AbstractController::ActionNotFound (The action 'update' could not be found for InstrumentsController):
+  
+actionpack (6.0.0) lib/abstract_controller/base.rb:131:in `process'
+actionview (6.0.0) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.0.0) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (6.0.0) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (6.0.0) lib/action_dispatch/routing/route_set.rb:51:in `dispatch'
+actionpack (6.0.0) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.0) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.0) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.0) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.0) lib/action_dispatch/routing/route_set.rb:837:in `call'
+rack (2.0.7) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.7) lib/rack/etag.rb:25:in `call'
+rack (2.0.7) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.7) lib/rack/head.rb:12:in `call'
+actionpack (6.0.0) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.7) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.7) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/cookies.rb:648:in `call'
+activerecord (6.0.0) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.0) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.0) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.0.7) lib/webpacker/dev_server_proxy.rb:29:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.0) lib/rails/engine.rb:526:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started PATCH "/instruments/7" for ::1 at 2019-11-03 21:59:33 -0500
+Processing by InstrumentsController#update as HTML
+  Parameters: {"authenticity_token"=>"kmZku2oda0Nbx9gOHvw0VNCILTZn3ZFtFHWrR/NM3luel9ujeqDIGB+XzOjLfl8AcXx13wglvQH41jYmdof7kg==", "instrument"=>{"musician_id"=>"6", "instrument_type"=>"Trumpet", "instrument_category"=>"Brass", "tuning"=>"Bb(-2)"}, "commit"=>"Update Instrument", "id"=>"7"}
+  [1m[36mInstrument Load (0.3ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" WHERE "instruments"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/instruments_controller.rb:37:in `update'
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 6.2ms | Allocations: 9804)
+
+
+  
+NoMethodError (undefined method `udpate' for #<Instrument:0x00007f11e51cf9c8>
+Did you mean?  update):
+  
+app/controllers/instruments_controller.rb:38:in `update'
+Started PATCH "/instruments/7" for ::1 at 2019-11-03 21:59:50 -0500
+Processing by InstrumentsController#update as HTML
+  Parameters: {"authenticity_token"=>"kmZku2oda0Nbx9gOHvw0VNCILTZn3ZFtFHWrR/NM3luel9ujeqDIGB+XzOjLfl8AcXx13wglvQH41jYmdof7kg==", "instrument"=>{"musician_id"=>"6", "instrument_type"=>"Trumpet", "instrument_category"=>"Brass", "tuning"=>"Bb(-2)"}, "commit"=>"Update Instrument", "id"=>"7"}
+  [1m[36mInstrument Load (0.4ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" WHERE "instruments"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/instruments_controller.rb:37:in `update'
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/instruments_controller.rb:38:in `update'
+  [1m[36mMusician Load (0.2ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/instruments_controller.rb:38:in `update'
+  [1m[36mInstrument Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "instruments" WHERE "instruments"."instrument_type" = $1 AND "instruments"."id" != $2 AND "instruments"."tuning" IS NULL LIMIT $3[0m  [["instrument_type", "Trumpet"], ["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/instruments_controller.rb:38:in `update'
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/instruments_controller.rb:38:in `update'
+Redirected to http://localhost:3000/instruments/7
+Completed 302 Found in 43ms (ActiveRecord: 11.7ms | Allocations: 17202)
+
+
+Started GET "/instruments/7" for ::1 at 2019-11-03 21:59:50 -0500
+Processing by InstrumentsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mInstrument Load (0.4ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" WHERE "instruments"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/instruments_controller.rb:22:in `show'
+  [1m[36mMusician Load (0.4ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `current_musician'
+  Rendering instruments/show.html.erb within layouts/application
+  [1m[36mPiece Load (0.4ms)[0m  [1m[34mSELECT "pieces".* FROM "pieces" INNER JOIN "mastery_tracks" ON "pieces"."id" = "mastery_tracks"."piece_id" WHERE "mastery_tracks"."instrument_id" = $1[0m  [["instrument_id", 7]]
+  ↳ app/views/instruments/show.html.erb:5
+  Rendered instruments/show.html.erb within layouts/application (Duration: 13.9ms | Allocations: 3112)
+Completed 200 OK in 38ms (Views: 17.5ms | ActiveRecord: 8.3ms | Allocations: 17228)
+
+
+Started GET "/instruments/7/edit" for ::1 at 2019-11-03 22:00:00 -0500
+Processing by InstrumentsController#edit as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mInstrument Load (0.3ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" WHERE "instruments"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/instruments_controller.rb:32:in `edit'
+  [1m[36mMusician Load (0.3ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/instruments_controller.rb:33:in `edit'
+  Rendering instruments/edit.html.erb within layouts/application
+  Rendered instruments/edit.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1537)
+Completed 200 OK in 17ms (Views: 12.8ms | ActiveRecord: 0.6ms | Allocations: 11316)
+
+
+Started GET "/instruments/7/edit" for ::1 at 2019-11-03 22:01:31 -0500
+Processing by InstrumentsController#edit as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mInstrument Load (0.4ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" WHERE "instruments"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/instruments_controller.rb:32:in `edit'
+  [1m[36mMusician Load (0.3ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/instruments_controller.rb:33:in `edit'
+  Rendering instruments/edit.html.erb within layouts/application
+  Rendered instruments/edit.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1548)
+Completed 200 OK in 48ms (Views: 13.5ms | ActiveRecord: 10.7ms | Allocations: 23619)
+
+
+Started PATCH "/instruments/7" for ::1 at 2019-11-03 22:01:37 -0500
+Processing by InstrumentsController#update as HTML
+  Parameters: {"authenticity_token"=>"JLoE3L8P4QMEleL+36A2RiVwrIXsslANfANOOHGj8yAoS7vEr7JCWEDF9hgKIl0ShIT0bINKfGGQoNNZ9GjW6Q==", "instrument"=>{"musician_id"=>"6", "instrument_type"=>"Trumpet", "instrument_category"=>"Brass", "tuning"=>"Bb(-2)"}, "commit"=>"Update Instrument", "id"=>"7"}
+  [1m[36mInstrument Load (0.6ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" WHERE "instruments"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/instruments_controller.rb:38:in `update'
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/instruments_controller.rb:39:in `update'
+  [1m[36mMusician Load (0.4ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/instruments_controller.rb:39:in `update'
+  [1m[36mInstrument Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "instruments" WHERE "instruments"."instrument_type" = $1 AND "instruments"."id" != $2 AND "instruments"."tuning" IS NULL LIMIT $3[0m  [["instrument_type", "Trumpet"], ["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/instruments_controller.rb:39:in `update'
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/instruments_controller.rb:39:in `update'
+  [1m[36mCACHE Instrument Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "instruments" WHERE "instruments"."instrument_type" = $1 AND "instruments"."id" != $2 AND "instruments"."tuning" IS NULL LIMIT $3[0m  [["instrument_type", "Trumpet"], ["id", 7], ["LIMIT", 1]]
+  ↳ (pry):9:in `update'
+  [1m[36mCACHE Instrument Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "instruments" WHERE "instruments"."instrument_type" = $1 AND "instruments"."id" != $2 AND "instruments"."tuning" IS NULL LIMIT $3[0m  [["instrument_type", "Trumpet"], ["id", 7], ["LIMIT", 1]]
+  ↳ (pry):11:in `update'
+  [1m[36mCACHE Instrument Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "instruments" WHERE "instruments"."instrument_type" = $1 AND "instruments"."id" != $2 AND "instruments"."tuning" IS NULL LIMIT $3[0m  [["instrument_type", "Trumpet"], ["id", 7], ["LIMIT", 1]]
+  ↳ (pry):13:in `update'
+Redirected to http://localhost:3000/instruments/7
+Completed 302 Found in 660183ms (ActiveRecord: 2.7ms | Allocations: 64165)
+
+
+Started GET "/instruments/7" for ::1 at 2019-11-03 22:12:37 -0500
+Processing by InstrumentsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mInstrument Load (0.3ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" WHERE "instruments"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/instruments_controller.rb:22:in `show'
+  [1m[36mMusician Load (0.4ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `current_musician'
+  Rendering instruments/show.html.erb within layouts/application
+  [1m[36mPiece Load (0.4ms)[0m  [1m[34mSELECT "pieces".* FROM "pieces" INNER JOIN "mastery_tracks" ON "pieces"."id" = "mastery_tracks"."piece_id" WHERE "mastery_tracks"."instrument_id" = $1[0m  [["instrument_id", 7]]
+  ↳ app/views/instruments/show.html.erb:5
+  Rendered instruments/show.html.erb within layouts/application (Duration: 15.4ms | Allocations: 3107)
+Completed 200 OK in 51ms (Views: 19.3ms | ActiveRecord: 8.2ms | Allocations: 19093)
+
+
+Started GET "/instruments/7/edit" for ::1 at 2019-11-03 22:13:04 -0500
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by InstrumentsController#edit as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mInstrument Load (0.5ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" WHERE "instruments"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/instruments_controller.rb:32:in `edit'
+  [1m[36mMusician Load (2.1ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/instruments_controller.rb:33:in `edit'
+  Rendering instruments/edit.html.erb within layouts/application
+  Rendered instruments/edit.html.erb within layouts/application (Duration: 146.4ms | Allocations: 179962)
+Completed 200 OK in 1213ms (Views: 1140.1ms | ActiveRecord: 14.7ms | Allocations: 1450787)
+
+
+Started PATCH "/instruments/7" for ::1 at 2019-11-03 22:13:12 -0500
+Processing by InstrumentsController#update as HTML
+  Parameters: {"authenticity_token"=>"CvFPcSOoBGM1YErZ5xDWqbu0alAs75Y4NGgakJmdPeMGAPBpMxWnOHEwXj8ykr39GkAyuUMXulTYy4fxHFYYKg==", "instrument"=>{"musician_id"=>"6", "instrument_type"=>"Trumpet", "instrument_category"=>"Brass", "tuning"=>"Bb(-2)"}, "commit"=>"Update Instrument", "id"=>"7"}
+  [1m[36mInstrument Load (1.1ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" WHERE "instruments"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/instruments_controller.rb:38:in `update'
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/instruments_controller.rb:39:in `update'
+  [1m[36mMusician Load (0.7ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/instruments_controller.rb:39:in `update'
+  [1m[36mInstrument Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "instruments" WHERE "instruments"."instrument_type" = $1 AND "instruments"."id" != $2 AND "instruments"."tuning" IS NULL LIMIT $3[0m  [["instrument_type", "Trumpet"], ["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/instruments_controller.rb:39:in `update'
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/instruments_controller.rb:39:in `update'
+Redirected to http://localhost:3000/instruments/7
+Completed 302 Found in 472278ms (ActiveRecord: 3.8ms | Allocations: 85180)
+
+
+Started GET "/instruments/7" for ::1 at 2019-11-03 22:21:04 -0500
+Processing by InstrumentsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mInstrument Load (0.4ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" WHERE "instruments"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/instruments_controller.rb:22:in `show'
+  [1m[36mMusician Load (0.5ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `current_musician'
+  Rendering instruments/show.html.erb within layouts/application
+  [1m[36mPiece Load (1.0ms)[0m  [1m[34mSELECT "pieces".* FROM "pieces" INNER JOIN "mastery_tracks" ON "pieces"."id" = "mastery_tracks"."piece_id" WHERE "mastery_tracks"."instrument_id" = $1[0m  [["instrument_id", 7]]
+  ↳ app/views/instruments/show.html.erb:5
+  Rendered instruments/show.html.erb within layouts/application (Duration: 14.4ms | Allocations: 3494)
+Completed 200 OK in 69ms (Views: 16.4ms | ActiveRecord: 19.5ms | Allocations: 30874)
+
+
+Started GET "/instruments/7" for ::1 at 2019-11-03 22:21:23 -0500
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by InstrumentsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mInstrument Load (0.6ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" WHERE "instruments"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/instruments_controller.rb:22:in `show'
+  [1m[36mMusician Load (0.5ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `current_musician'
+  Rendering instruments/show.html.erb within layouts/application
+  [1m[36mPiece Load (1.0ms)[0m  [1m[34mSELECT "pieces".* FROM "pieces" INNER JOIN "mastery_tracks" ON "pieces"."id" = "mastery_tracks"."piece_id" WHERE "mastery_tracks"."instrument_id" = $1[0m  [["instrument_id", 7]]
+  ↳ app/views/instruments/show.html.erb:5
+  Rendered instruments/show.html.erb within layouts/application (Duration: 14.6ms | Allocations: 4027)
+Completed 200 OK in 1136ms (Views: 1058.4ms | ActiveRecord: 21.2ms | Allocations: 1279183)
+
+
+Started GET "/instruments/7/edit" for ::1 at 2019-11-03 22:21:26 -0500
+Processing by InstrumentsController#edit as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mInstrument Load (0.6ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" WHERE "instruments"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/instruments_controller.rb:32:in `edit'
+  [1m[36mMusician Load (0.3ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/instruments_controller.rb:33:in `edit'
+  Rendering instruments/edit.html.erb within layouts/application
+  Rendered instruments/edit.html.erb within layouts/application (Duration: 85.7ms | Allocations: 179818)
+Completed 200 OK in 104ms (Views: 94.6ms | ActiveRecord: 0.9ms | Allocations: 190531)
+
+
+Started PATCH "/instruments/7" for ::1 at 2019-11-03 22:21:35 -0500
+Processing by InstrumentsController#update as HTML
+  Parameters: {"authenticity_token"=>"bsPy9Oa49cuvQPUod7PAb0qD7KJyERNqwWO5ohKTBRoNONppbqPFV4bTAbtsgYDk3wRYba+zBUh/+9oCWaIz8g==", "instrument"=>{"musician_id"=>"6", "instrument_type"=>"Trumpet", "instrument_category"=>"Brass", "tuning"=>"Bb(-2)"}, "commit"=>"Update Instrument", "id"=>"7"}
+  [1m[36mInstrument Load (1.0ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" WHERE "instruments"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/instruments_controller.rb:38:in `update'
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/instruments_controller.rb:39:in `update'
+  [1m[36mMusician Load (0.7ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/instruments_controller.rb:39:in `update'
+  [1m[36mInstrument Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "instruments" WHERE "instruments"."instrument_type" = $1 AND "instruments"."id" != $2 AND "instruments"."tuning" = $3 LIMIT $4[0m  [["instrument_type", "Trumpet"], ["id", 7], ["tuning", "Bb(-2)"], ["LIMIT", 1]]
+  ↳ app/controllers/instruments_controller.rb:39:in `update'
+  [1m[36mInstrument Update (0.8ms)[0m  [1m[33mUPDATE "instruments" SET "tuning" = $1, "updated_at" = $2 WHERE "instruments"."id" = $3[0m  [["tuning", "Bb(-2)"], ["updated_at", "2019-11-04 03:21:37.918951"], ["id", 7]]
+  ↳ app/controllers/instruments_controller.rb:39:in `update'
+  [1m[35m (12.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/instruments_controller.rb:39:in `update'
+Redirected to http://localhost:3000/instruments/7
+Completed 302 Found in 3303ms (ActiveRecord: 16.2ms | Allocations: 31053)
+
+
+Started GET "/instruments/7" for ::1 at 2019-11-03 22:21:38 -0500
+Processing by InstrumentsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mInstrument Load (0.5ms)[0m  [1m[34mSELECT "instruments".* FROM "instruments" WHERE "instruments"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/instruments_controller.rb:22:in `show'
+  [1m[36mMusician Load (0.3ms)[0m  [1m[34mSELECT "musicians".* FROM "musicians" WHERE "musicians"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `current_musician'
+  Rendering instruments/show.html.erb within layouts/application
+  [1m[36mPiece Load (0.5ms)[0m  [1m[34mSELECT "pieces".* FROM "pieces" INNER JOIN "mastery_tracks" ON "pieces"."id" = "mastery_tracks"."piece_id" WHERE "mastery_tracks"."instrument_id" = $1[0m  [["instrument_id", 7]]
+  ↳ app/views/instruments/show.html.erb:5
+  Rendered instruments/show.html.erb within layouts/application (Duration: 2.0ms | Allocations: 940)
+Completed 200 OK in 17ms (Views: 12.3ms | ActiveRecord: 1.4ms | Allocations: 10656)
+
+

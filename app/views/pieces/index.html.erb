@@ -1,0 +1,4 @@
+<h1>Available Pieces</h1>
+<% @pieces.each do |piece| %>
+	<%= link_to "#{piece.title} by #{piece.composer}", piece_path(piece) %>
+<% end %>

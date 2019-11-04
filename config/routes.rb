@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
   root 'welcome#home'
+  get '/nuclear', to: 'application#scorched_earth'
 
   get 'welcome/home', to: 'welcome#home', as: 'welcome'
   get '/login', to: 'sessions#new', as: 'login'

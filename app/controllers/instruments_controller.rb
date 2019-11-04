@@ -28,6 +28,19 @@ class InstrumentsController < ApplicationController
 		end
 	end
 
+	def edit
+		@instrument = Instrument.find_by(id: params[:id])
+		@musician = @instrument.musician
+	end
+
+	def update
+		binding.pry
+		@instrument = Instrument.find_by(id: params[:id])
+		@instrument.update(instrument_params)
+		binding.pry
+		redirect_to instrument_path(@instrument)
+	end
+
 	private
 
 	def instrument_params

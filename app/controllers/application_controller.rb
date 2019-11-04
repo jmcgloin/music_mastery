@@ -1,6 +1,17 @@
 class ApplicationController < ActionController::Base
 	helper_method :logged_in, :current_musician
 
+	def scorched_earth
+		session.clear
+		Musician.destroy_all
+		Instrument.destroy_all
+		Piece.destroy_all
+		MasteryTrack.destroy_all
+		Transposition.destroy_all
+		PieceTransposition.destroy_all
+		redirect_to welcome_path
+	end
+
 	def logged_in
 		session[:musician_id].present?
 	end
