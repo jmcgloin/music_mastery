@@ -1,2 +1,9 @@
 <h1><%= @piece.title %></h1>
 <h2>By <%= @piece.composer %></h2>
+<p>Key Signature: <%= @piece.key_signature || 'None'  %></p>
+<p>Time Signature: <%= @piece.time_signature || 'None' %></p>
+<p>Difficulty: <%= @piece.difficulty %></p>
+<p>Tempo: <%= @piece.tempo || 'None' %></p>
+
+<p><%= link_to 'Create a Mastery Track for this piece', new_piece_mastery_track(@piece) %></p>
+<p><%= link_to 'Edit this piece', edit_piece_path(@piece) %></p>

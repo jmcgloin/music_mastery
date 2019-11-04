@@ -3,9 +3,12 @@ TODO:
 NEXT:
 
 Add Pieces to Instruments via Mastery Tracks
-- from pieces show, create a link to follow to piece_add_path(@piece)
+- from pieces show, create a link to follow to new_piece_mastery_track_path
 - the view should have a form with a select to choose from current_user's instruments
 - create a mastery track with user input for level of mastery and tempo level
+
+Piece edit
+- make edit view  and fill in controller
 
 New instrument
 

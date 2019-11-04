@@ -11329,3 +11329,11 @@ Processing by InstrumentsController#show as HTML
 Completed 200 OK in 47ms (Views: 19.0ms | ActiveRecord: 8.1ms | Allocations: 19619)
 
 
+Started GET "/" for ::1 at 2019-11-04 10:03:13 -0500
+  [1m[35m (31.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by WelcomeController#home as HTML
+  Rendering welcome/home.html.erb within layouts/application
+  Rendered welcome/home.html.erb within layouts/application (Duration: 20.8ms | Allocations: 347)
+Completed 200 OK in 1578ms (Views: 1536.3ms | ActiveRecord: 0.0ms | Allocations: 1254876)
+
+
