@@ -15,7 +15,7 @@
 	<%= f.text_field :password %>
 	<%= f.label :password_confirmation %>
 	<%= f.text_field :password_confirmation %>
-	<%= f.fields_for :instrument do |instrument_fields| %>
+	<%= f.fields_for :instruments do |instrument_fields| %>
 		<%= instrument_fields.label :instrument_type %>
 		<%= instrument_fields.text_field :instrument_type %>
 		<%= instrument_fields.label :instrument_category %>

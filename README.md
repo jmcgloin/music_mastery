@@ -2,15 +2,10 @@ TODO:
 
 NEXT:
 
-New Piece
-
-- make sure routes for pieces are correct
-- make new, create, show, and index actions in pieces controller
-
-
-Mastery  tracks
-- each mt has one  instrument and one piece.  on the instrument piece list section, use the piece's mastery tracks to list the pieces and the mastery level
-
+Add Pieces to Instruments via Mastery Tracks
+- from pieces show, create a link to follow to piece_add_path(@piece)
+- the view should have a form with a select to choose from current_user's instruments
+- create a mastery track with user input for level of mastery and tempo level
 
 New instrument
 

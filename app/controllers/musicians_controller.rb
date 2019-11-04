@@ -10,6 +10,7 @@ class MusiciansController < ApplicationController
 	end
 
 	def create
+		binding.pry
 		@musician = Musician.new(musician_params)
 		
 		if @musician.save

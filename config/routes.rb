@@ -9,17 +9,20 @@ Rails.application.routes.draw do
   get '/logout', to: 'sessions#destroy', as: 'logout'
   get '/signup', to: 'musicians#new', as: 'signup'
   post '/signup', to: 'musicians#create'
-  get '/instrument/:instrument_id/pieces', to: 'pieces#instrument', as: 'piece_instrument'
+  # post '/instruments/:instrument_id/pieces', to: 'pieces#create', as: 'instrument'
 
   resources :instruments do
     resources :mastery_tracks, only: [:show, :new]
+    resources :pieces, only: [:index, :new]
   end
 
   resources :mastery_tracks do
     resources :pieces, only: [:new, :show]
   end
 
-  resources :pieces
+  resources :pieces do
+    resources :mastery_tracks, only: [:new, :show]
+  end
 
   resources :musicians do
   	resources :instruments, only: [:show, :new]

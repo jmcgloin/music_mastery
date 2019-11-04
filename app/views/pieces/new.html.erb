@@ -12,7 +12,7 @@
 	<%= f.text_field :tempo %>
 	<%= f.label :difficulty %>
 	<%= f.select :difficulty, (1..10).map{ |i| [i]} %>
-	<%= f.fields_for :transposition do |trans_fields| %>
+	<%= f.fields_for :transpositions do |trans_fields| %>
 		<%= trans_fields.label :key %>
 		<%= trans_fields.select :key, Instrument.all_tunings, selected: "C(+0)" %>
 		<%= trans_fields.label :instrument %>

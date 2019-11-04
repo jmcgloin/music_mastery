@@ -1,0 +1,15 @@
+<h1>Create a new mastery track</h1>
+<p>
+	<h2><%= @piece&.title || @instrument&.instrument_type %></h2>
+	<%= form_for(@mastery_track) do |f| %>
+	<% if @piece %>
+		<%= f.label :instrument %>
+		<%= f.select :instrument, @musician.instruments%>
+	<% else %>
+		<%= f.label :piece %>
+		<%= f.text_field :piece, %>
+		
+	<% end %>
+	<%= f.submit  %>
+	<% end %>
+</p>
