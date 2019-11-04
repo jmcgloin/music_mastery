@@ -17,7 +17,7 @@ class MusiciansController < ApplicationController
 			session[:musician_id] = @musician.id
 			redirect_to musician_path(@musician)
 		else
-			render :new
+			render :new, flash[:alert] = @musician.errors.full_messages.first
 		end
 	end
 
@@ -33,7 +33,6 @@ class MusiciansController < ApplicationController
 	private
 
 	def musician_params
-		# binding.pry
 		params.require(:musician).permit(:user_name, :email, :password, :password_confirmation,
 			instruments_attributes: [:instrument_type, :instrument_category, :tuning])
 	end

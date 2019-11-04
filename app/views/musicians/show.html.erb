@@ -9,11 +9,4 @@
 	<p>You do not have any instruments, <%= link_to "click here", new_musician_instrument_path(@musician) %> to add one.</p>
 <% end %>
 
-<% if @pieces.present? %>
-	<% @pieces.each do |piece| %>
-		<%= link_to "#{piece.title}", piece_path(piece) %> <!-- add in ordering by piece category -->
-	<% end %>
-	<% link_to "Add another piece", new_piece_path  %>
-<% else %>
-	<p>You do not have any pieces, <%= link_to "click here", new_piece_path %> to add one.</p>
-<% end %>
+<p><%= link_to "Edit your profile", edit_musician_path(@musician) %></p>

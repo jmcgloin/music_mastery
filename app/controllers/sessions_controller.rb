@@ -1,6 +1,5 @@
 class SessionsController < ApplicationController
   def new
-    binding.pry
     if logged_in
       redirect_to musician_path(current_musician)
     end
@@ -13,7 +12,7 @@ class SessionsController < ApplicationController
   		redirect_to musician_path(@musician)
   	else
       flash[:alert] = "User name or password incorrect.  Please try again or Sign Up."
-  		render :new # add flash message about errors
+  		render :new
   	end
   end
 

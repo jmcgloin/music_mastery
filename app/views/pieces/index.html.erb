@@ -1,0 +1,6 @@
+<h1>Available Pieces</h1>
+<% @pieces.each do |piece| %>
+	<p><%= link_to "#{piece.title} by #{piece.composer}", piece_path(piece) %></p>
+<% end %>
+
+<p><%= link_to "Create new sheet music", new_piece_path %></p>

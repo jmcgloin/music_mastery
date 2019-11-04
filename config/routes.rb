@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
   root 'welcome#home'
+  get '/nuclear', to: 'application#scorched_earth'
 
   get 'welcome/home', to: 'welcome#home', as: 'welcome'
   get '/login', to: 'sessions#new', as: 'login'
@@ -8,15 +9,23 @@ Rails.application.routes.draw do
   get '/logout', to: 'sessions#destroy', as: 'logout'
   get '/signup', to: 'musicians#new', as: 'signup'
   post '/signup', to: 'musicians#create'
+  # post '/instruments/:instrument_id/pieces', to: 'pieces#create', as: 'instrument'
 
-  resources :instruments
-  resources :mastery_tracks
-  resources :pieces
-  resources :musicians do
-  	resources :instruments, only: [:show, :new]
-    resources :pieces, only: [:show, :new]
+  resources :instruments do
+    resources :mastery_tracks, only: [:show, :new]
+    resources :pieces, only: [:index, :new]
   end
 
+  resources :mastery_tracks do
+    resources :pieces, only: [:new, :show]
+  end
 
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  resources :pieces do
+    resources :mastery_tracks, only: [:new, :show]
+  end
+
+  resources :musicians do
+  	resources :instruments, only: [:show, :new]
+  end
+
 end

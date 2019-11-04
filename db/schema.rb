@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_02_031305) do
+ActiveRecord::Schema.define(version: 2019_11_04_015259) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2019_11_02_031305) do
   create_table "instruments", force: :cascade do |t|
     t.string "instrument_type"
     t.string "instrument_category"
-    t.string "tuning", default: "c"
+    t.string "tuning"
     t.integer "musician_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -41,6 +41,13 @@ ActiveRecord::Schema.define(version: 2019_11_02_031305) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "piece_transpositions", force: :cascade do |t|
+    t.integer "piece_id"
+    t.integer "transposition_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "pieces", force: :cascade do |t|
     t.string "title"
     t.string "key_signature"
@@ -49,6 +56,7 @@ ActiveRecord::Schema.define(version: 2019_11_02_031305) do
     t.string "tempo"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "composer"
   end
 
   create_table "transpositions", force: :cascade do |t|
