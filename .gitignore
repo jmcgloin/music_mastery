@@ -20,6 +20,8 @@ basic-nested-forms-online-web-pt-051319/.gitignore
 # Created by https://www.gitignore.io/api/node
 
 .DS_Store
+.env
+
 
 ### Node ###
 # Logs

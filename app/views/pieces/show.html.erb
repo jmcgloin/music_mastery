@@ -5,5 +5,5 @@
 <p>Difficulty: <%= @piece.difficulty %></p>
 <p>Tempo: <%= @piece.tempo || 'None' %></p>
 
-<p><%= link_to 'Create a Mastery Track for this piece', new_piece_mastery_track(@piece) %></p>
+<p><%= link_to 'Create a Mastery Track for this piece', new_instrument_piece_mastery_track_path(@instrument, @piece) %></p>
 <p><%= link_to 'Edit this piece', edit_piece_path(@piece) %></p>

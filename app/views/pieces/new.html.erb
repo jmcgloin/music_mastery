@@ -1,5 +1,6 @@
 <h1>Create a new piece</h1>
-<%= form_for(@piece) do |f| %>
+<%= form_for(@piece, url: { controller: 'pieces', action: 'create'}) do |f| %>
+	<%= f.hidden_field :instrument_id, value: @instrument.id %>
 	<%= f.label :title %>
 	<%= f.text_field :title %>
 	<%= f.label :composer %>
@@ -9,7 +10,7 @@
 	<%= f.label :time_signature %>
 	<%= f.text_field :time_signature %>
 	<%= f.label :tempo %>
-	<%= f.text_field :tempo %>
+	<%= f.select :tempo, Piece.tempos %>
 	<%= f.label :difficulty %>
 	<%= f.select :difficulty, (1..10).map{ |i| [i]} %>
 	<%= f.fields_for :transpositions do |trans_fields| %>

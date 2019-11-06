@@ -10,6 +10,7 @@
     <nav>
       <% if logged_in %>
         <%= link_to "LOG OUT", logout_path  %>
+        <%= link_to "Musician Page", musician_path(current_musician) %>
       <% end %>
     </nav>
   </head>

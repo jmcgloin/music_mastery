@@ -10,14 +10,13 @@ class MusiciansController < ApplicationController
 	end
 
 	def create
-		binding.pry
 		@musician = Musician.new(musician_params)
 		
 		if @musician.save
 			session[:musician_id] = @musician.id
 			redirect_to musician_path(@musician)
 		else
-			render :new, flash[:alert] = @musician.errors.full_messages.first
+			render :new # flash[:alert] = @musician.errors.full_messages.first
 		end
 	end
 
@@ -29,7 +28,7 @@ class MusiciansController < ApplicationController
 			redirect_to welcome_path
 		end
 	end
-
+	
 	private
 
 	def musician_params
@@ -38,3 +37,11 @@ class MusiciansController < ApplicationController
 	end
 
 end
+
+
+# {"provider"=>"github",
+#  "uid"=>"7810020",
+#  "info"=>
+#   {"nickname"=>"jmcgloin",
+#    "email"=>nil,
+#    "name"=>"Jason",

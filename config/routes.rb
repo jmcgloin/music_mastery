@@ -9,23 +9,21 @@ Rails.application.routes.draw do
   get '/logout', to: 'sessions#destroy', as: 'logout'
   get '/signup', to: 'musicians#new', as: 'signup'
   post '/signup', to: 'musicians#create'
-  # post '/instruments/:instrument_id/pieces', to: 'pieces#create', as: 'instrument'
 
   resources :instruments do
-    resources :mastery_tracks, only: [:show, :new]
-    resources :pieces, only: [:index, :new]
+    resources :pieces, only: [:index, :new, :show, :create, :destroy] do
+      resources :mastery_tracks
+    end
   end
 
-  resources :mastery_tracks do
-    resources :pieces, only: [:new, :show]
+  resources :mastery_tracks, only: [:edit, :destroy, :update]
+
+  resources :musicians, only: [:show] do
+    resources :instruments, only: [:new]
   end
 
-  resources :pieces do
-    resources :mastery_tracks, only: [:new, :show]
-  end
+  match '/auth/github/callback', to: 'sessions#create', via: [:get, :post]
 
-  resources :musicians do
-  	resources :instruments, only: [:show, :new]
-  end
+  # get '*path' => redirect('/')
 
 end

@@ -7,17 +7,33 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
+ids = Musician.all.map{ |m| m.id }
 
-1.to(10) do |i|
-	m = Musician.create(
-		user_name: Faker::Name.unique.name,
-		email: Faker::Internet.email,
-		password: Faker::Internet.password,
-		)
-	i = Instrument.create(
-		instrument_type: Faker::Music.instrument,
-		instrument_category: Instrument.all_families[rand(0..23),
-		tuning: Instrument.all_tunings[rand(0..5)],
-		musician_id: m.id
-		)
+50.times do |p|
+	p = Piece.create(
+		title: Faker::Games::WorldOfWarcraft.quote,
+		composer: Faker::Games::WorldOfWarcraft.hero,
+		key_signature: Faker::Music.key,
+		time_signature: '4:4',
+		difficulty: rand(1..10),
+		tempo: Piece.tempos[rand(1..Piece.tempos.length)],
+		added_by: ids[rand(1..ids.length)]
+	)
+	p.transpositions << Transposition.create(
+		instrument: Faker::Music.instrument,
+		key: Faker::Music.key
+	)
+
 end
+
+# Faker::Music.key #=> "C"
+
+# Faker::Music.chord #=> "Amaj7"
+
+# Faker::Music.instrument #=> "Ukelele"
+
+# Faker::Music.band #=> "The Beatles"
+
+# Faker::Music.album #=> "Sgt. Pepper's Lonely Hearts Club"
+
+# Faker::Music.genre #=> "Rock"

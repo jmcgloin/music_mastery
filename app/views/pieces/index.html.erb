@@ -1,6 +1,13 @@
 <h1>Available Pieces</h1>
+<% if @pieces.empty? %>
+	<p>There is no sheet music that matches your request.</p>
+<% else %>
 <% @pieces.each do |piece| %>
-	<p><%= link_to "#{piece.title} by #{piece.composer}", piece_path(piece) %></p>
+	<p>
+		<%= link_to "#{piece.title} by #{piece.composer}", @instrument ? instrument_piece_path(@instrument, piece) : piece_path(piece) %> - 
+		<%= link_to 'Click here to add this piece', new_instrument_piece_mastery_track_path(@instrument, piece) %>
+		</p>
+<% end %>
 <% end %>
 
-<p><%= link_to "Create new sheet music", new_piece_path %></p>
+<p><%= link_to "Create new sheet music", new_instrument_piece_path(@instrument) %></p>

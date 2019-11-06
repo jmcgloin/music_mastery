@@ -34,11 +34,16 @@ class InstrumentsController < ApplicationController
 	end
 
 	def update
-		binding.pry
 		@instrument = Instrument.find_by(id: params[:id])
 		@instrument.update(instrument_params)
-		binding.pry
 		redirect_to instrument_path(@instrument)
+	end
+
+	def destroy
+		@instrument = Instrument.find_by(id: params[:id])
+		@musician = @instrument.musician
+		authorized?(@musician.id) && @instrument.destroy
+		redirect_to musician_path(@musician)
 	end
 
 	private
