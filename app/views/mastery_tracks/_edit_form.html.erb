@@ -1,0 +1,8 @@
+<%= form_for(@mastery_track) do |f| %>
+	<%= f.label :tempo_level, "What tempo are you currently playing?" %>
+	<%= f.text_field :tempo_level %> <br>
+	<%= f.label :tempo_goal, "The suggested tempo for this piece is #{@mastery_track.tempo_goal}. Do you want to change your goal?" %>
+	<%= f.text_field :tempo_goal %> <br>
+	
+	<%= f.submit "Update your progress"%>
+<% end %>

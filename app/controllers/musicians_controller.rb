@@ -1,32 +1,25 @@
 class MusiciansController < ApplicationController
 	
 	def new
-		if logged_in
-      redirect_to musician_path(current_musician)
-    else
-    	@musician = Musician.new
-    	@musician.instruments.build()
-    end
+		logged_in? && (redirect_to musician_path(current_musician) and return)
+  	@musician = Musician.new
+  	@musician.instruments.build()
 	end
 
 	def create
 		@musician = Musician.new(musician_params)
-		
 		if @musician.save
 			session[:musician_id] = @musician.id
 			redirect_to musician_path(@musician)
 		else
-			render :new # flash[:alert] = @musician.errors.full_messages.first
+			render :new
 		end
 	end
 
 	def show
 		@musician = current_musician
-		if !!@musician
-			@instruments = @musician.instruments
-		else
-			redirect_to welcome_path
-		end
+		!@musician && (redirect_to welcome_path and return)
+		@instruments = @musician.instruments
 	end
 	
 	private
@@ -37,11 +30,3 @@ class MusiciansController < ApplicationController
 	end
 
 end
-
-
-# {"provider"=>"github",
-#  "uid"=>"7810020",
-#  "info"=>
-#   {"nickname"=>"jmcgloin",
-#    "email"=>nil,
-#    "name"=>"Jason",

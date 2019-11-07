@@ -1,0 +1,9 @@
+<p>
+	<%= 
+		link_to "#{piece.title} by #{piece.composer}",
+		@instrument ? instrument_piece_path(@instrument, piece) : piece_path(piece)
+	%> - <%=
+		link_to 'Click here to add this piece',
+		new_instrument_piece_mastery_track_path(@instrument, piece)
+	%>
+</p>

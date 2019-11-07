@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_05_235416) do
+ActiveRecord::Schema.define(version: 2019_11_06_193214) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2019_11_05_235416) do
 
   create_table "mastery_tracks", force: :cascade do |t|
     t.integer "tempo_level"
-    t.integer "tempo_goal"
+    t.string "tempo_goal"
     t.integer "instrument_id"
     t.integer "piece_id"
     t.datetime "created_at", precision: 6, null: false

@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   post '/signup', to: 'musicians#create'
 
   resources :instruments do
-    resources :pieces, only: [:index, :new, :show, :create, :destroy] do
+    resources :pieces, only: [:index, :new, :show, :create, :destroy, :edit] do
       resources :mastery_tracks
     end
   end

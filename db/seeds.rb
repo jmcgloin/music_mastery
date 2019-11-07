@@ -9,7 +9,7 @@ require 'faker'
 
 ids = Musician.all.map{ |m| m.id }
 
-50.times do |p|
+100.times do |p|
 	p = Piece.create(
 		title: Faker::Games::WorldOfWarcraft.quote,
 		composer: Faker::Games::WorldOfWarcraft.hero,

@@ -8,7 +8,7 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <nav>
-      <% if logged_in %>
+      <% if logged_in? %>
         <%= link_to "LOG OUT", logout_path  %>
         <%= link_to "Musician Page", musician_path(current_musician) %>
       <% end %>

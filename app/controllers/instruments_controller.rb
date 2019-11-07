@@ -1,4 +1,5 @@
 class InstrumentsController < ApplicationController
+	before_action :get_instrument_set_and_authorize, only: [:show, :edit, :update, :destroy]
 
 	def new
 		authorized?(params[:musician_id])
@@ -7,42 +8,26 @@ class InstrumentsController < ApplicationController
 	end
 
 	def create
-		if authorized?(instrument_params[:musician_id])
-			@instrument = Instrument.new(instrument_params)
-			@musician = @instrument.musician
-			@instrument.save && (redirect_to(musician_path(@musician)) and return)
-			flash[:alert] = @instrument.errors.full_messages.first
-			render :new and return
-		else
-			redirect_to welcome_path
-		end
+		@instrument = Instrument.new(instrument_params)
+		@musician = @instrument.musician
+		authorized?(@musician.id)
+		@instrument.save && (redirect_to(musician_path(@musician)) and return)
+		render :new and return
 	end
 
 	def show
-		@instrument = Instrument.find_by(id: params[:id])
-		if authorized?(@instrument.musician_id)
-			@pieces = @instrument.pieces
-			@mastery_tracks = @instrument.mastery_tracks
-		else
-			redirect_to musician_path(current_musician)
-		end
 	end
 
 	def edit
-		@instrument = Instrument.find_by(id: params[:id])
-		@musician = @instrument.musician
 	end
 
 	def update
-		@instrument = Instrument.find_by(id: params[:id])
 		@instrument.update(instrument_params)
 		redirect_to instrument_path(@instrument)
 	end
 
 	def destroy
-		@instrument = Instrument.find_by(id: params[:id])
-		@musician = @instrument.musician
-		authorized?(@musician.id) && @instrument.destroy
+		@instrument.destroy
 		redirect_to musician_path(@musician)
 	end
 
@@ -50,6 +35,14 @@ class InstrumentsController < ApplicationController
 
 	def instrument_params
 		params.require(:instrument).permit(:musician_id, :instrument_type, :instrument_category, :tuning)
+	end
+
+	def get_instrument_set_and_authorize
+		@instrument = Instrument.find_by(id: params[:id])
+		@pieces = @instrument.pieces
+		@mastery_tracks = @instrument.mastery_tracks
+		@musician = @instrument.musician
+		authorized?(@musician.id)
 	end
 
 end

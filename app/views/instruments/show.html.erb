@@ -1,17 +1,15 @@
 <h1><%= @instrument.instrument_type %></h1>
 <h2>About this instrument</h2>
 <p>
-	It is a member of the <%= @instrument.instrument_category %> family and is in the key of <%= @instrument.tuning %>
+	<%= "It is a member of the #{@instrument.instrument_category} family and is in the key of #{@instrument.tuning}" %>
+</p>
+<p>
 	<%= link_to "Edit this instrument's info", edit_instrument_path(@instrument) %>
 </p>
-<% if @pieces.present? %>
-	<h2>Your sheet music for this instrument</h2>
-	<% @mastery_tracks.each do |mt| %>
-		<p><%= link_to "#{mt.piece.title} by #{mt.piece.composer}", instrument_piece_path(@instrument, mt.piece) %> - Your mastery level is <%= link_to "#{mt.level_of_mastery}", edit_mastery_track_path(mt) %> - <%= link_to 'Remove this piece', {controller: 'mastery_tracks', action: 'destroy', id: mt.id }, method: 'delete' %></p>
-	<% end %>
-	<p><%= link_to 'Click here to add some more.', instrument_pieces_path(@instrument) %></p>
-<% else %>
-	<h2>You don't have any sheet music for this instrument. <%= link_to 'Click here', instrument_pieces_path(@instrument) %> to add some.</h2>
-<% end %>
 
-<p><%= link_to "Remove this instrument", { action: 'destroy', controller: 'instruments', id: @instrument.id }, method: 'delete' %></p>
+<%= render 'pieces_h2', pieces: @pieces %>
+
+<p>
+	<%= link_to "Remove this instrument", { action: 'destroy', controller: 'instruments', id: @instrument.id }, method: 'delete' %>
+</p>
+<p><%= link_to "Back", musician_path(@musician) %></p>

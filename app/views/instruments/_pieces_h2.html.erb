@@ -1,0 +1,20 @@
+<% if pieces.present? %>
+	<h2>Your sheet music for this instrument</h2>
+	<% @mastery_tracks.each do |mt| %>
+		<p>
+			<%= link_to "#{mt.piece.title} by #{mt.piece.composer}", instrument_piece_path(@instrument, mt.piece) %>
+			 -- <%= "Your mastery level is #{mt.level_of_mastery}%. " %>
+			<%= link_to "Click here to update your progress", edit_mastery_track_path(mt) %>
+			  -- 
+			<%= link_to 'Remove this piece', {controller: 'mastery_tracks', action: 'destroy', id: mt.id }, method: 'delete' %>
+		</p>
+	<% end %>
+	<p>
+		<%= link_to 'Click here to add some more.', instrument_pieces_path(@instrument) %>
+	</p>
+<% else %>
+	<h2>
+		You don't have any sheet music for this instrument. 
+		<%= link_to 'Click here', instrument_pieces_path(@instrument) %> to add some.
+	</h2>
+<% end %>

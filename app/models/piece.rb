@@ -22,6 +22,23 @@ class Piece < ApplicationRecord
 		a
 	end
 
+	def self.tempo_conversion(t)
+		words = {
+			'Grave' =>'45',
+			'Largo' => '53',
+			'Larghetto' => '58',
+			'Adagio' => '65',
+			'Andante' => '78',
+			'Moderato' => '93',
+			'Allegretto' => '108',
+			'Allegro' => '128',
+			'Vivace' => '145',
+			'Presto' => '160',
+			'Prestissimo' => '170'
+		}
+		words[t]
+	end
+
 end
 
 
