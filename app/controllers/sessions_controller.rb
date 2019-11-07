@@ -6,43 +6,15 @@ class SessionsController < ApplicationController
     end
   end
 
-  def create
+  def create_by_login
+    @musician = Musician.find_by(user_name: session_params[:user_name])
+    authentication
+  end
 
-    # if auth_hash&.[]("uid")
-    #   @musician = Musician.find_by(github_uid: auth_hash["uid"])
-    #   if !@musician
-    #     user_name = auth_hash["info"]["nickname"]
-    #     Musician.find_by(user_name: user_name) && (user_name += "-#{auth_hash["uid"]}")
-    #     @musician = Musician.create(
-    #       user_name: user_name,
-    #       email: auth_hash["info"]["email"],
-    #       github_uid: auth_hash["uid"]
-    #     )
-    #   end
-    # else
-    #   @musician = Musician.find_by(user_name: session_params[:user_name])
-    # end
-
-    auth_hash&.[]("uid") && (@musician = Musician.find_by(github_uid: auth_hash["uid"]))
-    if auth_hash&.[]("uid") && !@musician
-      user_name = auth_hash["info"]["nickname"]
-      Musician.find_by(user_name: user_name) && (user_name += "-#{auth_hash["uid"]}")
-      @musician = Musician.create(
-        user_name: user_name,
-        email: auth_hash["info"]["email"],
-        github_uid: auth_hash["uid"]
-      )
-    end
+  def create_by_oauth
+    @musician = Musician.find_or_create(auth_hash)
+    authentication 
     
-    @musician ||= Musician.find_by(user_name: session_params[:user_name])
-
-    if @musician&.github_uid || @musician&.authenticate(session_params[:password])
-      session[:musician_id] = @musician.id
-      redirect_to musician_path(@musician)
-    else
-      render :new
-    end
-
   end
 
   def destroy
@@ -58,6 +30,16 @@ class SessionsController < ApplicationController
 
   def auth_hash
     request.env['omniauth.auth']
+  end
+
+  def authentication
+    if @musician&.github_uid || @musician&.authenticate(session_params[:password])
+      session[:musician_id] = @musician.id
+      redirect_to musician_path(@musician)
+    else
+      flash.now[:alert] = "Incorrect login information provided.  Please try again or #{helpers.link_to('Sign Up', signup_path)}"
+      render :new
+    end
   end
 
 end

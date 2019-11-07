@@ -1,6 +1,6 @@
 <h1>Log In</h1>
 <h2>With username and password:</h2>
-<%= form_for(:session, url: { controller: 'sessions', action: 'create'}) do |f| %>
+<%= form_for(:session, url: { controller: 'sessions', action: 'create_by_login'}) do |f| %>
 	<%= f.label :user_name %>
 	<%= f.text_field :user_name %>
 	<%= f.label :password %>

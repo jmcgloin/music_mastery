@@ -18,6 +18,20 @@ class Musician < ApplicationRecord
 	validate :bc_password_validations
 	before_create :has_password_digest
 
+	def self.find_or_create(auth_hash)
+		musician = Musician.find_by(github_uid: auth_hash["uid"])
+		if !musician
+			user_name = auth_hash["info"]["nickname"]
+      Musician.find_by(user_name: user_name) && (user_name += "-#{auth_hash["uid"]}")
+      musician = Musician.create(
+        user_name: user_name,
+        email: auth_hash["info"]["email"],
+        github_uid: auth_hash["uid"]
+      )
+    end
+    musician
+	end
+
 	private
 
 	def bc_password_validations

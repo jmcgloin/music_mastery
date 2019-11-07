@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   get 'welcome/home', to: 'welcome#home', as: 'welcome'
   get '/login', to: 'sessions#new', as: 'login'
-  post '/login', to: 'sessions#create'
+  post '/login', to: 'sessions#create_by_login'
   get '/logout', to: 'sessions#destroy', as: 'logout'
   get '/signup', to: 'musicians#new', as: 'signup'
   post '/signup', to: 'musicians#create'
@@ -22,8 +22,8 @@ Rails.application.routes.draw do
     resources :instruments, only: [:new]
   end
 
-  match '/auth/github/callback', to: 'sessions#create', via: [:get, :post]
+  match '/auth/github/callback', to: 'sessions#create_by_oauth', via: [:get, :post]
 
-  # get '*path' => redirect('/')
+  get '*path' => redirect('/')
 
 end

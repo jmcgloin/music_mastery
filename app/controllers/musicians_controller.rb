@@ -12,6 +12,8 @@ class MusiciansController < ApplicationController
 			session[:musician_id] = @musician.id
 			redirect_to musician_path(@musician)
 		else
+			flash[:alert] = @musician.errors.full_messages.first
+			# binding.pry
 			render :new
 		end
 	end
