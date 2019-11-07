@@ -5,15 +5,18 @@ class MasteryTrack < ApplicationRecord
 	validate :level_vs_goal
 
 	def level_of_mastery
-		((self.tempo_level.to_f/tempo_goal.to_f)*100).to_i
+		((self.tempo_level.to_f/tempo_goal_float)*100).to_i
 	end
+
+	def tempo_goal_float
+		self.tempo_goal.to_i == 0 ? Piece.tempo_conversion(self.tempo_goal).to_f : self.tempo_goal.to_f
+	end
+
+	private
 
 	def level_vs_goal
-		self.tempo_level.to_i <= tempo_goal.to_i
+		(self.tempo_level.to_i >= tempo_goal_float) && errors.add(:tempo_level, "must be less than the goal tempo")
 	end
 
-	def tempo_goal
-		tempo_goal = (self.tempo_goal.to_i == 0) ? Piece.tempo_conversion(self.tempo_goal) : self.tempo_goal
-	end
 	
 end
