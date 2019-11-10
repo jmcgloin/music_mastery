@@ -1,0 +1,6 @@
+<% instruments.each do |instrument| %>
+	<p>
+		<%=link_to "#{instrument.instrument_type} | #{instrument.instrument_category} | #{instrument.tuning}", instrument_path(instrument), class: 'link' %>
+	</p>
+<% end %>
+<p><%= link_to "Add another instrument", new_musician_instrument_path(musician), class: 'link'  %></p>

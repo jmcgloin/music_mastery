@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get '/signup', to: 'musicians#new', as: 'signup'
   post '/signup', to: 'musicians#create'
 
-  resources :instruments do
+  resources :instruments, except: [:index] do
     resources :pieces, only: [:index, :new, :show, :create, :destroy, :edit] do
       resources :mastery_tracks
     end

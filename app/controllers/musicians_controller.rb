@@ -12,15 +12,13 @@ class MusiciansController < ApplicationController
 			session[:musician_id] = @musician.id
 			redirect_to musician_path(@musician)
 		else
-			flash[:alert] = @musician.errors.full_messages.first
-			# binding.pry
+			flash.now[:alert] = @musician.errors.full_messages.first
 			render :new
 		end
 	end
 
 	def show
-		@musician = current_musician
-		!@musician && (redirect_to welcome_path and return)
+		(@musician = current_musician) || (redirect_to welcome_path and return)
 		@instruments = @musician.instruments
 	end
 	

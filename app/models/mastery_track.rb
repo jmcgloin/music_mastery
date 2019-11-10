@@ -12,6 +12,12 @@ class MasteryTrack < ApplicationRecord
 		self.tempo_goal.to_i == 0 ? Piece.tempo_conversion(self.tempo_goal).to_f : self.tempo_goal.to_f
 	end
 
+	def self.find_or_create(params)
+		mastery_track = MasteryTrack.find_by(piece_id: params[:piece_id], instrument_id: params[:instrument_id])
+		mastery_track ||= MasteryTrack.new(params)
+		mastery_track
+	end
+
 	private
 
 	def level_vs_goal

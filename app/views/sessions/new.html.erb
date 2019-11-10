@@ -1,12 +1,15 @@
 <h1>Log In</h1>
 <h2>With username and password:</h2>
 <%= form_for(:session, url: { controller: 'sessions', action: 'create_by_login'}) do |f| %>
-	<%= f.label :user_name %>
-	<%= f.text_field :user_name %>
+	<div class="form-group">
+		<%= f.label :user_name %>
+		<%= f.text_field :user_name, autofocus: true, required: true %>
+	</div>
+	<div class="form-group">
 	<%= f.label :password %>
-	<%= f.password_field :password %>
-	
+	<%= f.password_field :password, required: true %>
+	</div>
 	<%= f.submit  "Log In"%>
 <% end %>
 <br>
-<%= link_to "Cancel", welcome_path %>
+<p><%= link_to "Cancel", welcome_path, class: 'cancel' %></p>

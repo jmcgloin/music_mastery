@@ -1,12 +1,3 @@
 <h1>Welcome, <%= @musician.user_name %></h1>
-<h2>Your instruments</h2>
-<% if @instruments.present? %>
-	<% @instruments.each do |instrument| %>
-		<p><%= link_to "#{instrument.instrument_type} | #{instrument.instrument_category} | #{instrument.tuning}", instrument_path(instrument) %>
-	<% end %>
-	<br>
-	<br>
-	<%= link_to "Add another instrument", new_musician_instrument_path(@musician)  %>
-<% else %>
-	<p>You do not have any instruments, <%= link_to "click here", new_musician_instrument_path(@musician) %> to add one.</p>
-<% end %>
+<h2>Select an instrument to view your music, or create a new instrument</h2>
+<%= show_if_instruments %>

@@ -14,4 +14,8 @@ class Instrument < ApplicationRecord
 		%w(String Percussion Keyboard Brass Woodwind Voice)
 	end
 
+	def self.all_instruments
+		%w(Accordion Bagpipes Banjo Bass\ guitar Bassoon Berimbau Bongo Cello Clarinet Clavichord Cor\ anglais Cornet Cymbal Didgeridoo Double\ bass Drums Euphonium Flute French\ horn Glass\ harmonica Glockenspiel Gong Guitar Hang Harmonica Harmonium Harp Harpsichord Hammered\ dulcimer Hurdy\ gurdy Jew’s\ harp Kalimba Lute Lyre Mandolin Marimba Melodica Oboe Ocarina Octobass Organ Oud Pan\ pipes Pennywhistle Piano Piccolo Pungi Recorder Saxophone Shehnai Sitar Synthesizer Tabla Tambourine Timpani Triangle Trombone Trumpet Theremin Tuba Ukulele Viola Violin Voice Whamola Xylophone Zither)
+	end
+
 end

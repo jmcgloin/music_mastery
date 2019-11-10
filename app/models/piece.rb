@@ -36,7 +36,7 @@ class Piece < ApplicationRecord
 			'Presto' => '160',
 			'Prestissimo' => '170'
 		}
-		words[t]
+		words[t] || t
 	end
 
 end

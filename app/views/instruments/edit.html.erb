@@ -1,4 +1,3 @@
 <h1>Edit your <%= @instrument.instrument_type %></h1>
 <%= render 'form' %>
-<br>
-<%= link_to "Cancel", instrument_path(@instrument)  %>
+<p><%= link_to "Cancel", instrument_path(@instrument), class: 'cancel'  %></p>

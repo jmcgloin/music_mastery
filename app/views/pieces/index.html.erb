@@ -1,10 +1,4 @@
 <h1>Available Pieces</h1>
-<% if @pieces.empty? %>
-	<p>There is no sheet music that matches your request.</p>
-<% else %>
-	<% @pieces.each do |piece| %>
-		<%= render 'piece_p', piece: piece %>
-	<% end %>
-<% end %>
-<p><%= link_to "Create new sheet music", new_instrument_piece_path(@instrument) %></p>
-<p><%= link_to "Back", instrument_path(@instrument) %></p>
+<%= index_if_pieces %>
+<p><%= link_to "Create new sheet music", new_instrument_piece_path(@instrument), class: 'link' %></p>
+<p><%= link_to "Back", instrument_path(@instrument), class: 'cancel' %></p>

@@ -1,12 +1,12 @@
 <h1>Welcome to Music Mastery</h1>
-<div class="left-half">
-	<p>Already have an account?</p>
-	<%= link_to "LOG IN", login_path  %>
+<div class="log-in-menu">
+	<div>
+		<p>Already have an account?</p>
+		<%= link_to "LOG IN", login_path, class: 'link'  %>
+	</div>
+	<div>
+		<p>New here?</p>
+		<%= link_to "SIGN UP", signup_path, class: 'link'  %>
+	</div>
 </div>
-<div class="right-half">
-	<p>New here?</p>
-	<%= link_to "SIGN UP", signup_path  %>
-</div>
-<div class="center">
-	<h2><%= link_to "Log In/Sign Up Using Github", '/auth/github' %></h2>
-</div>
+<p><%= link_to "Log In/Sign Up Using Github", '/auth/github', class: 'link' %></p>

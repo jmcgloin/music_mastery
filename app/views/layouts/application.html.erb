@@ -8,16 +8,18 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <nav>
-      <% if logged_in? %>
-        <%= link_to "LOG OUT", logout_path  %>
-        <%= link_to "Musician Page", musician_path(current_musician) %>
-      <% end %>
+      <div class="logo"></div>
+      <%= which_nav_bar %>
     </nav>
   </head>
 
   <body>
     <% flash.each do |name, msg| %>
-      <%= content_tag :div, msg.html_safe, class: name %>
+      <div id='flash-container' class=<%= name %>>
+        <div id='close' class=<%= name %> >X</div>
+        <%= content_tag :div, msg.html_safe, class: "flash-message #{name}" %>
+        <div id="empty" class=<%= name %> ></div>
+      </div>
     <% end %>
     <%= yield %>
   </body>

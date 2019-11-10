@@ -1,19 +1,33 @@
 <%= form_for(@musician, url: { controller: 'musicians', action: 'create'}) do |f| %>
-	<%= f.label :user_name %>
-	<%= f.text_field :user_name, required:'true' %>
-	<%= f.label :email %>
-	<%= f.text_field :email, required:'true' %>
-	<%= f.label :password %>
-	<%= f.password_field :password, required:'true' %>
-	<%= f.label :password_confirmation %>
-	<%= f.password_field :password_confirmation, required:'true' %>
+	<div class='form-group'>
+		<%= f.label :user_name %>
+		<%= f.text_field :user_name, required:'true', autofocus: true %>
+	</div>
+	<div class='form-group'>
+		<%= f.label :email %>
+		<%= f.text_field :email, required:'true' %>
+	</div>
+	<div class='form-group'>
+		<%= f.label :password %>
+		<%= f.password_field :password, required:'true' %>
+	</div>
+	<div class='form-group'>
+		<%= f.label :password_confirmation %>
+		<%= f.password_field :password_confirmation, required:'true' %>
+	</div>
 	<%= f.fields_for :instruments do |instrument_fields| %>
-		<%= instrument_fields.label :instrument_type %>
-		<%= instrument_fields.text_field :instrument_type, required:'true' %>
-		<%= instrument_fields.label :instrument_category %>
-		<%= instrument_fields.select :instrument_category, Instrument.all_families%>
-		<%= instrument_fields.label :tuning %>
-		<%= instrument_fields.select :tuning, Instrument.all_tunings, selected: 'C(+0)' %>
+		<div class='form-group'>
+			<%= instrument_fields.label :instrument_type %>
+			<%= instrument_fields.select :instrument_type, Instrument.all_instruments %>
+		</div>
+		<div class='form-group'>
+			<%= instrument_fields.label :instrument_category %>
+			<%= instrument_fields.select :instrument_category, Instrument.all_families%>
+		</div>
+		<div class='form-group'>
+			<%= instrument_fields.label :tuning %>
+			<%= instrument_fields.select :tuning, Instrument.all_tunings, selected: 'C(+0)' %>
+		</div>
 	<% end %>
-	<%= f.submit  %>
+	<%= f.submit 'Sign Up', class: 'link'  %>
 <% end %>

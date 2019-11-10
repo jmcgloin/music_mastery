@@ -9,24 +9,36 @@ class MasteryTracksController < ApplicationController
 	end
 
 	def create
-		@mastery_track = MasteryTrack.find_by(piece_id: mastery_params[:piece_id], instrument_id: mastery_params[:instrument_id])
-		@mastery_track ||= MasteryTrack.new(mastery_params)
-		@instrument.mastery_tracks.include?(@mastery_track) && (redirect_to instrument_path(@instrument) and return)
-		@mastery_track.save && (redirect_to instrument_path(@instrument) and return)
-		render :new
+		@mastery_track = MasteryTrack.find_or_create(mastery_params)
+		if @instrument.mastery_tracks.include?(@mastery_track)
+			flash[:alert] = "You already have that piece saved to this instrument.  #{helpers.link_to('See it here!', instrument_piece_path(@instrument, @mastery_track.piece), class: 'alert-link') }"
+			redirect_to instrument_path(@instrument)
+		elsif @mastery_track.save
+			redirect_to instrument_path(@instrument)
+		else
+			flash.now[:alert] = @mastery_track.errors.full_messages.first
+			render :new
+		end
 	end
 
 	def edit
 	end
 
 	def update
-		success = @mastery_track.update(tempo_level: params[:mastery_track][:tempo_level], tempo_goal: params[:mastery_track][:tempo_goal])
-		success && (redirect_to instrument_path(@mastery_track.instrument) and return)
+		@mastery_track.update(
+			tempo_level: params[:mastery_track][:tempo_level],
+			tempo_goal: params[:mastery_track][:tempo_goal]
+		) && (redirect_to instrument_path(@mastery_track.instrument) and return)
+		flash.now[:alert] = @mastery_track.errors.full_messages.first
 		render :edit
 	end
 
 	def destroy
-		@mastery_track.destroy
+		if @mastery_track.destroy
+			(flash[:notice] = "Successfully removed!")
+		else
+			flash[:alert] = mastery_track.errors.full_messages.first
+		end
 		redirect_to instrument_path(@instrument)
 	end
 

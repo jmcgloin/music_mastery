@@ -4,12 +4,12 @@
 	<%= "It is a member of the #{@instrument.instrument_category} family and is in the key of #{@instrument.tuning}" %>
 </p>
 <p>
-	<%= link_to "Edit this instrument's info", edit_instrument_path(@instrument) %>
+	<%= link_to "Edit this instrument's info", edit_instrument_path(@instrument), class: 'link' %>
 </p>
 
 <%= render 'pieces_h2', pieces: @pieces %>
 
 <p>
-	<%= link_to "Remove this instrument", { action: 'destroy', controller: 'instruments', id: @instrument.id }, method: 'delete' %>
+	<%= link_to "Remove this instrument", { controller: 'instruments', action: 'destroy' }, method: 'delete', data: {confirm: "Are you sure?"}, class: 'link' %>
 </p>
-<p><%= link_to "Back", musician_path(@musician) %></p>
+<p><%= link_to "Back", musician_path(@musician), class: 'cancel' %></p>

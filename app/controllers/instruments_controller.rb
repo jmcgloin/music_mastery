@@ -12,6 +12,7 @@ class InstrumentsController < ApplicationController
 		@musician = @instrument.musician
 		authorized?(@musician.id)
 		@instrument.save && (redirect_to(musician_path(@musician)) and return)
+		flash[:alert] = @instrument.errors.full_messages.first
 		render :new and return
 	end
 
@@ -22,12 +23,16 @@ class InstrumentsController < ApplicationController
 	end
 
 	def update
-		@instrument.update(instrument_params)
+		@instrument.update(instrument_params) ||  flash[:alert] = @instrument.errors.full_messages.first
 		redirect_to instrument_path(@instrument)
 	end
 
 	def destroy
-		@instrument.destroy
+		if @instrument.destroy
+			flash[:notice] = "Successfully removed"
+		else
+			flash[:alert] = @instrument.errors.full_messages.first
+		end
 		redirect_to musician_path(@musician)
 	end
 

@@ -1,17 +1,15 @@
 <%= form_for(@mastery_track, url: { controller: 'mastery_tracks', action: 'create'}) do |f| %>
 	<%= f.hidden_field :piece_id, value: @piece.id %>
-	<%= f.hidden_field :instrument_id, value: @instrument.id %>
-	<%= f.label :tempo_level, "What tempo are you currently playing?" %>
-	<%= f.text_field :tempo_level %>
-	<% if !@piece.tempo %>
-		<%= f.label :tempo_goal, "What tempo do you want to be able to play this piece?" %>
-		<%= f.text_field :tempo_goal %>
-	<% else %>
-		<span> <%= "With a goal of #{@piece.tempo}." %></span>
+	<%= f.hidden_field :instrument_id, value: @instrument.id, autofocus: true %>
+	<div class='form-group'>
+		<%= f.label :tempo_level, "What tempo are you currently playing?" %>
+		<%= f.text_field :tempo_level %>
+	</div>
+	<div class='form-group'>
+		<%= simple_or_complex_tempo %>
 		<%= f.hidden_field :tempo_goal, value: @piece.tempo %>
-	<% end %>
+	</div>
 	<br>
-	<%= f.submit "Add this piece" %>
+	<%= f.submit "Add this piece", class: 'link' %>
 <% end %>
-<br>
-<%= link_to "Cancel", instrument_piece_path(@instrument, @piece)  %>
+<p><%= link_to "Cancel", instrument_piece_path(@instrument, @piece), class: 'cancel'  %></p>

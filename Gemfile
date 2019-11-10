@@ -22,7 +22,7 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
-gem 'flash_rails_messages'
+# gem 'flash_rails_messages'
 
 # Used to mock an https url
 gem 'thin'

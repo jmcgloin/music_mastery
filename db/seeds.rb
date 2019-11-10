@@ -7,33 +7,26 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
-ids = Musician.all.map{ |m| m.id }
-
 100.times do |p|
 	p = Piece.create(
 		title: Faker::Games::WorldOfWarcraft.quote,
 		composer: Faker::Games::WorldOfWarcraft.hero,
 		key_signature: Faker::Music.key,
-		time_signature: '4:4',
+		time_signature: get_random_thing['4:4', '2:4', '3:4', '2:2'],
 		difficulty: rand(1..10),
-		tempo: Piece.tempos[rand(1..Piece.tempos.length)],
-		added_by: ids[rand(1..ids.length)]
+		tempo: get_random_thing(Piece.tempos),
+		added_by: get_random_thing(musician_ids)
 	)
 	p.transpositions << Transposition.create(
-		instrument: Faker::Music.instrument,
-		key: Faker::Music.key
+		instrument: get_random_thing(Instrument.all_instruments)
+		key: get_random_thing(Instrument.all_tunings)
 	)
-
 end
 
-# Faker::Music.key #=> "C"
+def musician_ids
+	Musician.all.map{ |m| m.id }
+end
 
-# Faker::Music.chord #=> "Amaj7"
-
-# Faker::Music.instrument #=> "Ukelele"
-
-# Faker::Music.band #=> "The Beatles"
-
-# Faker::Music.album #=> "Sgt. Pepper's Lonely Hearts Club"
-
-# Faker::Music.genre #=> "Rock"
+def get_random_thing(thing_array)
+	thing_array[rand(0..thing_array.length)]
+end
