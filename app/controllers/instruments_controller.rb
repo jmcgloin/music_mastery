@@ -23,7 +23,9 @@ class InstrumentsController < ApplicationController
 	end
 
 	def update
-		@instrument.update(instrument_params) ||  flash[:alert] = @instrument.errors.full_messages.first
+		@instrument.assign_attributes(instrument_params)
+		@instrument.changed? && flash[:notice] = 'Changes made successfully!'
+		@instrument.save ||  flash[:alert] = @instrument.errors.full_messages.first
 		redirect_to instrument_path(@instrument)
 	end
 

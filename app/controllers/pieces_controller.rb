@@ -12,11 +12,14 @@ class PiecesController < ApplicationController
 		authorized?(@musician.id)
 		@piece = Piece.find_by(title: piece_params[:title], composer: piece_params[:composer])
 		if @piece
-			@transposition = Transposition.find_or_create_by(piece_params[:transposition_attributes])
+			@transposition = Transposition.find_or_create_by(piece_params[:transpositions_attributes]['0'])
 			!@piece.transpositions&.include?(@transposition) && (@piece.transpositions << @transposition)
 		else
 			@piece = Piece.new(piece_params.merge({added_by: @instrument.musician_id}))
-			!@piece.save && (render :new and return)
+			if !@piece.save
+				flash.now[:alert] = @piece.erorrs.full_messages.first
+				render :new and return
+			end
 		end
 			redirect_to instrument_pieces_path(@instrument) and return
 	end

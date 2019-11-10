@@ -49,18 +49,6 @@ a.alert-link {
 	font-weight: bold;
 }
 
-
-/*a.link:before {
-    content: "\F8BE";
-    font-family: "Font Awesome 5 Pro";
-    font-size: 5rem;
-    font-weight: 100;
-    color: #dedad9;
-    position:absolute;
-    width: 80%;
-    z-index: -1;
- }
-*/
 div.field_with_errors {
 	display: inline;
 }
@@ -168,15 +156,16 @@ div.notice {
 	min-width: 200px;
 }
 
-.form-group > input[type='text'], .form-group > input[type='password'], .form-group > label {
+.form-group  input[type='text'], .form-group  input[type='password'], .form-group  label {
 	border: none;
 	margin: 10px 0;
 	font-size: 0.8rem;
 	line-height: 0.8rem;
 	height: 0.8rem;
+	width: 100%;
 }
 
-.form-group > select {
+.form-group  select {
 	border: none;
 	margin: 10px 0;
 	font-size: 0.8rem;
@@ -184,7 +173,7 @@ div.notice {
 	height: 1.1rem;
 }
 
-.form-group > input[type='text'], .form-group > input[type='password'] {
+.form-group  input[type='text'], .form-group  input[type='password'] {
 	border-bottom: solid 1px black;
 	border-left: solid 1px black;
 }
