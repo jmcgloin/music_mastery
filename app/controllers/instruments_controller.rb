@@ -12,7 +12,7 @@ class InstrumentsController < ApplicationController
 		@musician = @instrument.musician
 		authorized?(@musician.id)
 		@instrument.save && (redirect_to(musician_path(@musician)) and return)
-		flash[:alert] = @instrument.errors.full_messages.first
+		flash.now[:alert] = @instrument.errors.full_messages.first
 		render :new and return
 	end
 
