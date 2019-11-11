@@ -1,9 +1,9 @@
 <%= form_for(@mastery_track, url: { controller: 'mastery_tracks', action: 'create'}) do |f| %>
 	<%= f.hidden_field :piece_id, value: @piece.id %>
-	<%= f.hidden_field :instrument_id, value: @instrument.id, autofocus: true %>
+	<%= f.hidden_field :instrument_id, value: @instrument.id %>
 	<div class='form-group'>
 		<%= f.label :tempo_level, "What tempo are you currently playing?" %>
-		<%= f.text_field :tempo_level %>
+		<%= f.text_field :tempo_level, autofocus: true %>
 	</div>
 	<div class='form-group'>
 		<%= simple_or_complex_tempo %>
