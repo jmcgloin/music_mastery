@@ -1,6 +1,8 @@
-# Music Master
+# Music Mastery
 
 Ruby on Rails app where you can track your progress while learning new pieces of music on an instrument.  Submission for Flatiron School Ruby on Rails project
+
+[![Music Mastery](http://img.youtube.com/vi/Tdls5YvjhzE/0.jpg)](http://www.youtube.com/watch?v=Tdls5YvjhzE)
 
 ## Getting Started
 
